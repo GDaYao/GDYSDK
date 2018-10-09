@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GDYSDK_Example' do
+  pod 'GDYSDK', :path => '../'
+
+  target 'GDYSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
