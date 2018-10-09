@@ -1,6 +1,6 @@
 # GDYSDK
 
-[![CI Status](https://img.shields.io/travis/gengdayue/GDYSDK.svg?style=flat)](https://travis-ci.org/gengdayue/GDYSDK)
+[![CI Status](https://img.shields.io/travis/Dayao/GDYSDK.svg?style=flat)](https://travis-ci.org/Dayao/GDYSDK)
 [![Version](https://img.shields.io/cocoapods/v/GDYSDK.svg?style=flat)](https://cocoapods.org/pods/GDYSDK)
 [![License](https://img.shields.io/cocoapods/l/GDYSDK.svg?style=flat)](https://cocoapods.org/pods/GDYSDK)
 [![Platform](https://img.shields.io/cocoapods/p/GDYSDK.svg?style=flat)](https://cocoapods.org/pods/GDYSDK)
@@ -22,7 +22,7 @@ pod 'GDYSDK'
 
 ## Author
 
-gengdayue, gengdayue@ivymobile.com
+Dayao, jaeda1418154979@gmail.com
 
 ## License
 

@@ -1,0 +1,39 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - GDYSDK (0.1.0):
+    - GDYSDK/Core (= 0.1.0)
+  - GDYSDK/Core (0.1.0):
+    - AFNetworking (= 3.2.1)
+
+DEPENDENCIES:
+  - GDYSDK (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+
+EXTERNAL SOURCES:
+  GDYSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  GDYSDK: b29cc9a6cfc806b5404be45bc9aa4d035a5bf4ec
+
+PODFILE CHECKSUM: fcf61224488dc953f15d0d26c1582914f820b8d1
+
+COCOAPODS: 1.6.0.beta.1
