@@ -21,8 +21,7 @@ pod 'GDYSDK'
 ```
 
 ## Author
-
-gengdayue, gengdayue@ivymobile.com
+Dayao, jaeda1418154979@gmail.com
 
 ## License
 
