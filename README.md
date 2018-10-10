@@ -25,13 +25,13 @@ If you want to  use specifily tag version.
 pod 'GDYSDK','0.1.1'
 ```
 
-If GDYSDK only exist personal GitHub,you can this
+If GDYSDK only exist personal GitHub,I can this
 
 ```ruby
 >>>
 pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git'
 
-or use spcifily tag version
+or use specifily tag version
 >>>
 pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'0.1.1' // <tag name>
 ```
