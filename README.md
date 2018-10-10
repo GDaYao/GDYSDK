@@ -19,6 +19,22 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'GDYSDK'
 ```
+If you want to  use specifily tag version.
+
+```ruby
+pod 'GDYSDK','0.1.2'
+```
+
+If GDYSDK only exist personal GitHub,I can this
+
+```ruby
+>>>
+pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git'
+
+or use specifily tag version
+>>>
+pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'0.1.2' // <tag name>
+```
 
 ## Author
 

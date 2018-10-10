@@ -7,13 +7,12 @@
 #define Constant_h
 
 
-#define kAppID xxxxxx
-
 #define kUserDefaultsUse  [NSUserDefaults standardUserDefaults]
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kSetScreenSize CGRectMake(0, 0, kScreenWidth, kScreenHeight)
+#define kSetScreenBounds CGRectMake(0, 0, kScreenWidth, kScreenHeight)
+
 #define kWindowTopView [UIApplication sharedApplication].keyWindow
 
 #define kIsPhone [[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone

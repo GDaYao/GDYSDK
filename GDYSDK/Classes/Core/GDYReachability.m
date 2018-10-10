@@ -25,7 +25,7 @@
  POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "Reachability.h"
+#import "GDYReachability.h"
 
 #import <sys/socket.h>
 #import <netinet/in.h>
@@ -38,7 +38,7 @@
 NSString *const kReachabilityChangedNotification = @"kReachabilityChangedNotification";
 
 
-@interface Reachability ()
+@interface GDYReachability ()
 
 @property (nonatomic, assign) SCNetworkReachabilityRef  reachabilityRef;
 @property (nonatomic, strong) dispatch_queue_t          reachabilitySerialQueue;
@@ -73,7 +73,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 {
 #pragma unused (target)
 
-    Reachability *reachability = ((__bridge Reachability*)info);
+    GDYReachability *reachability = ((__bridge GDYReachability*)info);
 
     // We probably don't need an autoreleasepool here, as GCD docs state each queue has its own autorelease pool,
     // but what the heck eh?
@@ -84,16 +84,16 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 }
 
 
-@implementation Reachability
+@implementation GDYReachability
 
 #pragma mark - Class Constructor Methods
 
-+(Reachability*)reachabilityWithHostName:(NSString*)hostname
++(GDYReachability*)reachabilityWithHostName:(NSString*)hostname
 {
-    return [Reachability reachabilityWithHostname:hostname];
+    return [GDYReachability reachabilityWithHostname:hostname];
 }
 
-+(Reachability*)reachabilityWithHostname:(NSString*)hostname
++(GDYReachability*)reachabilityWithHostname:(NSString*)hostname
 {
     SCNetworkReachabilityRef ref = SCNetworkReachabilityCreateWithName(NULL, [hostname UTF8String]);
     if (ref) 
@@ -106,7 +106,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     return nil;
 }
 
-+(Reachability *)reachabilityWithAddress:(void *)hostAddress
++(GDYReachability *)reachabilityWithAddress:(void *)hostAddress
 {
     SCNetworkReachabilityRef ref = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)hostAddress);
     if (ref) 
@@ -119,7 +119,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     return nil;
 }
 
-+(Reachability *)reachabilityForInternetConnection 
++(GDYReachability *)reachabilityForInternetConnection
 {   
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
@@ -129,7 +129,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     return [self reachabilityWithAddress:&zeroAddress];
 }
 
-+(Reachability*)reachabilityForLocalWiFi
++(GDYReachability*)reachabilityForLocalWiFi
 {
     struct sockaddr_in localWifiAddress;
     bzero(&localWifiAddress, sizeof(localWifiAddress));
@@ -144,7 +144,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 
 // Initialization methods
 
--(Reachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref 
+-(GDYReachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref
 {
     self = [super init];
     if (self != nil) 
@@ -242,10 +242,10 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 
 // This is for the case where you flick the airplane mode;
 // you end up getting something like this:
-//Reachability: WR ct-----
-//Reachability: -- -------
-//Reachability: WR ct-----
-//Reachability: -- -------
+//GDYReachability: WR ct-----
+//GDYReachability: -- -------
+//GDYReachability: WR ct-----
+//GDYReachability: -- -------
 // We treat this as 4 UNREACHABLE triggers - really apple should do better than this
 
 #define testcase (kSCNetworkReachabilityFlagsConnectionRequired | kSCNetworkReachabilityFlagsTransientConnection)
