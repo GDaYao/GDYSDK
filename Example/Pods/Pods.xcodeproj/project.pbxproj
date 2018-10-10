@@ -36,9 +36,9 @@
 		43C93A61FEB327A58D883A6945AD55F8 /* NSString+Emoji.h in Headers */ = {isa = PBXBuildFile; fileRef = 05D349F3FBCA1F69D06648AA848956B6 /* NSString+Emoji.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54E1BB7E2739D961824099D09644A067 /* Pods-GDYSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A6B7B2CC1C36A1A8CB4EA2A0C0EEEA /* Pods-GDYSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		576BA97B9160E01CDD7113497A15E6E0 /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F20BC9C92972D793AD63BFE84F6024 /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5930CC4706F58D5239DBB19717EE4B65 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF7BB4ED7901C6A7581CE7A178306A /* Reachability.m */; };
+		5930CC4706F58D5239DBB19717EE4B65 /* GDYReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF7BB4ED7901C6A7581CE7A178306A /* GDYReachability.m */; };
 		5A4C39ACCE4CE7B6C69C736F48087759 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88013A13A80BA08140FC1D0FC17CAD /* AFHTTPSessionManager.m */; };
-		5AC57B8C7FB3400604F2B3B5623A5E74 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F8A9F407B9F0B3FCA6D444A8E802B26 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AC57B8C7FB3400604F2B3B5623A5E74 /* GDYReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F8A9F407B9F0B3FCA6D444A8E802B26 /* GDYReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD79684A394FDBECA8231B33BB91DE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188348082CCBCE305DE960DACE3CA103 /* UIKit.framework */; };
 		616166BD57B8707EC940068BF5E1AA0A /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = CC18ED6BD8558D5E0970879CD6A9291E /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62432CFD6709497C6C9F587F37DC9300 /* Pods-GDYSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 946ADE7F06FFF73165824C7E79137F6B /* Pods-GDYSDK_Example-dummy.m */; };
@@ -174,7 +174,7 @@
 		353BE42A5F94DADECC35B1DBDA6A1231 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		377A49E77F6AF30D18C78AB81F4EF43F /* Pods-GDYSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GDYSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		3D0744466221B8C59518ABC7A62DA4BC /* ToolM.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ToolM.h; path = GDYSDK/Classes/Core/ToolM.h; sourceTree = "<group>"; };
-		3F8A9F407B9F0B3FCA6D444A8E802B26 /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = GDYSDK/Classes/Core/Reachability.h; sourceTree = "<group>"; };
+		3F8A9F407B9F0B3FCA6D444A8E802B26 /* GDYReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYReachability.h; path = GDYSDK/Classes/Core/GDYReachability.h; sourceTree = "<group>"; };
 		40635D32E30C6AFE94F0B5A3620D5829 /* UIBadgeLable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBadgeLable.m; path = GDYSDK/Classes/Core/UIBadgeLable.m; sourceTree = "<group>"; };
 		416993B43A552C4AA17B39962036B974 /* NSString+Emoji.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+Emoji.m"; path = "GDYSDK/Classes/Core/NSString+Emoji.m"; sourceTree = "<group>"; };
 		443C446A800F6280C03E64AF14170EC0 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		948D9427AD16D98F86D2745663BCCC34 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		9529AE01C3BF8186D93ACFD8BF7DD560 /* UIImageView+CustomImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+CustomImageView.h"; path = "GDYSDK/Classes/Core/UIImageView+CustomImageView.h"; sourceTree = "<group>"; };
 		97AF1591ACE0A43274BB84BB68F695C4 /* GDYSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = GDYSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97BF7BB4ED7901C6A7581CE7A178306A /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = GDYSDK/Classes/Core/Reachability.m; sourceTree = "<group>"; };
+		97BF7BB4ED7901C6A7581CE7A178306A /* GDYReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYReachability.m; path = GDYSDK/Classes/Core/GDYReachability.m; sourceTree = "<group>"; };
 		98A6B7B2CC1C36A1A8CB4EA2A0C0EEEA /* Pods-GDYSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GDYSDK_Example-umbrella.h"; sourceTree = "<group>"; };
 		9D82029FB8774862A89BC6CD31A855F2 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		9EBB45F70A6D1BE72357C461A05BE425 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,8 +363,8 @@
 			isa = PBXGroup;
 			children = (
 				46D3FDE2FACAA3918E5D7933BE71A6D5 /* Constant.h */,
-				3F8A9F407B9F0B3FCA6D444A8E802B26 /* Reachability.h */,
-				97BF7BB4ED7901C6A7581CE7A178306A /* Reachability.m */,
+				3F8A9F407B9F0B3FCA6D444A8E802B26 /* GDYReachability.h */,
+				97BF7BB4ED7901C6A7581CE7A178306A /* GDYReachability.m */,
 				7B667E68978FBCF64D2EE0D695F39CCF /* CustomAFNetHTTPSessionMgr.h */,
 				5CF35440BEDCD9A8E44A2249D1E564CA /* CustomAFNetHTTPSessionMgr.m */,
 				6FDAB3BDFE4AFDBCE3E7984B449F4CBF /* NetworkMgr.h */,
@@ -616,7 +616,7 @@
 				7707353A42FB4B6F200D669BB2DA38CC /* NoticMgr.h in Headers */,
 				6F50B0BAF93953A993024A8EF1FF4A2B /* NSString+CustomNSString.h in Headers */,
 				43C93A61FEB327A58D883A6945AD55F8 /* NSString+Emoji.h in Headers */,
-				5AC57B8C7FB3400604F2B3B5623A5E74 /* Reachability.h in Headers */,
+				5AC57B8C7FB3400604F2B3B5623A5E74 /* GDYReachability.h in Headers */,
 				D33DB0C78014FFDB9686539956FB9EBD /* ToolM.h in Headers */,
 				1C89C3084E25EADC38C592D9D5EBDBCD /* UIBadgeLable.h in Headers */,
 				99D589C57B2CA854BA3E0EF560DC6FB0 /* UIButton+CustomBtn.h in Headers */,
@@ -853,7 +853,7 @@
 				3BB16D6512BBF92CAD339814B65D7822 /* NoticMgr.m in Sources */,
 				B70D2C86010C86596D12785791D7DC59 /* NSString+CustomNSString.m in Sources */,
 				6B413838108FC7EA863BFC2E4C8A3CC5 /* NSString+Emoji.m in Sources */,
-				5930CC4706F58D5239DBB19717EE4B65 /* Reachability.m in Sources */,
+				5930CC4706F58D5239DBB19717EE4B65 /* GDYReachability.m in Sources */,
 				2D0CB734381C0C1CC146E824201F40E2 /* ToolM.m in Sources */,
 				14D84AAC7A8C55AADDC72728976EF49C /* UIBadgeLable.m in Sources */,
 				6A8E5ABDCF4174D00057DE382BF790DB /* UIButton+CustomBtn.m in Sources */,

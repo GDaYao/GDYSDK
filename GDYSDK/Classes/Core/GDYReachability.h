@@ -37,7 +37,7 @@ function: 网络监测方法
  
  [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addObserveNetWorkIsChange:) name:kReachabilityChangedNotification object:nil];
  // 获取访问指定站点的Reachability的对象
- Reachability *hostReach=[Reachability reachabilityForInternetConnection];
+ GDYReachability *hostReach=[GDYReachability reachabilityForInternetConnection];
  // 让Reachability对象开启被监听状态
  [hostReach startNotifier];
  }
@@ -72,13 +72,13 @@ typedef NS_ENUM(NSInteger, NetworkStatus) {
     ReachableViaWWAN = 1
 };
 
-@class Reachability;
+@class GDYReachability;
 
-typedef void (^NetworkReachable)(Reachability * reachability);
-typedef void (^NetworkUnreachable)(Reachability * reachability);
+typedef void (^NetworkReachable)(GDYReachability * reachability);
+typedef void (^NetworkUnreachable)(GDYReachability * reachability);
 
 
-@interface Reachability : NSObject
+@interface GDYReachability : NSObject
 
 @property (nonatomic, copy) NetworkReachable    reachableBlock;
 @property (nonatomic, copy) NetworkUnreachable  unreachableBlock;
@@ -86,15 +86,15 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 @property (nonatomic, assign) BOOL reachableOnWWAN;
 
 
-+(Reachability*)reachabilityWithHostname:(NSString*)hostname;
++(GDYReachability*)reachabilityWithHostname:(NSString*)hostname;
 // This is identical to the function above, but is here to maintain
 //compatibility with Apples original code. (see .m)
-+(Reachability*)reachabilityWithHostName:(NSString*)hostname;
-+(Reachability*)reachabilityForInternetConnection;
-+(Reachability*)reachabilityWithAddress:(void *)hostAddress;
-+(Reachability*)reachabilityForLocalWiFi;
++(GDYReachability*)reachabilityWithHostName:(NSString*)hostname;
++(GDYReachability*)reachabilityForInternetConnection;
++(GDYReachability*)reachabilityWithAddress:(void *)hostAddress;
++(GDYReachability*)reachabilityForLocalWiFi;
 
--(Reachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
+-(GDYReachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
 
 -(BOOL)startNotifier;
 -(void)stopNotifier;
