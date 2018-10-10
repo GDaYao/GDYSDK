@@ -19,6 +19,11 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'GDYSDK'
 ```
+If you want to  use specifily version.
+
+```ruby
+pod 'GDYSDK','0.1.1'
+```
 
 ## Author
 
