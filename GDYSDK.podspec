@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GDYSDK'
-    s.version          = '0.1.5'
+    s.version          = '0.1.6'
     s.summary          = 'GDYSDK personal cretae SDK'
 
 
@@ -45,7 +45,6 @@ TODO: Add long description of the pod here.
       #    'GDYSDK-Core' => ['GDYSDK/Assets/Core/*.png', 'GDYSDK/Assets/Core/*.xib', 'GDYSDK/Assets/Core/LocalizedStrings/*.lproj/*']
       #}
       #core.frameworks = 'CoreTelephony', 'GameController', 'MediaPlayer', 'GameKit', 'StoreKit', 'SystemConfiguration', 'Security'
-      #core.prefix_header_contents = '#import <IvyiOSSdk/NSString+Base64.h>'
       core.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => '$(inherited)', "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
       
   end

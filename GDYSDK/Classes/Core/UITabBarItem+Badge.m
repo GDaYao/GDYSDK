@@ -8,14 +8,14 @@
  const  static NSString *tabBarBadgeLableString=@"tabBarBadgeLableString";
 @implementation UITabBarItem (Badge)
 
--(void)makeBadgeTextNum:(NSInteger )textNum
-                  textColor:(UIColor *)tColor
-                  backColor:(UIColor *)backColor
-                       Font:(UIFont*)tfont{
-    if (textNum>99) {
-        
-    }
-}
+
+//-(void)makeBadgeTextNum:(NSInteger )textNum
+//                  textColor:(UIColor *)tColor
+//                  backColor:(UIColor *)backColor
+//                       Font:(UIFont*)tfont{
+//}
+
+#pragma mark - make red badge
 -(void)makeRedBadge:(CGFloat)corner color:(UIColor *)cornerColor{
     
     UIView *TabBar_item_=[self valueForKey:@"_view"];
@@ -29,19 +29,20 @@
     [[self badgeLable]setFrame:CGRectMake(UITabBarSwappableImageView.frame.size.width-corner, -corner, corner*2.0, corner*2.0)];
     
     [[self  badgeLable] makeBrdgeViewWithCor:corner CornerColor:cornerColor];
-
-    
-    
 }
--(void)removeBadgeView{
+
+#pragma mark - remove badge view
+- (void)removeBadgeView{
     
     [[self badgeLable] removeFromSuperview];
 }
+
 -(UIBadgeLable *)badgeLable{
     
     UIBadgeLable *badgeLable=objc_getAssociatedObject(self, &tabBarBadgeLableString);
     return badgeLable;
 }
+
 -(UIView *)findSwappableImageViewByInView:(UIView *)inView{
     
     for (UIView *subView in inView.subviews) {
@@ -55,4 +56,6 @@
     }
     return nil;
 }
+
+
 @end

@@ -9,6 +9,7 @@
 // init UIButton
 + (UIButton *)BtnInitWithBGName:(NSString *)imgStr title:(NSString *)titleStr titleColor:(UIColor *)titleColor fontName:(NSString *)fontName fontSize:(CGFloat)sizeFont btnBGColor:(UIColor *)bgColor;
 
+
 @end
 
 

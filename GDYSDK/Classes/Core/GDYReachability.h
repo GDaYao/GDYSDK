@@ -25,10 +25,12 @@
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
-/*
+/**
+ Usage:
 function: 网络监测方法
  --- 可在需要使用网络直接使用下面的方法判断
  --- 会在网络改变后（无网络）给予弹框无网络提示
+ 
  #pragma mark - all network relative
  - (void)isNetworkingAndAddObserveNotificationCenter{
  if (![ToolMgr isNetworking]) {

@@ -7,14 +7,22 @@
 
 @interface UITabBarItem (Badge)
 
--(void)makeBadgeTextNum:(NSInteger )textNum
-                  textColor:(UIColor *)tColor
-                  backColor:(UIColor *)backColor
-                       Font:(UIFont*)tfont;
 
+/**
+ make red badge.
+
+ @param corner Corner size width or height.
+ @param cornerColor Corner color.
+ */
 -(void)makeRedBadge:(CGFloat)corner color:(UIColor *)cornerColor;
 
 
--(void)removeBadgeView;
+ /**
+  remove badge view.
+  */
+ -(void)removeBadgeView;
+
+
+
 
 @end

@@ -44,8 +44,9 @@
 
 
 #pragma mark -  图片拼接操作
-/* masterImage  主图片，生成的图片的宽度为masterImage的宽度
- *slaveImage   从图片，拼接在masterImage的下面
+/**
+ masterImage  主图片，生成的图片的宽度为masterImage的宽度
+ slaveImage   从图片，拼接在masterImage的下面
  */
 
 + (UIImage *)addSlaveImage:(UIImage *)slaveImage toMasterImage:(UIImage *)masterImage

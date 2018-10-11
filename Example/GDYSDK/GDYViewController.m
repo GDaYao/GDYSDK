@@ -8,7 +8,7 @@
 
 #import "GDYViewController.h"
 
-
+#import <GDYSDK/GDYSDK.h>
 
 @interface GDYViewController ()
 
@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning

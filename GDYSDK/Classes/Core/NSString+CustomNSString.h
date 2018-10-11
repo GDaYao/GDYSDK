@@ -9,8 +9,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (CustomNSString)
 
+/**
+ money code covert money tag
 
-#pragma mark - ---- money code covert money tag
+ @param langCode The language or control code.
+ @return each country or area money code.
+ */
 + (NSString *)eachContryMoneyTagWithLangCode:(NSString *)langCode;
 
 

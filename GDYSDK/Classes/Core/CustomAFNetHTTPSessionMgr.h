@@ -4,9 +4,7 @@
 // custom owner http session manager
 
 
-
-//#import "AFHTTPSessionManager.h"
-#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 
 @interface CustomAFNetHTTPSessionMgr : AFHTTPSessionManager
 

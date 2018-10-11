@@ -23,8 +23,8 @@
 #define kIsiPhoneXAndXS   (kScreenWidth == 375.f && kScreenHeight == 812.f)
 #define kIsPad [[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad
 
-#define kScreenWidthScale [UIScreen mainScreen].bounds.size.width/375.0  //7屏幕适配宽度比例系数
-#define kScreenHeightScale [UIScreen mainScreen].bounds.size.height/667.0 //7屏幕适配高度比例系数
+#define kScreenWidthScale [UIScreen mainScreen].bounds.size.width/375.0  // base iPhone 7 screen size
+#define kScreenHeightScale [UIScreen mainScreen].bounds.size.height/667.0 // base iPhone 7 screen size
 
 
 #ifdef DEBUG

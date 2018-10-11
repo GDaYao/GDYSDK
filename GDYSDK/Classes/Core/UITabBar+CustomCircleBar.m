@@ -3,23 +3,22 @@
 
 #import "UITabBar+CustomCircleBar.h"
 
-static NSInteger const badgeTag = 200; //红点起始tag值
-static NSInteger const pointWidth = 10; //小红点的宽高
-static NSInteger const rightRange = 9; //距离tabBar右边的距离
+
+static NSInteger const pointDefaultWAH = 10; // default badge size
+
 
 
 @implementation UITabBar (CustomCircleBar)
 
-
-#pragma mark -- public methods
-
-#pragma mark - 显示小红点
-- (void)showBadgeIndex:(NSInteger)index
-{
-    [self hideBadgeIndex:index];
+#pragma mark - show UITabBar badge
+- (void)showBadgeIndex:(NSInteger)index originBadgeTag:(NSInteger)badgeTag badgeWAH:(NSInteger)pointWidth rightMargin:(NSInteger)rightRange{
+    [self hideBadgeIndex:index originBadgeTag:badgeTag];
     UIView *badgeView = [[UIView alloc] init];
     //设置tag值，可以通过tag值去找到对应的tabBar上面的小红点
     badgeView.tag = badgeTag + index;
+    if (pointWidth == 0 || pointWidth <0) {
+        pointWidth = pointDefaultWAH;
+    }
     badgeView.layer.cornerRadius = pointWidth / 2;
     badgeView.backgroundColor = [UIColor redColor];
     [self addSubview:badgeView];
@@ -45,14 +44,14 @@ static NSInteger const rightRange = 9; //距离tabBar右边的距离
     }
 }
 
-#pragma mark - 隐藏小红点
-- (void)hideBadgeIndex:(NSInteger)index
-{
+#pragma mark - hide `UITabBar` badge
+- (void)hideBadgeIndex:(NSInteger)index originBadgeTag:(NSInteger)badgeTag{
     for (UIView *subView in self.subviews) {
         if (subView.tag == badgeTag + index) {
             [subView removeFromSuperview];
         }
     }
 }
+
 
 @end

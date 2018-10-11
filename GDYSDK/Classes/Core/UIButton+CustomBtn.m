@@ -2,8 +2,6 @@
 //  UIButton+CustomBtn.m
 //  pixelArt-mobile
 //
-//  Created by ivy on 2018/4/17.
-//
 
 #import "UIButton+CustomBtn.h"
 

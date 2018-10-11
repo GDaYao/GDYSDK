@@ -10,9 +10,8 @@
 
 #pragma mark -  'update app' network request
 
-+ (void)requestNewVersionWithAppID:(NSInteger)appID block:(void(^)(NSArray *resultArr))blockArr
-{
-    NSString *appstoreStr =[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%d",appID]; //@"<kAppID>"
++ (void)requestNewVersionWithAppID:(NSInteger)appID block:(void(^)(NSArray *resultArr))blockArr{    
+    NSString *appstoreStr =[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%ld",(long)appID]; //@"<kAppID>"
     [NetDataMgr AFHttpDataTaskGETMethodWithURLString:appstoreStr parameters:nil success:^(id  _Nullable responseObject) {
         if(responseObject)
         {
@@ -69,14 +68,11 @@
             [currentVC presentViewController:alertCon animated:YES completion:nil];
         }
     }];
-     
 }
 
-
 #pragma mark - new or old users
-+ (void)newOrOldUsers{
-    NSString *saveVersionKey = @"saveUserInfoVersion";
-    NSString *isNewUserKey = @"isNewUser";
++ (void)newOrOldUsersWithuUserDefault:(NSString *)isNewUserKey{
+    NSString * const saveVersionKey = @"saveUserInfoVersion";
     
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
     NSString *currentVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
@@ -100,18 +96,6 @@
     NSData *jsonLocalData = [[NSData alloc]initWithContentsOfFile:path];
     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonLocalData options:NSJSONReadingAllowFragments error:nil];
     return jsonDic;
-}
-
-
-#pragma mark - ---- get iOS-App some file path ----
-+ (NSString *)getDocumentFilePath{
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-+ (NSString *)getLibraryFilPath{
-    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-}
-+ (NSString *)getCacheFilePath{
-    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 

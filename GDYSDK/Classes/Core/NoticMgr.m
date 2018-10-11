@@ -19,45 +19,59 @@
     // ex:
     //  NSString *imageFile = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
 
-    UNMutableNotificationContent *noticeContent = [self packageUNUserNotificationCenterWithResourcePath:srcPath noticTitle:noticTitle noticSubtitle:subtitle noticBody:bodyStr];
+    if (@available(iOS 10.0, *)) {
+        UNMutableNotificationContent *noticeContent = [self packageUNUserNotificationCenterWithResourcePath:srcPath noticTitle:noticTitle noticSubtitle:subtitle noticBody:bodyStr];
+
+        // *** if repeats is YES,then 'triggerWithTimeInterval' time interval value more than 60S ***
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInterval repeats:NO];
+        NSString *requestIdentifier = @"AppNoticIdentifier";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:noticeContent trigger:trigger];
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            NSLog(@"UNUserNoti： %@", error);
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
     
-    // *** if repeats is YES,then 'triggerWithTimeInterval' time interval value more than 60S ***
-    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInterval repeats:NO];
-    NSString *requestIdentifier = @"AppNoticIdentifier";
-    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:noticeContent trigger:trigger];
-    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-        NSLog(@"UNUserNoti： %@", error);
-    }];
 }
 
 
 #pragma mark -  set specifilly 'int time'
 + (void)addAppNoticWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticWeekday:(NSInteger)weekdayTime hour:(NSInteger)hourTime{
     
-    UNMutableNotificationContent *noticeContent = [self packageUNUserNotificationCenterWithResourcePath:srcPath noticTitle:noticTitle noticSubtitle:subtitle noticBody:bodyStr];
+    if (@available(iOS 10.0, *)) {
+        UNMutableNotificationContent *noticeContent = [self packageUNUserNotificationCenterWithResourcePath:srcPath noticTitle:noticTitle noticSubtitle:subtitle noticBody:bodyStr];
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        components.weekday = weekdayTime;
+        components.hour = hourTime;
+        UNCalendarNotificationTrigger *calendarTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
+        NSString *requestIdentifier = [NSString stringWithFormat:@"weekendID-%ld",weekdayTime];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:noticeContent trigger:calendarTrigger];
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            NSLog(@"notic-send error： %@", error);
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
     
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    components.weekday = weekdayTime;
-    components.hour = hourTime;
-    UNCalendarNotificationTrigger *calendarTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
-    NSString *requestIdentifier = [NSString stringWithFormat:@"weekendID-%ld",weekdayTime];
-    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:noticeContent trigger:calendarTrigger];
-    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-        NSLog(@"notic-send error： %@", error);
-    }];
 }
 
 
 //  "UNUserNotificationCenter" package
-+ (UNMutableNotificationContent *)packageUNUserNotificationCenterWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr {
-    UNMutableNotificationContent *noticeContent = [[UNMutableNotificationContent alloc] init];
-    UNNotificationAttachment *imageAttachment = [UNNotificationAttachment attachmentWithIdentifier:@"imageAttachment" URL:[NSURL fileURLWithPath:srcPath] options:nil error:nil];
-    noticeContent.attachments = @[imageAttachment];
-    noticeContent.title = noticTitle;
-    noticeContent.subtitle = subtitle;
-    noticeContent.body = bodyStr;
-    noticeContent.sound = [UNNotificationSound defaultSound];
-    return noticeContent;
++ (UNMutableNotificationContent *)packageUNUserNotificationCenterWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr  API_AVAILABLE(ios(10.0)){
+    if (@available(iOS 10.0, *)) {
+        UNMutableNotificationContent *noticeContent = [[UNMutableNotificationContent alloc] init];
+        UNNotificationAttachment *imageAttachment = [UNNotificationAttachment attachmentWithIdentifier:@"imageAttachment" URL:[NSURL fileURLWithPath:srcPath] options:nil error:nil];
+        noticeContent.attachments = @[imageAttachment];
+        noticeContent.title = noticTitle;
+        noticeContent.subtitle = subtitle;
+        noticeContent.body = bodyStr;
+        noticeContent.sound = [UNNotificationSound defaultSound];
+        return noticeContent;
+    } else {
+        // Fallback on earlier versions
+    }
+    return nil;
 }
 
 
@@ -78,7 +92,11 @@
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.repeatCalendar = [NSCalendar currentCalendar];
     notification.alertBody = bodyStr;
-    notification.alertTitle = title;
+    if (@available(iOS 8.2, *)) {
+        notification.alertTitle = title;
+    } else {
+     // earlier version
+    }
     notification.applicationIconBadgeNumber = 1;
     notification.alertAction= @"Open";
     notification.hasAction = YES;
@@ -102,9 +120,12 @@
         UILocalNotification* oneEvent = [eventArray objectAtIndex:i];
         NSDictionary *userInfoCurrent = oneEvent.userInfo;
         NSString *uid = [NSString stringWithFormat:@"%@",[userInfoCurrent valueForKey:localNoticStr]];
-        
-        [app cancelLocalNotification:oneEvent];
-        break;
+        if ([uid isEqualToString:localNoticStr])
+        {
+            //Cancelling local notification
+            [app cancelLocalNotification:oneEvent];
+            break;
+        }
     }
 }
 

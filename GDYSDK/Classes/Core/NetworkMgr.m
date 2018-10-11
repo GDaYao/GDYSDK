@@ -88,8 +88,7 @@
 + (void)AFHttpDataTaskPostMethodWithURLString:(NSString *)URLString
                           parameters:(id)parameters
                              success:(void (^)(id _Nullable responseObject))success
-                             failure:(void (^)(NSError * _Nullable error))failure
-{
+                             failure:(void (^)(NSError * _Nullable error))failure{
     CustomAFNetHTTPSessionMgr *sessionMgr = [CustomAFNetHTTPSessionMgr manager];
     [sessionMgr POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
