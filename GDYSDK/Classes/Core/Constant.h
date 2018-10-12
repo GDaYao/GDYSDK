@@ -11,9 +11,12 @@
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kSetScreenBounds CGRectMake(0, 0, kScreenWidth, kScreenHeight)
+#define kScreenBounds [UIScreen mainScreen].bounds;
 
 #define kWindowTopView [UIApplication sharedApplication].keyWindow
+
+#define kCompareEqualRect(rect1,rect2) CGRectEqualToRect(rect1, rect2) // parameter rect2 can use CGRectZero.
+
 
 #define kIsPhone [[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone
 #define kIsiPhone5s  (kScreenWidth == 320.f && kScreenHeight == 568.f)
