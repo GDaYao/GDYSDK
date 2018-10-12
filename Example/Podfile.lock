@@ -14,9 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - GDYSDK (0.1.5):
-    - GDYSDK/Core (= 0.1.5)
-  - GDYSDK/Core (0.1.5):
+  - GDYSDK (0.1.7):
+    - GDYSDK/Core (= 0.1.7)
+  - GDYSDK/Core (0.1.7):
     - AFNetworking (= 3.2.1)
 
 DEPENDENCIES:
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  GDYSDK: 01ff629782814f25ccbee89f3b099c50dfbfe595
+  GDYSDK: 709d559b39f26caded2091a95b34a5def3db52a9
 
 PODFILE CHECKSUM: fcf61224488dc953f15d0d26c1582914f820b8d1
 

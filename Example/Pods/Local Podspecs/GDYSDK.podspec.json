@@ -1,6 +1,6 @@
 {
   "name": "GDYSDK",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "summary": "GDYSDK personal cretae SDK",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/GDaYao/GDYSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/GDaYao/GDYSDK.git",
-    "tag": "0.1.5"
+    "tag": "0.1.7"
   },
   "platforms": {
     "ios": "8.0"
