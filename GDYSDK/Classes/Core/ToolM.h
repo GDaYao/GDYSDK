@@ -62,6 +62,12 @@
  */
 + (nonnull NSString *)md5:(nonnull NSString *)str;
 
+#pragma mark - verification phone number valid
++ (BOOL) isValidateMobile:(NSString *)mobile;
+
+#pragma mark - verification email valid
++ (BOOL) validateEmail: (NSString *) strEmail;
+
 #pragma mark - judge machine type
 + (NSString*)judgeiOSType;
 

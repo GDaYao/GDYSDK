@@ -53,6 +53,12 @@
 + (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress;
 
 /**
+ directly download
+ */
++ (void)executeDowloadFileWithStr:(NSString *)originStr;
+
+
+/**
  upload -- directly
 
  @param uploadStr Upload Request URL.

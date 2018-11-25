@@ -21,6 +21,8 @@
     }
     if (fontName.length!=0 && sizeFont != 0.0 ) {
         btn.titleLabel.font = [UIFont fontWithName:fontName size:sizeFont];
+    }else if(sizeFont != 0.0){
+        btn.titleLabel.font = [UIFont systemFontOfSize:sizeFont];
     }
     if(bgColor){
         [btn setBackgroundColor:bgColor];

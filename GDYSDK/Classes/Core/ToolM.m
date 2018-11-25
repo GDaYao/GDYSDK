@@ -264,6 +264,26 @@
     return md5_result;
 }
 
+#pragma mark - verification phone number valid
++ (BOOL) isValidateMobile:(NSString *)mobile
+{
+    /*
+     //手机号以13， 15，18开头，八个 \\d 数字字符
+     NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\\\D])|(18[0,0-9]))\\\\d{8}$";
+     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+     return [phoneTest evaluateWithObject:mobile];
+     */
+    NSPredicate* phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"1[34578]([0-9]){9}"];
+    return [phoneTest evaluateWithObject:mobile];
+}
+
+#pragma mark - verification email valid
++ (BOOL) validateEmail: (NSString *) strEmail {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:strEmail];
+}
+
 #pragma mark - judge machine type
 /**
     need import "#import <sys/utsname.h>"
@@ -408,6 +428,68 @@
 }
 
 
+#pragma mark - 注销方法
+
+// 验证码定时器
+/*
+ - (void)startTime:(UIButton *)button
+ {
+ __block int timeout = 60; //倒计时时间
+ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+ dispatch_source_t timeNew = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+ dispatch_source_set_timer(timeNew, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0); //每秒执行
+ dispatch_source_set_event_handler(timeNew, ^{
+ if (timeout <= 0) { //倒计时结束，关闭
+ dispatch_source_cancel(timeNew);
+ dispatch_async(dispatch_get_main_queue(), ^{
+ [button setTitle:@"获取验证码" forState:UIControlStateNormal];
+ button.userInteractionEnabled = YES;
+ [button setTitleColor:kNavigationBarBg forState:UIControlStateNormal];
+ });
+ } else {
+ NSString *strTime = [NSString stringWithFormat:@"%.2d", timeout];
+ dispatch_async(dispatch_get_main_queue(), ^{
+ [button setTitle:[NSString stringWithFormat:@"获取验证码(%@)", strTime] forState:UIControlStateNormal];
+ [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+ button.userInteractionEnabled = NO;
+ });
+ timeout--;
+ }
+ });
+ dispatch_resume(timeNew);
+ }
+ 
+ **/
+
+/*
+ //                    weakSelf.sendPhoneTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:weakSelf selector:@selector(runloopTimeSecondSendPhone) userInfo:nil repeats:YES];
+ //                    [[NSRunLoop currentRunLoop] addTimer:weakSelf.sendPhoneTimer forMode:NSRunLoopCommonModes];
+ //                    [[NSRunLoop currentRunLoop] run];
+ 
+ - (void)runloopTimeSecondSendPhone{
+ if (self.sendPhoneTimer && self.sendEmailBtnInVC) {
+ if ([self.sendEmailBtnInVC.currentTitle isEqualToString:@"获取验证码"]) {
+ [self.sendEmailBtnInVC setTitle:@"60S" forState:UIControlStateNormal];
+ [self.sendEmailBtnInVC setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+ self.sendEmailBtnInVC.enabled = NO;
+ }else if([self.sendEmailBtnInVC.currentTitle isEqualToString:@"0S"]){
+ [self.sendEmailBtnInVC setTitle:@"发送验证码" forState:UIControlStateNormal];
+ [self.sendEmailBtnInVC setTitleColor:kNavigationBarBg forState:UIControlStateNormal];
+ self.sendEmailBtnInVC.enabled = YES;
+ 
+ [self.sendPhoneTimer invalidate];
+ self.sendPhoneTimer = nil;
+ }else
+ {
+ NSInteger sendEmailNum = [self.sendEmailBtnInVC.currentTitle integerValue];
+ NSString *numStr = [NSString stringWithFormat:@"%ldS",sendEmailNum-1];
+ [self.sendEmailBtnInVC setTitle:numStr forState:UIControlStateNormal];
+ }
+ 
+ }
+ }
+ 
+ **/
 
 @end
 
