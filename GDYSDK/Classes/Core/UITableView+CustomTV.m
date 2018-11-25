@@ -14,7 +14,7 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
 #pragma mark - init `UITableView`
 + (UITableView *)InitTVWithBGColor:(UIColor *)BGColor TVFrame:(CGRect)TVFrame registerTableViewCell:(UITableViewCell *)tableViewCell tableViewCellID:(NSString *)kCellIdentifier showVerticalSI:(BOOL)showV showHorizontalSI:(BOOL)showH separatorStyle:(UITableViewCellSeparatorStyle)separatorStyle TVDelegateVC:(id)delegateVC{
     
-    UITableView *mainTV  = [[UITableView alloc]initWithFrame:TVFrame style:UITableViewStyleGrouped];
+    UITableView *mainTV  = [[UITableView alloc]initWithFrame:TVFrame style:UITableViewStyleGrouped]; // -- 带有头视图的分组,UITableViewStylePlain-正常
     mainTV.backgroundColor = BGColor;
     // register cell class
     if ((kCellIdentifier==nil) || (kCellIdentifier.length == 0)) {
@@ -24,6 +24,7 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
     }
     mainTV.showsVerticalScrollIndicator = showV;
     mainTV.showsHorizontalScrollIndicator = showH;
+    // mainTV.separatorStyle = UITableViewCellSeparatorStyleNone;   //去除横线
     mainTV.separatorStyle = separatorStyle; // use `UITableViewCellSeparatorStyleNone` remove cell bottom line
     mainTV.delegate = delegateVC;
     mainTV.dataSource = delegateVC;
@@ -49,11 +50,21 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
  if (tableViewCell == nil) {
     tableViewCell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier]; // kDefaultCellIdentifier is equal to top.
     }
+ 
+ //static NSString *cellId = @"ShopTaskTableViewCell";
+ //ShopTaskTableViewCell *shopTaskCell = (ShopTaskTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
+ // if (shopTaskCell == nil) {
+ //shopTaskCell = [[ShopTaskTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+ //NSArray *nib =[[NSBundle mainBundle]loadNibNamed:cellId owner:self options:nil];
+ //shopTaskCell = (ShopTaskTableViewCell *)[nib objectAtIndex:0];
+ //}
+ 
  }
  
  // tap each cell action.
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
- 
+ // 没有选中状态
+ // [tableView deselectRowAtIndexPath:indexPath animated:YES];
  */
 
 
