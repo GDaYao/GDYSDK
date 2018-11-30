@@ -125,7 +125,7 @@
 
 
 #pragma mark - AFNet implete 'download'
-+ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress{
++ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  httpHeaderTicket:(NSString *)ticketStr  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress{
     // 1. create manager
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -133,9 +133,22 @@
     if (parameters) {
         downloadStr = [downloadStr stringByAppendingString:parameters];
     }
-    NSURL *URL = [NSURL URLWithString:downloadStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    // 3. download file
+    // 3. or set http header "ticket"
+    NSURLRequest *request = nil;
+    if (ticketStr.length != 0) {
+        // if you request set http header,need use `NSMutableURLRequest`
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        NSMutableURLRequest *requestOne = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:downloadStr parameters:nil error:nil];
+        // test -- NSString *ticketStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"ticket"];
+        [requestOne setValue:ticketStr forHTTPHeaderField:@"ticket"];
+        request = requestOne;
+    }else{
+        NSURL *URL = [NSURL URLWithString:downloadStr];
+        NSURLRequest *requestTwo = [NSURLRequest requestWithURL:URL];
+        request = requestTwo;
+    }
+    
+    // 4. download file
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress){
         // downloadProgress.completedUnitCount --- current download count
         // downloadProgress.totalUnitCount  --- totle count

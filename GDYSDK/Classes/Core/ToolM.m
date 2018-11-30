@@ -284,6 +284,7 @@
     return [emailTest evaluateWithObject:strEmail];
 }
 
+
 #pragma mark - judge machine type
 /**
     need import "#import <sys/utsname.h>"

@@ -10,6 +10,12 @@
 @interface NetDataMgr : NSObject
 
 /**
+ use `AFNetworking` request
+ if parameter string need encrypt,need change `AFNetworking` method.
+ or attention set http header ticket.
+ */
+
+/**
  AFNet reachability status
 
  @param networkStatus A block object to be executed get current network status.
@@ -48,9 +54,10 @@
  @param downloadStr Request URL.
  @param parameters Client request serializer.
  @param specifilyPath Finish download task to save path.
+ @param ticketStr set http header ticket
  @param progress This progress description download task progress.
  */
-+ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress;
++ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  httpHeaderTicket:(NSString *)ticketStr  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress;
 
 /**
  directly download
