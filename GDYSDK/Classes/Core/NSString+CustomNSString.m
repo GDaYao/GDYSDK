@@ -7,6 +7,73 @@
 
 @implementation NSString (CustomNSString)
 
+
+#pragma mark -  mark some character and change text color in specifily character (such as "<em>xx</em>")
++ (NSMutableAttributedString *)useMatchSetTextColor:(NSString *)string AndColor:(UIColor *)vaColor withFirstReplaceStr:(NSString *)firstStr secondReplaceStr:(NSString *)secondStr{
+    NSMutableAttributedString *str;
+    if ([string containsString:firstStr] && [string containsString:secondStr]) {
+        //确定位置
+        NSRange firstRange = [string rangeOfString:firstStr]; // firstRange.location
+        NSRange secondRange = [string rangeOfString:secondStr]; // secondRange.location-firstRange.location-firstRange.length
+        
+        // 进行多余字符串替换 -- 去除 <em></em>
+        string = [string stringByReplacingOccurrencesOfString:firstStr withString:@""];
+        string = [string stringByReplacingOccurrencesOfString:secondStr withString:@""];
+        // 富文本初始化
+        str = [[NSMutableAttributedString alloc] initWithString:string];
+        // 改变颜色
+        [str addAttribute:NSForegroundColorAttributeName value:vaColor range:NSMakeRange(firstRange.location, secondRange.location-firstRange.location-firstRange.length)];
+    }else{
+        str = [[NSMutableAttributedString alloc] initWithString:string];
+    }
+    
+    return str;
+}
+
+/** use regex string match character and change string color  (regex match letter )**/
++ (NSMutableAttributedString*)setTextColor:(NSString *)string  AndColor:(UIColor *)vaColor withFirstReplaceStr:(NSString *)firstStr secondReplaceStr:(NSString *)secondStr{
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:string];
+    
+    NSString*repitString=string;
+    //设置文字颜色
+    NSArray *stringA= [self matchString:string toRegexString:[NSString stringWithFormat:@"%@[\u4e00-\u9fa5]*%@",firstStr,secondStr]]; // @"<em>[\u4e00-\u9fa5]*</em>"
+    for (int i=0; i<stringA.count; i++){
+        NSString*str1= [stringA[i] stringByReplacingOccurrencesOfString:firstStr withString:@""];
+        NSString*str2= [str1 stringByReplacingOccurrencesOfString:secondStr withString:@""];
+        
+        [str addAttribute:NSForegroundColorAttributeName value:vaColor range: [self getStrFromString:stringA[i] fromString:repitString]];
+        [str replaceCharactersInRange:[repitString rangeOfString:stringA[i]] withString:str2];
+        repitString= [repitString stringByReplacingCharactersInRange:[self getStrFromString:stringA[i] fromString:repitString] withString:str2];
+    }
+    return str ;
+}
++ (NSArray *)matchString:(NSString *)string toRegexString:(NSString *)regexStr{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexStr options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray * matches = [regex matchesInString:string options:0 range:NSMakeRange(0, [string length])];
+    //match: 所有匹配到的字符,根据() 包含级
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSTextCheckingResult *match in matches) {
+        for (int i = 0; i < [match numberOfRanges]; i++) {
+            //以正则中的(),划分成不同的匹配部分
+            NSString *component = [string substringWithRange:[match rangeAtIndex:i]];
+            
+            [array addObject:component];
+        }
+    }
+    return array;
+}
++(NSRange)getStrFromString:(NSString*)str fromString:(NSString*)totalString{
+    NSRange range;
+    range = [totalString rangeOfString:str];
+    if (range.location != NSNotFound){
+        return NSMakeRange(range.location, range.length);
+    }
+    range=NSMakeRange(0, 0);
+    return range;
+}
+
+
+
 #pragma mark - ---- money code covert money tag
 + (NSString *)eachContryMoneyTagWithLangCode:(NSString *)langCode{
     
@@ -150,6 +217,8 @@
     
     return moneyTag;
 }
+
+
 
 
 

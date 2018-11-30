@@ -9,6 +9,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (CustomNSString)
 
+
+/**
+ method -- intercept string
+ mark some character and change text color in specifily character
+ (such as "<em>xx</em>")
+ */
++ (NSMutableAttributedString *)useMatchSetTextColor:(NSString *)string AndColor:(UIColor *)vaColor withFirstReplaceStr:(NSString *)firstStr secondReplaceStr:(NSString *)secondStr;
+
+
+
+
 /**
  money code covert money tag
 

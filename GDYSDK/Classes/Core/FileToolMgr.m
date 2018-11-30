@@ -87,6 +87,15 @@
     }
 }
 
+#pragma mark - get file size at path
++ (long long)getFileSizeAtPath:(NSString*)filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+
 
 
 @end

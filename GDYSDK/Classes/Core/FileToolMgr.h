@@ -34,7 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - move file or change path name
 + (void)moveFilePathOrChangePathName:(NSString *)pathString newFilePath:(NSString *)newPath;
 
-
+#pragma mark - get file size at path
++ (long long)getFileSizeAtPath:(NSString*)filePath;
 
 
 
