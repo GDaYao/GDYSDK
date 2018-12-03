@@ -9,6 +9,8 @@
 
 @implementation NetDataMgr
 
+#pragma mark - AFNetworking
+
 #pragma mark - network reachability status
 + (void)backCurrentNetworkWithStatusStr:(void(^)(NSString *netStr))networkStatus{
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
@@ -274,6 +276,56 @@
     
     [uploadTask resume];
 }
+
+
+
+#pragma mark - NSURLConnection
+
+#pragma mark - data task request
++ (void)NSURLConnectionDataTaskPostMethodWithURLString:(NSString *)URLString
+                                   parameters:(id)parameters
+                                             ticketStr:(NSString *)ticketStr
+                                      success:(void (^)(id _Nullable responseObject))success
+                                      failure:(void (^)(NSError * _Nullable error))failure {
+    
+    
+    NSURL *serveURL = [NSURL URLWithString:URLString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serveURL
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:10]; //请求这个地址， timeoutInterval:10 设置为10s超时：请求时间超过10s会被认为连接不上，连接超时
+    [request setHTTPMethod:@"POST"]; //POST请求
+    NSData *bodyData = [[parameters stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]dataUsingEncoding:NSUTF8StringEncoding];//把bodyString转换为NSData数据
+    [request setHTTPBody:bodyData]; //body 数据
+    [request setValue:ticketStr forHTTPHeaderField:@"ticket"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];//请求头格式
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (connectionError == nil) {
+             success(data);
+         }else{
+             failure(connectionError);
+         }
+     }];
+}
+
+
+
+#pragma mark - success(responseObject) ==> NSDictionary
++ (id)responseResult:(id)response{
+    NSDictionary *dic = [[NSDictionary alloc]init];
+    if ([response isKindOfClass:[NSData class]])
+    {
+        dic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    } else
+    {
+        dic = response;
+    }
+    return dic;
+}
+
+
+
 
 
 

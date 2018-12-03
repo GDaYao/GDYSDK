@@ -62,11 +62,35 @@
  */
 + (nonnull NSString *)md5:(nonnull NSString *)str;
 
-#pragma mark - verification phone number valid
+#pragma mark - verification
+// verification phone number valid
 + (BOOL) isValidateMobile:(NSString *)mobile;
 
-#pragma mark - verification email valid
+// verification email valid
 + (BOOL) validateEmail: (NSString *) strEmail;
+
+// judge illegal character
++ (BOOL)JudgeTheillegalCharacter:(NSString *)content;
+
+// have digital
++ (BOOL)hasDigital:(NSString *)string;
+
+// has letter (return YES-have,NO-no)
++ (BOOL)hasLetter:(NSString *)string;
+
+
+#pragma mark - NSDictionary => json format string
++(NSString*)dictionaryToJson:(NSDictionary *)dic;
+
+#pragma mark - json fromat string => NSDictioinary
++(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+
+
+
+
+#pragma mark - ----alertView use----
++ (void)showAlertViewWithoutVCTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr cancelBtnStr:(NSString *)cancelStr;
++ (void)showAlertViewWithSelfTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr cancelBtnStr:(NSString *)cancelStr okAction:(void(^)(id responsobject))okaction cancelAction:(void(^)(id responsobject))cancelaction withVC:(UIViewController *)selfVC;
 
 #pragma mark - judge machine type
 + (NSString*)judgeiOSType;

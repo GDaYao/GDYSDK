@@ -264,7 +264,9 @@
     return md5_result;
 }
 
-#pragma mark - verification phone number valid
+#pragma mark - ----verification----
+
+#pragma mark verification phone number valid
 + (BOOL) isValidateMobile:(NSString *)mobile
 {
     /*
@@ -276,17 +278,122 @@
     NSPredicate* phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"1[34578]([0-9]){9}"];
     return [phoneTest evaluateWithObject:mobile];
 }
-
-#pragma mark - verification email valid
+#pragma mark verification email valid
 + (BOOL) validateEmail: (NSString *) strEmail {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:strEmail];
 }
+#pragma mark judge illegal character (return YES-have,NO-no)
++ (BOOL)judgeTheillegalCharacter:(NSString *)content{
+    NSString *str =@"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
+    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
+    
+    if (![emailTest evaluateWithObject:content]) {
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark has digital (return YES-have,NO-no)
++ (BOOL)hasDigital:(NSString *)string
+{
+    for(int i = 0; i < string.length ; i++){
+        unichar a = [string characterAtIndex:i];
+        if ((a >= '0' && a <= '9' )) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+#pragma mark has letter (return YES-have,NO-no)
++ (BOOL)hasLetter:(NSString *)string{
+    for(int i = 0; i < string.length ; i++){
+        unichar a = [string characterAtIndex:i];
+        if ((a >= 'A' && a <= 'Z' ) || (a >= 'a' && a <= 'z')) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+#pragma mark - NSDictionary => json format string
++(NSString*)dictionaryToJson:(NSDictionary *)dic {
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSString *base =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    base = [base stringByReplacingOccurrencesOfString:@"\r\n" withString : @"" ];
+    
+    base = [base stringByReplacingOccurrencesOfString:@"\n" withString : @"" ];
+    
+    base = [base stringByReplacingOccurrencesOfString:@"\t" withString : @"" ];
+    base = [base stringByReplacingOccurrencesOfString:@" " withString : @"" ];
+    base = [base stringByReplacingOccurrencesOfString:@"/n" withString : @"" ];
+    return base;
+}
+
+#pragma mark - json fromat string => NSDictioinary
++(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    
+    if (jsonString == nil) {
+        return nil;
+    }
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\r\n" withString : @"" ];
+    
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString : @"" ];
+    
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\t" withString : @"" ];
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                         
+                                                        options:NSJSONReadingMutableContainers
+                         
+                                                          error:&err];
+    
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
+}
 
 
 
 
+
+
+#pragma mark - alert show
++ (void)showAlertViewWithoutVCTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr cancelBtnStr:(NSString *)cancelStr{
+    
+    
+    UIAlertView *alert;
+    if (cancelStr.length == 0 || !cancelStr) {
+        alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:okStr otherButtonTitles:nil];
+    }else{
+        alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:okStr otherButtonTitles:cancelStr,nil];
+    }
+    [alert show];
+}
++ (void)showAlertViewWithSelfTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr okAction:(void(^)(id responsobject))okaction cancelBtnStr:(NSString *)cancelStr  cancelAction:(void(^)(id responsobject))cancelaction withVC:(UIViewController *)selfVC{
+    
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:okStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertVC addAction:okAction];
+    if (cancelStr.length || cancelStr) {
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertVC addAction:cancelAction];
+    }
+    [selfVC presentViewController:selfVC animated:YES completion:nil];
+}
 
 
 #pragma mark - judge machine type
@@ -433,8 +540,8 @@
 }
 
 
-#pragma mark - 注销方法
 
+#pragma mark - 注销方法
 // 验证码定时器
 /*
  - (void)startTime:(UIButton *)button
@@ -495,6 +602,26 @@
  }
  
  **/
+
+// self.extendedLayoutIncludesOpaqueBars = YES; //此解决UINavigationVC中出现UIScrollView导致下级的UIViewController也出现自动下移的情况(移动"状态栏+导航栏"的高度)
+// self.automaticallyAdjustsScrollViewInsets = NO; // 此属性iOS 11.0之前可使用，在最新的iOS 12.0中未起作用。
+
+/*
+ // setAnimation - m1
+ [UIView animateWithDuration:0.5 animations:^{
+ self.contentSV.contentOffset = CGPointMake(0, tfOffset);
+ } completion:^(BOOL finished) {
+ }];
+ // setAnimation - m2
+ [UIView beginAnimations:@"ResizeKeyboard" context:nil];
+ [UIView setAnimationDuration:0.5];
+ // add set animation method
+ [UIView commitAnimations];
+ 
+ **/
+
+
+
 
 @end
 

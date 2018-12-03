@@ -42,25 +42,5 @@
 
 
 
-// memory
-
-// self.extendedLayoutIncludesOpaqueBars = YES; //此解决UINavigationVC中出现UIScrollView导致下级的UIViewController也出现自动下移的情况(移动"状态栏+导航栏"的高度)
-// self.automaticallyAdjustsScrollViewInsets = NO; // 此属性iOS 11.0之前可使用，在最新的iOS 12.0中未起作用。
-
-/*
- // setAnimation - m1
- [UIView animateWithDuration:0.5 animations:^{
- self.contentSV.contentOffset = CGPointMake(0, tfOffset);
- } completion:^(BOOL finished) {
- }];
- // setAnimation - m2
- [UIView beginAnimations:@"ResizeKeyboard" context:nil];
- [UIView setAnimationDuration:0.5];
- // add set animation method
- [UIView commitAnimations];
- 
- **/
-
-
 
 #endif /* Constant_h */

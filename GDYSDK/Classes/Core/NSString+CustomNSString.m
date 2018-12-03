@@ -30,6 +30,7 @@
     return str;
 }
 
+#pragma mark - set text Color and use regex
 /** use regex string match character and change string color  (regex match letter )**/
 + (NSMutableAttributedString*)setTextColor:(NSString *)string  AndColor:(UIColor *)vaColor withFirstReplaceStr:(NSString *)firstStr secondReplaceStr:(NSString *)secondStr{
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:string];

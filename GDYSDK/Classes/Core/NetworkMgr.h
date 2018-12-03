@@ -1,13 +1,21 @@
 //
 //  NetDataMgr.h
 
-// network request
+//  network request
 //  need accompany 'CustomAFNetHTTPSessionMgr'
 
 
 #import <Foundation/Foundation.h>
 
 @interface NetDataMgr : NSObject
+
+#pragma mark - ----AFNetworking----
+/**
+ if AFNetworking network request parameter need encrypt,please change AFNetworking some method.
+ Beacuse AFNetworking only parse NSDictionary/json of parameter,encrypt parameter is subclass of NSString.
+ */
+
+
 
 /**
  use `AFNetworking` request
@@ -100,6 +108,22 @@
  @param progress Upload progress.
  */
 + (void)createUploadTaskWithStreamedRequestUploadStr:(NSString *)uploadStr parameters:(id)parameters localData:(NSData *)data interfaceName:(NSString *)interName uploadServerName:(id)serverName uploadType:(id)uploadType progress:(void(^)(NSProgress * _Nonnull uploadProgress))progress;
+
+
+#pragma mark - ----NSURLConnection----
+/**
+  data task request and http request header
+ */
++ (void)NSURLConnectionDataTaskPostMethodWithURLString:(NSString *)URLString
+                                            parameters:(id)parameters
+                                             ticketStr:(NSString *)ticketStr
+                                               success:(void (^)(id _Nullable responseObject))success
+                                               failure:(void (^)(NSError * _Nullable error))failure;
+
+#pragma mark - success(responseObject) ==> NSDictionary
++ (id)responseResult:(id)response;
+
+
 
 
 

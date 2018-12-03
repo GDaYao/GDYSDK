@@ -20,15 +20,17 @@
 
 #pragma mark - ---- create iOS App save work space file ----
 + (NSString *)createiOSAppSaveWorkFileWithPath:(NSString *)saveWorkPath{
-    NSString *collectSavedPath = nil;
     // get 'Documents' file
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *doucumentPath = [path objectAtIndex:0];
     // specifilly new file path
-    collectSavedPath = [doucumentPath stringByAppendingPathComponent:saveWorkPath];
+    NSString *collectSavedPath = [doucumentPath stringByAppendingPathComponent:saveWorkPath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    // create new file
-    [fileManager createDirectoryAtPath:collectSavedPath withIntermediateDirectories:YES attributes:nil error:nil];
+    BOOL isDir;
+    if (![fileManager fileExistsAtPath:collectSavedPath isDirectory:&isDir]) {
+        // create new file
+        [fileManager createDirectoryAtPath:collectSavedPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     // back complete path
     return collectSavedPath;
 }
