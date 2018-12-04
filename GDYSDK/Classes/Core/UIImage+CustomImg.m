@@ -36,6 +36,16 @@
 }
 
 
+#pragma mark - change image size
++ (UIImage *)changeImgSize:(UIImage *)currentImg changeSize:(CGSize)size{
+    UIGraphicsBeginImageContext(size);
+    [currentImg drawInRect:CGRectMake(0.0f, 0.0f, size.width,size.height)];
+    currentImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return currentImg;
+}
+
+
 
 
 

@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)captureImgWhenViewIsGPUImageV:(UIView *)view;
 
 
+#pragma mark - change image size
++ (UIImage *)changeImgSize:(UIImage *)currentImg changeSize:(CGSize)size;
+
 
 @end
 

@@ -8,6 +8,7 @@
 //由弧度转换角度
 #define kRadianToDegrees(radian) (radian * 180.0) / (M_PI)
 
+
 @implementation UIImage (Rotate)
 
 /** 纠正图片的方向 */

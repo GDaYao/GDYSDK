@@ -22,6 +22,9 @@
 // 图片拼接
 + (UIImage *)addSlaveImage:(UIImage *)slaveImage toMasterImage:(UIImage *)masterImage;
 
+
+
+
 @end
 
 

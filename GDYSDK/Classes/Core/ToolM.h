@@ -85,7 +85,8 @@
 #pragma mark - json fromat string => NSDictioinary
 +(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
-
+#pragma mark - judge blank string
++ (BOOL)isBlankString:(NSString *)string;
 
 
 #pragma mark - ----alertView use----
@@ -94,6 +95,7 @@
 
 #pragma mark - judge machine type
 + (NSString*)judgeiOSType;
+
 
 
 
