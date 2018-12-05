@@ -26,6 +26,7 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
     mainTV.showsHorizontalScrollIndicator = showH;
     // mainTV.separatorStyle = UITableViewCellSeparatorStyleNone;   //去除横线
     mainTV.separatorStyle = separatorStyle; // use `UITableViewCellSeparatorStyleNone` remove cell bottom line
+    mainTV.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero]; // 去除多余横线
     mainTV.delegate = delegateVC;
     mainTV.dataSource = delegateVC;
     return mainTV;
