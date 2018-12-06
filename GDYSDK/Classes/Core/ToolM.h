@@ -91,7 +91,7 @@
 
 #pragma mark - ----alertView use----
 + (void)showAlertViewWithoutVCTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr cancelBtnStr:(NSString *)cancelStr;
-+ (void)showAlertViewWithSelfTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr cancelBtnStr:(NSString *)cancelStr okAction:(void(^)(id responsobject))okaction cancelAction:(void(^)(id responsobject))cancelaction withVC:(UIViewController *)selfVC;
++ (void)showAlertViewWithSelfTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr okAction:(void(^)(UIAlertAction * _Nonnull action))okaction cancelBtnStr:(NSString *)cancelStr  cancelAction:(void(^)(UIAlertAction * _Nonnull action))cancelaction withVC:(UIViewController *)selfVC;
 
 #pragma mark - judge machine type
 + (NSString*)judgeiOSType;

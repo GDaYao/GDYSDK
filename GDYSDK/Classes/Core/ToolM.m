@@ -391,20 +391,20 @@
     }
     [alert show];
 }
-+ (void)showAlertViewWithSelfTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr okAction:(void(^)(id responsobject))okaction cancelBtnStr:(NSString *)cancelStr  cancelAction:(void(^)(id responsobject))cancelaction withVC:(UIViewController *)selfVC{
++ (void)showAlertViewWithSelfTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr okAction:(void(^)(UIAlertAction * _Nonnull action))okaction cancelBtnStr:(NSString *)cancelStr  cancelAction:(void(^)(UIAlertAction * _Nonnull action))cancelaction withVC:(UIViewController *)selfVC{
     
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:okStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+    UIAlertAction *okA = [UIAlertAction actionWithTitle:okStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        okaction(action);
     }];
-    [alertVC addAction:okAction];
+    [alertVC addAction:okA];
     if (cancelStr.length || cancelStr) {
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
+        UIAlertAction *cancelA = [UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            cancelaction(action);
         }];
-        [alertVC addAction:cancelAction];
+        [alertVC addAction:cancelA];
     }
-    [selfVC presentViewController:selfVC animated:YES completion:nil];
+    [selfVC presentViewController:alertVC animated:YES completion:nil];
 }
 
 
