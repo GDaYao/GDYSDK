@@ -90,14 +90,6 @@
     }
 }
 
-#pragma mark - local Bundle json parse
-+ (NSDictionary *)parseBundleJsonWith:(NSString *)jsonName{
-    NSString *path  =[[NSBundle mainBundle]pathForResource:jsonName ofType:@"json"];
-    NSData *jsonLocalData = [[NSData alloc]initWithContentsOfFile:path];
-    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonLocalData options:NSJSONReadingAllowFragments error:nil];
-    return jsonDic;
-}
-
 
 #pragma mark - ---- time ----
 #pragma mark get time string from int time
@@ -244,25 +236,6 @@
     return lang;
 }
 
-#pragma mark - ---- md5 encryption lock ----
-/**
- need import "#import <CommonCrypto/CommonDigest.h>"
- */
-+ (nonnull NSString *)md5:(nonnull NSString *)str{
-    NSString *md5_result = @"";
-    const char *cStr = [str UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5( cStr, (int)strlen(cStr), result ); // This is the md5 call
-    
-    md5_result = [NSString stringWithFormat:
-                  @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-                  result[0], result[1], result[2], result[3],
-                  result[4], result[5], result[6], result[7],
-                  result[8], result[9], result[10], result[11],
-                  result[12], result[13], result[14], result[15]
-                  ];
-    return md5_result;
-}
 
 #pragma mark - ----verification----
 
@@ -319,8 +292,17 @@
     return NO;
 }
 
+#pragma mark - json/NSDictionary/string convert
 
-#pragma mark - NSDictionary => json format string
+#pragma mark local Bundle json parse
++ (NSDictionary *)parseBundleJsonWith:(NSString *)jsonName{
+    NSString *path  =[[NSBundle mainBundle]pathForResource:jsonName ofType:@"json"];
+    NSData *jsonLocalData = [[NSData alloc]initWithContentsOfFile:path];
+    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonLocalData options:NSJSONReadingAllowFragments error:nil];
+    return jsonDic;
+}
+
+#pragma mark NSDictionary => json format string
 +(NSString*)dictionaryToJson:(NSDictionary *)dic {
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
@@ -335,7 +317,7 @@
     return base;
 }
 
-#pragma mark - json fromat string => NSDictioinary
+#pragma mark json fromat string => NSDictioinary
 +(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
     
     if (jsonString == nil) {
@@ -554,7 +536,7 @@
 
 
 #pragma mark - 注销方法
-// 验证码定时器
+#pragma mark  验证码定时器
 /*
  - (void)startTime:(UIButton *)button
  {
@@ -585,6 +567,8 @@
  
  **/
 
+#pragma mark NSTimer定时器
+
 /*
  //                    weakSelf.sendPhoneTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:weakSelf selector:@selector(runloopTimeSecondSendPhone) userInfo:nil repeats:YES];
  //                    [[NSRunLoop currentRunLoop] addTimer:weakSelf.sendPhoneTimer forMode:NSRunLoopCommonModes];
@@ -612,12 +596,13 @@
  
  }
  }
- 
  **/
 
+#pragma mark UINavigation navBar
 // self.extendedLayoutIncludesOpaqueBars = YES; //此解决UINavigationVC中出现UIScrollView导致下级的UIViewController也出现自动下移的情况(移动"状态栏+导航栏"的高度)
 // self.automaticallyAdjustsScrollViewInsets = NO; // 此属性iOS 11.0之前可使用，在最新的iOS 12.0中未起作用。
 
+#pragma mark - sest Animation
 /*
  // setAnimation - m1
  [UIView animateWithDuration:0.5 animations:^{
@@ -632,7 +617,7 @@
  
  **/
 
-
+#pragma mark - set Info.plist default
 /**
  Info.plist add some authority
  ----
@@ -656,8 +641,7 @@
  <key>NSMicrophoneUsageDescription</key>
  <string>App需要您的同意,才能访问麦克风</string>
  ----
- 
- 
+
  */
 
 

@@ -18,21 +18,14 @@
  */
 + (void)updateApp:(UIViewController *)currentVC appID:(NSInteger)appID;
 
+
 /**
  judge current time this user new or older.
+ each app need use this method before use old or new user.
 
  @param isNewUserKey `NSUserDefaults` bool for key
  */
 + (void)newOrOldUsersWithuUserDefault:(NSString *)isNewUserKey;
-
-
-/**
- parse Bundle json file and return `NSDictionary`
-
- @param jsonName Json form file
- @return `NSDictionay *`
- */
-+ (NSDictionary *)parseBundleJsonWith:(NSString *)jsonName;
 
 
 #pragma mark - time
@@ -53,15 +46,6 @@
 #pragma mark - get language
 +(NSString *)getLanguageCode;
 
-#pragma mark - md5 encryption lock
-/**
- md5 lock
-
- @param str Need encryption NSString
- @return new generate NSString
- */
-+ (nonnull NSString *)md5:(nonnull NSString *)str;
-
 #pragma mark - verification
 // verification phone number valid
 + (BOOL) isValidateMobile:(NSString *)mobile;
@@ -78,12 +62,22 @@
 // has letter (return YES-have,NO-no)
 + (BOOL)hasLetter:(NSString *)string;
 
+#pragma mark - json/NSDictionary/string convert
 
-#pragma mark - NSDictionary => json format string
+/**
+ parse Bundle json file and return `NSDictionary`
+ 
+ @param jsonName Json form file
+ @return `NSDictionay *`
+ */
++ (NSDictionary *)parseBundleJsonWith:(NSString *)jsonName;
+
+// #pragma mark NSDictionary => json format string
 +(NSString*)dictionaryToJson:(NSDictionary *)dic;
 
-#pragma mark - json fromat string => NSDictioinary
+// #pragma mark json fromat string => NSDictioinary
 +(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+
 
 #pragma mark - judge blank string
 + (BOOL)isBlankString:(NSString *)string;

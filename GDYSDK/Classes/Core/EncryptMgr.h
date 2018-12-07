@@ -38,6 +38,16 @@
 +(NSString *)decryptWithText:(NSString *)sText;
 
 
+#pragma mark - md5 encryption lock
+/**
+ md5 lock
+ 
+ @param str Need encryption NSString
+ @return new generate NSString
+ */
++ (nonnull NSString *)md5:(nonnull NSString *)str;
+
+
 
 
 @end

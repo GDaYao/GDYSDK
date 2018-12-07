@@ -16,6 +16,8 @@
 		0B3CF8B50F8CC13D7A81C287805B4246 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0FBE636488A3EE34BACD4AF49518CA /* Foundation.framework */; };
 		0CC709315CE73A951028C7B0C81169EC /* UITabBar+CustomCircleBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 594F31BA7D27C71FD33811D5F0873537 /* UITabBar+CustomCircleBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D58399A6DC61099900309A4449F7891 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C208217BB6EAB64559C0AC437E799C /* AFURLSessionManager.m */; };
+		0FA72BA821BA6122000D4AC7 /* PaymentMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FA72BA621BA6122000D4AC7 /* PaymentMgr.h */; };
+		0FA72BA921BA6122000D4AC7 /* PaymentMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA72BA721BA6122000D4AC7 /* PaymentMgr.m */; };
 		0FDD4D2C21B4DE9800F93BD7 /* EncryptMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FDD4D2A21B4DE9800F93BD7 /* EncryptMgr.h */; };
 		0FDD4D2D21B4DE9800F93BD7 /* EncryptMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD4D2B21B4DE9800F93BD7 /* EncryptMgr.m */; };
 		0FDD4D3121B514F200F93BD7 /* GDYBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FDD4D2E21B514F100F93BD7 /* GDYBase64.h */; };
@@ -170,6 +172,8 @@
 		0DD3856C94276348C95B67083DC89205 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0EF0F7569C1C4BFC3EF2C9DA3D50CC0B /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		0EF6A69A902097E2EFF449414D5EE1F1 /* GDYSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = GDYSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0FA72BA621BA6122000D4AC7 /* PaymentMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PaymentMgr.h; path = GDYSDK/Classes/Core/PaymentMgr.h; sourceTree = "<group>"; };
+		0FA72BA721BA6122000D4AC7 /* PaymentMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PaymentMgr.m; path = GDYSDK/Classes/Core/PaymentMgr.m; sourceTree = "<group>"; };
 		0FDD4D2A21B4DE9800F93BD7 /* EncryptMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EncryptMgr.h; path = GDYSDK/Classes/Core/EncryptMgr.h; sourceTree = "<group>"; };
 		0FDD4D2B21B4DE9800F93BD7 /* EncryptMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EncryptMgr.m; path = GDYSDK/Classes/Core/EncryptMgr.m; sourceTree = "<group>"; };
 		0FDD4D2E21B514F100F93BD7 /* GDYBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDYBase64.h; path = GDYSDK/Classes/Core/GDYBase64.h; sourceTree = "<group>"; };
@@ -479,6 +483,8 @@
 				0FDD4D2E21B514F100F93BD7 /* GDYBase64.h */,
 				0FDD4D3021B514F100F93BD7 /* GDYBase64.m */,
 				0FDD4D2F21B514F100F93BD7 /* GDYDefines.h */,
+				0FA72BA621BA6122000D4AC7 /* PaymentMgr.h */,
+				0FA72BA721BA6122000D4AC7 /* PaymentMgr.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -716,6 +722,7 @@
 				D491FD44351A11016A957CA81ABE0EC5 /* AFURLRequestSerialization.h in Headers */,
 				2E68973739E2AE713059A22F94238C60 /* AFURLResponseSerialization.h in Headers */,
 				FE66EF8D47514D23E7551E2C95C765D8 /* AFURLSessionManager.h in Headers */,
+				0FA72BA821BA6122000D4AC7 /* PaymentMgr.h in Headers */,
 				D014A5430789C5F0FFCF490D53B22897 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
 				BEE7FD5C1C06AF3670E0FB75F996DDF7 /* UIButton+AFNetworking.h in Headers */,
 				78F5D40D5B8E9FC40FB257953EA945BA /* UIImage+AFNetworking.h in Headers */,
@@ -890,6 +897,7 @@
 				0FDD4D3321B514F200F93BD7 /* GDYBase64.m in Sources */,
 				0FE7D8B321B6350E00C178F2 /* UIPickerView+CustomPickerView.m in Sources */,
 				CB3CA20E3732A095F5515E0621D8719C /* AFURLRequestSerialization.m in Sources */,
+				0FA72BA921BA6122000D4AC7 /* PaymentMgr.m in Sources */,
 				11EAB2A17E2712DB04831AD0FFD6A5DB /* AFURLResponseSerialization.m in Sources */,
 				0D58399A6DC61099900309A4449F7891 /* AFURLSessionManager.m in Sources */,
 				CB3028664CA23A1480C18C7A86CFDAF4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
