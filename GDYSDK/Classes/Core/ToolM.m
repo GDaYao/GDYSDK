@@ -300,10 +300,16 @@
     NSData *jsonLocalData = [[NSData alloc]initWithContentsOfFile:path];
     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonLocalData options:NSJSONReadingAllowFragments error:nil];
     return jsonDic;
+    /**
+    NSMutableArray *modelMutArr = [NSMutableArray array];
+    [dataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [modelMutArr addObject:[[Model alloc]initWithDictionary:obj]]; // create `initWithDictionary`
+    }];
+     */
 }
 
 #pragma mark NSDictionary => json format string
-+(NSString*)dictionaryToJson:(NSDictionary *)dic {
++ (NSString*)dictionaryToJson:(NSDictionary *)dic {
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
     NSString *base =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -318,7 +324,7 @@
 }
 
 #pragma mark json fromat string => NSDictioinary
-+(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
     
     if (jsonString == nil) {
         return nil;
