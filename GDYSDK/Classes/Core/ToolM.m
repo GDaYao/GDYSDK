@@ -367,7 +367,10 @@
 
 
 
-#pragma mark - alert show
+#pragma mark - alert show | ActionSheet
+/**
+ Alert show
+ */
 + (void)showAlertViewWithoutVCTitle:(NSString *)title message:(NSString *)msg okBtnStr:(NSString *)okStr cancelBtnStr:(NSString *)cancelStr{
     
     
@@ -394,6 +397,34 @@
     }
     [selfVC presentViewController:alertVC animated:YES completion:nil];
 }
+
+/**
+ ActionSheet
+ because of `otherButtonTitles` parameter number isn't determinate.
+ */
+- (void)showActionSheetWithTitle:(NSString *)titleStr delegate:(id)deleSelf cancelBtn:(NSString *)cancelBtnTitle destructiveBtn:(NSString *)destruBtnTitle OtherBtn:(NSString *)otherBtnStr showView:(UIView *)showV{
+    [[[UIActionSheet alloc] initWithTitle:titleStr
+                                 delegate:deleSelf
+                        cancelButtonTitle:cancelBtnTitle
+                   destructiveButtonTitle:destruBtnTitle
+                        otherButtonTitles:otherBtnStr] showInView:showV];
+}
+// action delegate,so need subclass <UIActionSheet>
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // you need three custome method
+    SEL selectors[] = {
+        @selector(actionOne),
+        @selector(actionTwo),
+    };
+    NSLog(@"%ld----%ld-------%ld",buttonIndex,sizeof(selectors),sizeof(SEL));
+    if (buttonIndex < sizeof(selectors) / sizeof(SEL)) {
+        //  方法名 -> 方法id -> 方法内存地址 -> 根据方法地址调用方法
+        void(*imp)(id, SEL) = (typeof(imp))[self methodForSelector:selectors[buttonIndex]];
+        imp(self, selectors[buttonIndex]);
+    }
+    
+}
+
 
 
 #pragma mark - judge machine type

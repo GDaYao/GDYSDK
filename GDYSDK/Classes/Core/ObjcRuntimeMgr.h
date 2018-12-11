@@ -1,9 +1,8 @@
 //
 //  ObjcRuntimeMgr.h
-//  AFNetworking
-//
-//  Created by AHZX on 2018/12/11.
-//
+
+// func: save or provide interface for runtime method.
+
 
 #import <Foundation/Foundation.h>
 
