@@ -29,6 +29,10 @@
 		0FE7D8B321B6350E00C178F2 /* UIPickerView+CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE7D8B121B6350E00C178F2 /* UIPickerView+CustomPickerView.m */; };
 		0FE7D8B621B6774000C178F2 /* UIScrollViewBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE7D8B421B6774000C178F2 /* UIScrollViewBanner.m */; };
 		0FE7D8B721B6774000C178F2 /* UIScrollViewBanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FE7D8B521B6774000C178F2 /* UIScrollViewBanner.h */; };
+		0FF1FDEC21C0BBC600E72B2B /* UISlider+CustomSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FF1FDEA21C0BBC600E72B2B /* UISlider+CustomSlider.h */; };
+		0FF1FDED21C0BBC600E72B2B /* UISlider+CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1FDEB21C0BBC600E72B2B /* UISlider+CustomSlider.m */; };
+		0FF1FDF321C1063A00E72B2B /* OtherRecordMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FF1FDF121C1063A00E72B2B /* OtherRecordMgr.h */; };
+		0FF1FDF421C1063A00E72B2B /* OtherRecordMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1FDF221C1063A00E72B2B /* OtherRecordMgr.m */; };
 		11EAB2A17E2712DB04831AD0FFD6A5DB /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A821F310F9CBCED06C1D6DEC3103B24 /* AFURLResponseSerialization.m */; };
 		137A6E8841A2429C00CBFA701695197E /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3C1AE13FE37CFF6F471AF2B1E701D /* AFNetworkReachabilityManager.m */; };
 		15304B6383EF69EC4E3DE45F8613BE2E /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = C90CE9B626C1720C9ADB8FF999E47D68 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -187,6 +191,10 @@
 		0FE7D8B121B6350E00C178F2 /* UIPickerView+CustomPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIPickerView+CustomPickerView.m"; path = "GDYSDK/Classes/Core/UIPickerView+CustomPickerView.m"; sourceTree = "<group>"; };
 		0FE7D8B421B6774000C178F2 /* UIScrollViewBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewBanner.m; path = GDYSDK/Classes/Core/UIScrollViewBanner.m; sourceTree = "<group>"; };
 		0FE7D8B521B6774000C178F2 /* UIScrollViewBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewBanner.h; path = GDYSDK/Classes/Core/UIScrollViewBanner.h; sourceTree = "<group>"; };
+		0FF1FDEA21C0BBC600E72B2B /* UISlider+CustomSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UISlider+CustomSlider.h"; path = "GDYSDK/Classes/Core/UISlider+CustomSlider.h"; sourceTree = "<group>"; };
+		0FF1FDEB21C0BBC600E72B2B /* UISlider+CustomSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UISlider+CustomSlider.m"; path = "GDYSDK/Classes/Core/UISlider+CustomSlider.m"; sourceTree = "<group>"; };
+		0FF1FDF121C1063A00E72B2B /* OtherRecordMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OtherRecordMgr.h; path = GDYSDK/Classes/Core/OtherRecordMgr.h; sourceTree = "<group>"; };
+		0FF1FDF221C1063A00E72B2B /* OtherRecordMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OtherRecordMgr.m; path = GDYSDK/Classes/Core/OtherRecordMgr.m; sourceTree = "<group>"; };
 		1174ABA877619CC640989D6AC9A07DF1 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
 		1288210A792A9CBA8E50B510BE77639D /* UIImage+Rotate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Rotate.m"; path = "GDYSDK/Classes/Core/UIImage+Rotate.m"; sourceTree = "<group>"; };
 		14B3097F5CC80EBFD48E8B5D60F9CCFB /* FileToolMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FileToolMgr.m; path = GDYSDK/Classes/Core/FileToolMgr.m; sourceTree = "<group>"; };
@@ -427,6 +435,8 @@
 				7341C8B2F63CD61ABD9D071121DF66CB /* Constant.h */,
 				96A2576AE540D4B5DA6D2E979C00AC2F /* CustomSlider.h */,
 				B9C4C44CF40B68455198D4BCF699C05C /* CustomSlider.m */,
+				0FF1FDEA21C0BBC600E72B2B /* UISlider+CustomSlider.h */,
+				0FF1FDEB21C0BBC600E72B2B /* UISlider+CustomSlider.m */,
 				E58A3B236B36589F62DA261BCACA181D /* GDYReachability.h */,
 				91DA01ECBA1915554286A7E5C9494F00 /* GDYReachability.m */,
 				ADDC1DA4C809CBD807AF0262D1FD27CF /* GDYSDK.h */,
@@ -491,6 +501,8 @@
 				0FA72BA721BA6122000D4AC7 /* PaymentMgr.m */,
 				0F52884821BF944F001BC3C4 /* ObjcRuntimeMgr.h */,
 				0F52884921BF944F001BC3C4 /* ObjcRuntimeMgr.m */,
+				0FF1FDF121C1063A00E72B2B /* OtherRecordMgr.h */,
+				0FF1FDF221C1063A00E72B2B /* OtherRecordMgr.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -739,6 +751,8 @@
 				0FDD4D3121B514F200F93BD7 /* GDYBase64.h in Headers */,
 				0F52884A21BF944F001BC3C4 /* ObjcRuntimeMgr.h in Headers */,
 				CB633AF10D27AD0971F3E34470B0BB01 /* UIWebView+AFNetworking.h in Headers */,
+				0FF1FDEC21C0BBC600E72B2B /* UISlider+CustomSlider.h in Headers */,
+				0FF1FDF321C1063A00E72B2B /* OtherRecordMgr.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +918,7 @@
 				0FDD4D3321B514F200F93BD7 /* GDYBase64.m in Sources */,
 				0FE7D8B321B6350E00C178F2 /* UIPickerView+CustomPickerView.m in Sources */,
 				CB3CA20E3732A095F5515E0621D8719C /* AFURLRequestSerialization.m in Sources */,
+				0FF1FDED21C0BBC600E72B2B /* UISlider+CustomSlider.m in Sources */,
 				0FA72BA921BA6122000D4AC7 /* PaymentMgr.m in Sources */,
 				11EAB2A17E2712DB04831AD0FFD6A5DB /* AFURLResponseSerialization.m in Sources */,
 				0D58399A6DC61099900309A4449F7891 /* AFURLSessionManager.m in Sources */,
@@ -911,6 +926,7 @@
 				CB3028664CA23A1480C18C7A86CFDAF4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				402EB64C59857FE252DC98844643C420 /* UIButton+AFNetworking.m in Sources */,
 				41FD4D0D6101210E26DDDCDD17FBB7C3 /* UIImageView+AFNetworking.m in Sources */,
+				0FF1FDF421C1063A00E72B2B /* OtherRecordMgr.m in Sources */,
 				DF74915F8F367134FA4277BE9A2F52DB /* UIProgressView+AFNetworking.m in Sources */,
 				00ED59EE2784CE922358E57E241A6C75 /* UIRefreshControl+AFNetworking.m in Sources */,
 				0FE7D8B621B6774000C178F2 /* UIScrollViewBanner.m in Sources */,
