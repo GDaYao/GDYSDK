@@ -8,11 +8,18 @@
 
 
 #pragma mark - screen rotate
-// AppDelegate.m set support interface orientation.
+/**
+* 1. AppDelegate.m set support interface orientation.
+ */
 // support interface
 //- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
 //    return UIInterfaceOrientationMaskAll;
 //}
+/**
+ * 2. 下面的3个方法如果是在有UINavigationController/UITabBarController时，需要在根控制器中设置调用下面的三个方法（在其它控制器直接创建使用，系统不会主动触发调用）
+ * 或者解决某个控制器旋转可以实现继承自rootVC，实现`shouldAutorotate`xxx
+ * 或者使用通知在`viewWillAppear`,`viewWillDisappear`发送通知，因为系统会在进入新的控制器实现主动调用下面的三个方法。
+*/
 - (BOOL)shouldAutorotate{
     return NO;
 }
@@ -23,6 +30,29 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
     return UIInterfaceOrientationPortrait;
 }
+/**
+ * 3. 强制某个时刻旋转屏幕 --
+ */
+// method 1
+- (void)implementInTapRotateScreen{
+    NSNumber *value = [NSNumber numberWithInt:UIDeviceOrientationLandscapeLeft];
+    [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
+    [UIViewController attemptRotationToDeviceOrientation];
+}
+// method 2
+- (void)changeInterfaceOrientationTo:(UIInterfaceOrientation)orientation
+{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector             = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val                  = orientation;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
+}
+
 
 
 
