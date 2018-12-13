@@ -53,24 +53,40 @@
     }
 }
 /**
- *  4. 旋转后触发的方法
+ *  4. 旋转触发的方法
  */
+// 视图发生了大小改变的时候会调用此方法   大小改变 == 横竖切换 (iOS8,*)
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{}
-
+// deprecated 将要旋转到某个方向的时候调用此方法(iOS8之前)
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{}
 
 #pragma mark - layout
 /**
  *  在VC中布局界面
  */
+- (void)viewWillLayoutSubviews{}
 - (void)viewDidLayoutSubviews{}
 /**
  * 在view中布局界面
+ ①、直接调用setLayoutSubviews。
+ ②、addSubview的时候触发layoutSubviews。
+ ③、当view的frame发生改变的时候触发layoutSubviews。
+ ④、第一次滑动UIScrollView的时候触发layoutSubviews。
+ ⑤、旋转Screen会触发父UIView上的layoutSubviews事件。
+ ⑥、改变一个UIView大小的时候也会触发父UIView上的layoutSubviews事件。
+ 7、屏幕发生旋转时也会调用。
+ init初始化不会触发layoutSubviews，但是使用initWithFrame进行初始化时，当rect的值不为CGRectZero时，也会触发。
  */
 - (void)layoutSubviews{}
 /**
- * 强制进行提前布局 -- 可作为属性直接调用
+ * 强制更新布局，你可以调用`setNeedsLayout`方法
+ */
+- (void)setNeedsLayout{}
+/**
+ * 强制进行提前布局/立即显示views -- 可作为属性直接调用
  */
 - (void)layoutIfNeeded{}
+
 
 
 #pragma mark - 隐藏状态栏
@@ -86,6 +102,12 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;  //隐藏为YES，显示为NO
+}
+
+
+#pragma mark - 计算Lab/text/string 所占宽度
++ (void)caculateLabOrTextStringSize:(NSString *)labText rangeWidth:(UIView *)rangeSelf{
+    CGSize leRepLabSize = [labText boundingRectWithSize:CGSizeMake(rangeSelf.bounds.size.width, __FLT_MAX__) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size;
 }
 
 

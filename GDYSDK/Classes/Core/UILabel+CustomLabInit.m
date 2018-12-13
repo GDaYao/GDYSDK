@@ -25,7 +25,6 @@
     lab.textAlignment = txAlignment;
     lab.numberOfLines = 0;
     return lab;
-
 }
 
 

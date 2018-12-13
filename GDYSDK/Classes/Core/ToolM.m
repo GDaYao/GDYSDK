@@ -174,10 +174,6 @@
     return timeStr;
 }
 
-
-
-
-
 #pragma mark get timestamp 
 + (long)currentTimestamp{
     // timestamp --- thirteen number is 'ms' | ten number is 's'
