@@ -92,7 +92,7 @@
 
 
 #pragma mark - ---- time ----
-#pragma mark get time string from int time
+#pragma mark get time string from int time. s ==> 00:00:00
 + (NSString *)getHourMintueSecondStringFromIntTime:(NSInteger)integerTime{
     NSInteger H=0;
     NSInteger M=0;
@@ -128,6 +128,60 @@
     NSString *timeStr = [NSString stringWithFormat:@"%@:%@:%@",HStr,MStr,SStr];
     return timeStr;
 }
+#pragma mark get differ time string from int time. s ==> 00:00:00| 00:00 | 00
++ (NSString *)getDifferHourMintueSecondStringFromIntTime:(NSInteger)integerTime{
+    NSInteger H=0;
+    NSInteger M=0;
+    NSInteger S=0;
+    if (integerTime >= 3600) {
+        H = integerTime / 3600;
+        M = (integerTime - 3600)/60;
+        S = (integerTime -3600)%60;
+    }else{
+        H = 0;
+        M = integerTime / 60;
+        S = integerTime % 60;
+    }
+    NSString *HStr;
+    NSString *MStr;
+    NSString *SStr;
+    
+    BOOL hBool = NO;
+    BOOL mBool = NO;
+    if (H == 0) {
+        hBool = YES;
+    }else  if (H<=9) {
+        HStr = [NSString stringWithFormat:@"0%ld",H];
+    }else{
+        HStr = [NSString stringWithFormat:@"%ld",H];
+    }
+    
+    if (M == 0) {
+        mBool = YES;
+    }else  if (M<=9) {
+        MStr = [NSString stringWithFormat:@"0%ld",M];
+    }else{
+        MStr = [NSString stringWithFormat:@"%ld",M];
+    }
+    if (S<=9) {
+        SStr = [NSString stringWithFormat:@"0%ld",S];
+    }else{
+        SStr = [NSString stringWithFormat:@"%ld",S];
+    }
+    
+    NSString *timeStr;
+    if (hBool) {
+        timeStr = [NSString stringWithFormat:@"%@:%@",MStr,SStr];
+    }else if(mBool){
+        timeStr = [NSString stringWithFormat:@"%@",SStr];
+    }else{
+       timeStr = [NSString stringWithFormat:@"%@:%@:%@",HStr,MStr,SStr];
+    }
+    return timeStr;
+}
+
+
+
 #pragma mark get timestamp 
 + (long)currentTimestamp{
     // timestamp --- thirteen number is 'ms' | ten number is 's'

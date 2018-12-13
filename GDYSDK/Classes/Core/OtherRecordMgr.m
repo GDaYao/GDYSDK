@@ -12,9 +12,9 @@
 * 1. AppDelegate.m set support interface orientation.
  */
 // support interface
-//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
-//    return UIInterfaceOrientationMaskAll;
-//}
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    return UIInterfaceOrientationMaskAll;
+}
 /**
  * 2. 下面的3个方法如果是在有UINavigationController/UITabBarController时，需要在根控制器中设置调用下面的三个方法（在其它控制器直接创建使用，系统不会主动触发调用）
  * 或者解决某个控制器旋转可以实现继承自rootVC，实现`shouldAutorotate`xxx
@@ -52,11 +52,44 @@
         [invocation invoke];
     }
 }
+/**
+ *  4. 旋转后触发的方法
+ */
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{}
 
 
+#pragma mark - layout
+/**
+ *  在VC中布局界面
+ */
+- (void)viewDidLayoutSubviews{}
+/**
+ * 在view中布局界面
+ */
+- (void)layoutSubviews{}
+/**
+ * 强制进行提前布局 -- 可作为属性直接调用
+ */
+- (void)layoutIfNeeded{}
 
 
-#pragma mark  验证码定时器
+#pragma mark - 隐藏状态栏
+/**
+ * 1. 全部界面都隐藏
+ * 设置 `Info.plist` Status bar is initially hidden   （value：YES) ||  View controller-based status bar appearance   (value:NO)
+ */
+
+/**
+ * 2. 某个界面隐藏导航栏
+ *  需要隐藏导航栏的地方 调用 -- [self setNeedsStatusBarAppearanceUpdate];
+ */
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;  //隐藏为YES，显示为NO
+}
+
+
+#pragma mark  - 验证码定时器
 /*
  - (void)startTime:(UIButton *)button
  {
