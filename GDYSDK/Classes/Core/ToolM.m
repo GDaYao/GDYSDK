@@ -114,7 +114,6 @@
     }else{
         HStr = [NSString stringWithFormat:@"%ld",H];
     }
-    
     if (M<=9) {
         MStr = [NSString stringWithFormat:@"0%ld",M];
     }else{
@@ -125,10 +124,11 @@
     }else{
         SStr = [NSString stringWithFormat:@"%ld",S];
     }
+    
     NSString *timeStr = [NSString stringWithFormat:@"%@:%@:%@",HStr,MStr,SStr];
     return timeStr;
 }
-#pragma mark get differ time string from int time. s ==> 00:00:00| 00:00 | 00
+#pragma mark get differ time string from int time. s ==> 00:00:00| 00:00
 + (NSString *)getDifferHourMintueSecondStringFromIntTime:(NSInteger)integerTime{
     NSInteger H=0;
     NSInteger M=0;
@@ -147,7 +147,6 @@
     NSString *SStr;
     
     BOOL hBool = NO;
-    BOOL mBool = NO;
     if (H == 0) {
         hBool = YES;
     }else  if (H<=9) {
@@ -155,10 +154,7 @@
     }else{
         HStr = [NSString stringWithFormat:@"%ld",H];
     }
-    
-    if (M == 0) {
-        mBool = YES;
-    }else  if (M<=9) {
+   if (M<=9) {
         MStr = [NSString stringWithFormat:@"0%ld",M];
     }else{
         MStr = [NSString stringWithFormat:@"%ld",M];
@@ -172,13 +168,13 @@
     NSString *timeStr;
     if (hBool) {
         timeStr = [NSString stringWithFormat:@"%@:%@",MStr,SStr];
-    }else if(mBool){
-        timeStr = [NSString stringWithFormat:@"%@",SStr];
     }else{
        timeStr = [NSString stringWithFormat:@"%@:%@:%@",HStr,MStr,SStr];
     }
     return timeStr;
 }
+
+
 
 
 
