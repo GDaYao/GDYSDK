@@ -60,6 +60,7 @@
 // deprecated 将要旋转到某个方向的时候调用此方法(iOS8之前)
 //- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{}
 
+
 #pragma mark - layout
 /**
  *  在VC中布局界面
@@ -192,6 +193,10 @@
  
  **/
 
+
+
+
+
 #pragma mark - set Info.plist default
 /**
  Info.plist add some authority
@@ -201,6 +206,10 @@
  <key>NSAllowsArbitraryLoads</key>
  <true/>
  </dict>
+ <key>NSPhotoLibraryAddUsageDescription</key>
+ <string>App需要您的同意,才能访问媒体资料库</string>
+ <key>NSPhotoLibraryUsageDescription</key>
+ <string>App需要您的同意,才能访问媒体资料库</string>
  <key>NSAppleMusicUsageDescription</key>
  <string>App需要您的同意,才能访问媒体资料库</string>
  <key>NSBluetoothPeripheralUsageDescription</key>
