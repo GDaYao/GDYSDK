@@ -111,6 +111,39 @@
     CGSize leRepLabSize = [labText boundingRectWithSize:CGSizeMake(rangeSelf.bounds.size.width, __FLT_MAX__) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size;
 }
 
+#pragma mark - json ==> model 的三种方法
++ (NSArray *)threeMethodJsonDataArrToModel:(NSArray *)dataArr{
+    NSArray *returnArr = [NSArray array];
+    
+    NSMutableArray *modelMutArr = [NSMutableArray array];
+    // 1. NSArrat 枚举器 enumerate
+//    [dataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        [modelMutArr addObject:[[Model alloc]initWithDictionary:obj]]; // 注意在 initWithDictionary:方法中是在Model自定义的方法需要对每个model进行赋值操作
+//    }];
+    
+    // 2. KVC使用
+//    Model *model = [[Model alloc]init];
+//    for (int i= 0; i<dataArr.count; i++) {
+//        [model setValuesForKeysWithDictionary:dataArr[i]];
+//        [modelMutArr addObject:model];
+//    }
+    
+    // 3.
+    //    for (int i= 0; i<dataArr.count; i++) {
+    //        MyOrderModel *model = [[MyOrderModel alloc]init];
+    //        model.createtime = [myOrderData[i] objectForKey:@"createtime"];
+    //        model.reportpath = [myOrderData[i] objectForKey:@"reportpath"];
+    //        model.reportid = [myOrderData[i] objectForKey:@"reportid"];
+    //        model.reportname = [myOrderData[i] objectForKey:@"reportname"];
+    //        model.entname = [myOrderData[i] objectForKey:@"entname"];
+    //        model.reportTypeStr = [myOrderData[i] objectForKey:@"reporttype"];
+    //        [modelMutArr addObject:model];
+    //    }
+    
+    returnArr = [modelMutArr copy];
+    return returnArr;
+}
+
 
 #pragma mark  - 验证码定时器
 /*
