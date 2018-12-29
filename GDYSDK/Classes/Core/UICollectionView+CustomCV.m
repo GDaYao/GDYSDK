@@ -48,7 +48,10 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
      CustomCollectionViewCell *cell = (MyWorkCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kDefaultCellIdentifier forIndexPath:indexPath]; // kDefaultCellIdentifier is equal to top.
  }
  - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
- 
+ //返回这个 `UICollectionView`某个cell 是否可以被选择
+ -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+ }
  
  */
 
