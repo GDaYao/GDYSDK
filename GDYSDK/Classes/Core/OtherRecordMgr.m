@@ -233,6 +233,7 @@
 #pragma mark - set Info.plist default
 /**
  Info.plist add some authority
+ 
  ----
  <key>NSAppTransportSecurity</key>
  <dict>
@@ -257,6 +258,15 @@
  <string>App需要您的同意,才能在使用期间访问位置</string>
  <key>NSMicrophoneUsageDescription</key>
  <string>App需要您的同意,才能访问麦克风</string>
+ 
+ // 设置锁屏播放模式
+ <key>UIBackgroundModes</key>
+ <array>
+ <string>audio</string>
+ <string>fetch</string>
+ <string>remote-notification</string>
+ <string>voip</string>
+ </array>
  ----
  
  */
