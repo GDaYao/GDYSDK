@@ -37,7 +37,7 @@ function: 网络监测方法
  [self alertShow:NSLocalizedString(@"noNetwokingMsg", @"您的网络已断开，请开启网络以便给您更好的体验！")];
  }
  
- [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addObserveNetWorkIsChange:) name:kReachabilityChangedNotification object:nil];
+ [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addObserveNetWorkIsChange:) name:kReachabilityChangedNotificationInGDY object:nil];
  // 获取访问指定站点的Reachability的对象
  GDYReachability *hostReach=[GDYReachability reachabilityForInternetConnection];
  // 让Reachability对象开启被监听状态
@@ -65,7 +65,7 @@ function: 网络监测方法
 #define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
 #endif
 
-extern NSString *const kReachabilityChangedNotification;
+extern NSString *const kReachabilityChangedNotificationInGDY;
 
 typedef NS_ENUM(NSInteger, NetworkStatus) {
     // Apple NetworkStatus Compatible Names.
