@@ -34,7 +34,7 @@
 #import <ifaddrs.h>
 #import <netdb.h>
 
-
+// notification name 监听名已改变
 NSString *const kReachabilityChangedNotificationInGDY = @"kReachabilityChangedNotification";
 
 

@@ -65,6 +65,7 @@ function: 网络监测方法
 #define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
 #endif
 
+// 注意const常量这里的监听名已改变
 extern NSString *const kReachabilityChangedNotificationInGDY;
 
 typedef NS_ENUM(NSInteger, NetworkStatus) {
