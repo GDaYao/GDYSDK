@@ -226,6 +226,12 @@
  
  **/
 
+#pragma mark - 生成跳转AppStore链接地址 + App更新的相关信息
+/**
+ *  https://itunes.apple.com/app/id1061880281 
+ *  http://itunes.apple.com/lookup?id=1061880281
+ */
+
 
 
 

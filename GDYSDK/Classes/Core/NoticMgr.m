@@ -36,7 +36,7 @@
 }
 
 
-#pragma mark -  set specifilly 'int time'
+#pragma mark set specifilly 'int time'
 + (void)addAppNoticWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticWeekday:(NSInteger)weekdayTime hour:(NSInteger)hourTime{
     
     if (@available(iOS 10.0, *)) {
