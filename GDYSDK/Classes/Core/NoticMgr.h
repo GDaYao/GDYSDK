@@ -2,14 +2,20 @@
 //  NoticMgr.h
 
 // func: manager or create app notic(two method)
-
+/**
+ *  notic manager class only show add notic(通知) method.
+ *  so this isn't register notic and trigger notic action.(所以这里没有给出在AppDelegate class中注册通知的方法并且没有通知触发后的相应行为方法)
+ */
 
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NoticMgr : NSObject
+
+
 
 #pragma mark - ---- 'UNUserNotificationCenter' ----
 #pragma mark send UNUser notic use 'UNUserNotificationCenter'
