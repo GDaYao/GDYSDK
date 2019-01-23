@@ -246,22 +246,34 @@
  <key>NSAllowsArbitraryLoads</key>
  <true/>
  </dict>
- <key>NSPhotoLibraryAddUsageDescription</key>
- <string>App需要您的同意,才能访问媒体资料库</string>
+ 
+// 获得访问相册权限
  <key>NSPhotoLibraryUsageDescription</key>
  <string>App需要您的同意,才能访问媒体资料库</string>
+ <key>NSPhotoLibraryAddUsageDescription</key>
+ <string>App需要您的同意,才能访问媒体资料库</string>
+ 
+ // apple music 访问媒体资料库
  <key>NSAppleMusicUsageDescription</key>
  <string>App需要您的同意,才能访问媒体资料库</string>
+ 
+ // 获得蓝牙权限
  <key>NSBluetoothPeripheralUsageDescription</key>
  <string>App需要您的同意,才能访问蓝牙</string>
+ 
+  // 获得访问相机权限
  <key>NSCameraUsageDescription</key>
  <string>需要访问相机，是否允许</string>
+ 
+ // 获得位置权限
  <key>NSLocationAlwaysUsageDescription</key>
  <string>App需要您的同意,才能始终访问位置</string>
  <key>NSLocationUsageDescription</key>
  <string>App需要您的同意,才能访问位置</string>
  <key>NSLocationWhenInUseUsageDescription</key>
  <string>App需要您的同意,才能在使用期间访问位置</string>
+ 
+ // 获得访问麦克风权限
  <key>NSMicrophoneUsageDescription</key>
  <string>App需要您的同意,才能访问麦克风</string>
  
@@ -273,6 +285,12 @@
  <string>remote-notification</string>
  <string>voip</string>
  </array>
+ 
+ 
+ // 获取通讯录权限
+ <key>NSContactsUsageDescription</key>
+ <string>App需要您的同意，才能访问你的通讯录</string>
+ 
  ----
  
  */
