@@ -250,8 +250,10 @@
 // 获得访问相册权限
  <key>NSPhotoLibraryUsageDescription</key>
  <string>App需要您的同意,才能访问媒体资料库</string>
+ 
+ // 添加图片到相册
  <key>NSPhotoLibraryAddUsageDescription</key>
- <string>App需要您的同意,才能访问媒体资料库</string>
+ <string>App需要你的同意才能添加到媒体资料库！</string>
  
  // apple music 访问媒体资料库
  <key>NSAppleMusicUsageDescription</key>
@@ -290,6 +292,10 @@
  // 获取通讯录权限
  <key>NSContactsUsageDescription</key>
  <string>App需要您的同意，才能访问你的通讯录</string>
+ 
+ // 访问麦克风权限
+ <key>NSMicrophoneUsageDescription</key>
+ <string>App需要你的同意才能存储数据！</string>
  
  ----
  
