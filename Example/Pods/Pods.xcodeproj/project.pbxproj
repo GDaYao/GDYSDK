@@ -79,6 +79,8 @@
 		78F5D40D5B8E9FC40FB257953EA945BA /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81F5B5A19D6F63D51E00BB9E746058 /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D6F4A8C5D40E8E155D5A6A0FC224199 /* UIImage+WaterImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC9A750886A0651AF7BFB515D04BD0 /* UIImage+WaterImg.m */; };
 		805DC9FBA4F701368E5F3CA480F8DFF4 /* UIImage+CustomImg.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1A50486BC1FE8A01216CC73A40CFC0 /* UIImage+CustomImg.m */; };
+		83685059224A8630000C3EEA /* SubclassTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 83685057224A8630000C3EEA /* SubclassTableView.h */; };
+		8368505A224A8630000C3EEA /* SubclassTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83685058224A8630000C3EEA /* SubclassTableView.m */; };
 		8826A0887EEE1A618FA3BA34989E05B5 /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDA8AF76C621B960F8FD96A1110EDAC /* AFNetworking-dummy.m */; };
 		88A52F2DE87FAAEF79B420CC9B6BDE80 /* AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24C7927FC72A5B653399DAD8E5CB50F5 /* AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AD9F8FE36978CB4348E402207950883 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6361979267EDE0860632095FC6EA4D87 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -254,6 +256,8 @@
 		7CBDCA4B788E137B30FD6DD944AF001B /* AFNetworking-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AFNetworking-Info.plist"; sourceTree = "<group>"; };
 		7CD898B200317BCBBD721469369214C9 /* NoticMgr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NoticMgr.h; path = GDYSDK/Classes/Core/NoticMgr.h; sourceTree = "<group>"; };
 		7E333E69317C0FFFB01F23C7F78E51D9 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
+		83685057224A8630000C3EEA /* SubclassTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubclassTableView.h; path = GDYSDK/Classes/Core/SubclassTableView.h; sourceTree = "<group>"; };
+		83685058224A8630000C3EEA /* SubclassTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SubclassTableView.m; path = GDYSDK/Classes/Core/SubclassTableView.m; sourceTree = "<group>"; };
 		8978B9CB2CAE4B62B62C13D125B0EF51 /* UIBadgeLable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBadgeLable.m; path = GDYSDK/Classes/Core/UIBadgeLable.m; sourceTree = "<group>"; };
 		8986F1E5B2471E24D3D1390609469175 /* UILabel+CustomLabInit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+CustomLabInit.h"; path = "GDYSDK/Classes/Core/UILabel+CustomLabInit.h"; sourceTree = "<group>"; };
 		8AC582E2365F0D0291FB496DF7616C4E /* UICollectionView+CustomCV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+CustomCV.h"; path = "GDYSDK/Classes/Core/UICollectionView+CustomCV.h"; sourceTree = "<group>"; };
@@ -476,6 +480,8 @@
 				0025BA7DDFB810269B5A15FF2FAA1CF8 /* UITabBarItem+Badge.m */,
 				BB58B8503C05DE696A9C600A7245BD75 /* UITableView+CustomTV.h */,
 				45C5AA94D2029C0184075A7A7C08AADA /* UITableView+CustomTV.m */,
+				83685057224A8630000C3EEA /* SubclassTableView.h */,
+				83685058224A8630000C3EEA /* SubclassTableView.m */,
 				AEA599910E0F7D0DD3632A0359DE37A2 /* UIView+Badge.h */,
 				4D8B928D0F42F93FC5A4B4409E18B803 /* UIView+Badge.m */,
 				AD82103FC708E6DC5C2D8F3DCE9FD8CA /* UIView+CustomView.h */,
@@ -736,6 +742,7 @@
 				66340E06FB146280E83112B966E563C3 /* AFNetworkReachabilityManager.h in Headers */,
 				901790CB7729E8871AE5DE99E486792B /* AFSecurityPolicy.h in Headers */,
 				0FDD4D2C21B4DE9800F93BD7 /* EncryptMgr.h in Headers */,
+				83685059224A8630000C3EEA /* SubclassTableView.h in Headers */,
 				0FE7D8B221B6350E00C178F2 /* UIPickerView+CustomPickerView.h in Headers */,
 				D491FD44351A11016A957CA81ABE0EC5 /* AFURLRequestSerialization.h in Headers */,
 				2E68973739E2AE713059A22F94238C60 /* AFURLResponseSerialization.h in Headers */,
@@ -925,6 +932,7 @@
 				0F52884B21BF944F001BC3C4 /* ObjcRuntimeMgr.m in Sources */,
 				CB3028664CA23A1480C18C7A86CFDAF4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				402EB64C59857FE252DC98844643C420 /* UIButton+AFNetworking.m in Sources */,
+				8368505A224A8630000C3EEA /* SubclassTableView.m in Sources */,
 				41FD4D0D6101210E26DDDCDD17FBB7C3 /* UIImageView+AFNetworking.m in Sources */,
 				0FF1FDF421C1063A00E72B2B /* OtherRecordMgr.m in Sources */,
 				DF74915F8F367134FA4277BE9A2F52DB /* UIProgressView+AFNetworking.m in Sources */,

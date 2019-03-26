@@ -53,11 +53,13 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
 
  // add data or UITableViewCell init,determine cell show content.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+ // 1. custom class for use
  HomeTableViewCell *tableViewCell=(HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
  if (tableViewCell == nil) {
     tableViewCell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier]; // kDefaultCellIdentifier is equal to top.
     }
  
+ // 2. custom with sb/xib for use
  //static NSString *cellId = @"ShopTaskTableViewCell";
  //ShopTaskTableViewCell *shopTaskCell = (ShopTaskTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
  // if (shopTaskCell == nil) {
