@@ -19,6 +19,8 @@
     }
     if(fontName &&  (fontSize != 0)){
         lab.font = [UIFont fontWithName:fontName size:fontSize];
+    }else if(!fontName && (fontSize !=0)){
+        lab.font = [UIFont systemFontOfSize:fontSize];
     }
     lab.text = labText;
     lab.textColor = txC;
