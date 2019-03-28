@@ -20,7 +20,11 @@
     UISegmentedControl *segCon = [[UISegmentedControl alloc]initWithItems:itemsArray];
     segCon.frame = segFrame;
     segCon.selectedSegmentIndex = selectedIndex;
-    segCon.tintColor = [UIColor darkGrayColor];
+    if (tintColor) {
+        segCon.tintColor = tintColor;
+    }else{
+        segCon.tintColor = [UIColor darkGrayColor];
+    }
     return segCon;
 }
 
