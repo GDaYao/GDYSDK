@@ -179,9 +179,16 @@
 #pragma mark NSTimer定时器
 
 /*
- //                    weakSelf.sendPhoneTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:weakSelf selector:@selector(runloopTimeSecondSendPhone) userInfo:nil repeats:YES];
- //                    [[NSRunLoop currentRunLoop] addTimer:weakSelf.sendPhoneTimer forMode:NSRunLoopCommonModes];
- //                    [[NSRunLoop currentRunLoop] run];
+ 1. scheduledTimerWithTimeInterval
+        self.sendPhoneTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:weakSelf selector:@selector(runloopTimeSecondSendPhone) userInfo:nil repeats:YES];
+ 
+ 2.
+    self.sendPhoneTimer =[NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(updataTimer) userInfo:nil repeats:YES];
+     [[NSRunLoop currentRunLoop] addTimer:self.sendPhoneTimer forMode:NSRunLoopCommonModes];
+     [[NSRunLoop currentRunLoop] run];
+ 
+ 
+ 
  
  - (void)runloopTimeSecondSendPhone{
  if (self.sendPhoneTimer && self.sendEmailBtnInVC) {

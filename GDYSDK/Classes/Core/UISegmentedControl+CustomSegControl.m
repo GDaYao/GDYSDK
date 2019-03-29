@@ -15,7 +15,13 @@
                     imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal],
             [[UIImage imageNamed:@"yellow"]
                 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal],
-            nil]
+         nil];
+     // 正常字体颜色设置
+     NSDictionary *normalDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
+     [segCon setTitleTextAttributes:normalDic forState:UIControlStateNormal];
+     // 选中时字体颜色设置
+     NSDictionary *selectDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName,nil];
+     [segCon setTitleTextAttributes:selectDic forState:UIControlStateSelected];
      */
     UISegmentedControl *segCon = [[UISegmentedControl alloc]initWithItems:itemsArray];
     segCon.frame = segFrame;
