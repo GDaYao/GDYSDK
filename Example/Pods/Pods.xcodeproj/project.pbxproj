@@ -79,6 +79,8 @@
 		78F5D40D5B8E9FC40FB257953EA945BA /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81F5B5A19D6F63D51E00BB9E746058 /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D6F4A8C5D40E8E155D5A6A0FC224199 /* UIImage+WaterImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC9A750886A0651AF7BFB515D04BD0 /* UIImage+WaterImg.m */; };
 		805DC9FBA4F701368E5F3CA480F8DFF4 /* UIImage+CustomImg.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1A50486BC1FE8A01216CC73A40CFC0 /* UIImage+CustomImg.m */; };
+		82714E3D224F5912001DCEFD /* UISearchBar+CustomSearchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 82714E3B224F5912001DCEFD /* UISearchBar+CustomSearchBar.h */; };
+		82714E3E224F5912001DCEFD /* UISearchBar+CustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 82714E3C224F5912001DCEFD /* UISearchBar+CustomSearchBar.m */; };
 		83685059224A8630000C3EEA /* SubclassTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 83685057224A8630000C3EEA /* SubclassTableView.h */; };
 		8368505A224A8630000C3EEA /* SubclassTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83685058224A8630000C3EEA /* SubclassTableView.m */; };
 		8826A0887EEE1A618FA3BA34989E05B5 /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDA8AF76C621B960F8FD96A1110EDAC /* AFNetworking-dummy.m */; };
@@ -256,6 +258,8 @@
 		7CBDCA4B788E137B30FD6DD944AF001B /* AFNetworking-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AFNetworking-Info.plist"; sourceTree = "<group>"; };
 		7CD898B200317BCBBD721469369214C9 /* NoticMgr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NoticMgr.h; path = GDYSDK/Classes/Core/NoticMgr.h; sourceTree = "<group>"; };
 		7E333E69317C0FFFB01F23C7F78E51D9 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
+		82714E3B224F5912001DCEFD /* UISearchBar+CustomSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UISearchBar+CustomSearchBar.h"; path = "GDYSDK/Classes/Core/UISearchBar+CustomSearchBar.h"; sourceTree = "<group>"; };
+		82714E3C224F5912001DCEFD /* UISearchBar+CustomSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UISearchBar+CustomSearchBar.m"; path = "GDYSDK/Classes/Core/UISearchBar+CustomSearchBar.m"; sourceTree = "<group>"; };
 		83685057224A8630000C3EEA /* SubclassTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubclassTableView.h; path = GDYSDK/Classes/Core/SubclassTableView.h; sourceTree = "<group>"; };
 		83685058224A8630000C3EEA /* SubclassTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SubclassTableView.m; path = GDYSDK/Classes/Core/SubclassTableView.m; sourceTree = "<group>"; };
 		8978B9CB2CAE4B62B62C13D125B0EF51 /* UIBadgeLable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBadgeLable.m; path = GDYSDK/Classes/Core/UIBadgeLable.m; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 				26A20EA0DBAA0E66D4E8BF478D01E2F1 /* UIImageView+CustomImageView.m */,
 				8986F1E5B2471E24D3D1390609469175 /* UILabel+CustomLabInit.h */,
 				72567A35431AB9EF865B91D69168BFA4 /* UILabel+CustomLabInit.m */,
+				82714E3B224F5912001DCEFD /* UISearchBar+CustomSearchBar.h */,
+				82714E3C224F5912001DCEFD /* UISearchBar+CustomSearchBar.m */,
 				44A3EED3E098C8AC6662089BFAFCB2F4 /* UIScrollView+CustomScrollView.h */,
 				D50A744534F0B47D24C39F0B4E0CCB3A /* UIScrollView+CustomScrollView.m */,
 				0FE7D8B521B6774000C178F2 /* UIScrollViewBanner.h */,
@@ -756,6 +762,7 @@
 				FCB209DFAFF4721A4AA51197AB2D7016 /* UIProgressView+AFNetworking.h in Headers */,
 				15304B6383EF69EC4E3DE45F8613BE2E /* UIRefreshControl+AFNetworking.h in Headers */,
 				0FDD4D3121B514F200F93BD7 /* GDYBase64.h in Headers */,
+				82714E3D224F5912001DCEFD /* UISearchBar+CustomSearchBar.h in Headers */,
 				0F52884A21BF944F001BC3C4 /* ObjcRuntimeMgr.h in Headers */,
 				CB633AF10D27AD0971F3E34470B0BB01 /* UIWebView+AFNetworking.h in Headers */,
 				0FF1FDEC21C0BBC600E72B2B /* UISlider+CustomSlider.h in Headers */,
@@ -927,6 +934,7 @@
 				CB3CA20E3732A095F5515E0621D8719C /* AFURLRequestSerialization.m in Sources */,
 				0FF1FDED21C0BBC600E72B2B /* UISlider+CustomSlider.m in Sources */,
 				0FA72BA921BA6122000D4AC7 /* PaymentMgr.m in Sources */,
+				82714E3E224F5912001DCEFD /* UISearchBar+CustomSearchBar.m in Sources */,
 				11EAB2A17E2712DB04831AD0FFD6A5DB /* AFURLResponseSerialization.m in Sources */,
 				0D58399A6DC61099900309A4449F7891 /* AFURLSessionManager.m in Sources */,
 				0F52884B21BF944F001BC3C4 /* ObjcRuntimeMgr.m in Sources */,

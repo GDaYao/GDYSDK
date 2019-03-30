@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - change image size
 + (UIImage *)changeImgSize:(UIImage *)currentImg changeSize:(CGSize)size;
 
+#pragma mark - generate UIImage form color
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 @end
 
