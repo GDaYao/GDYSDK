@@ -53,6 +53,11 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
     return YES;
  }
  
+ // optional
+ //添加头视图
+ 
+ 
+ 
  */
 
 
