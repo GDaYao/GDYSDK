@@ -36,11 +36,13 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
  - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView;
  - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
  
-
+// item的大小
  - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;  // each `UICollectionViewCell` size.
+ // item 列间距(纵)
  - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section; // horizontal distance.
+ // //item 行间距(横)
  - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section; // vertical distance.
-// secotion距离头视图的间距
+// 定义整个CollectionViewCell 与当前secotion下 FooterView-headerView 的间距 -- 内容整体边距设置
  -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section;
  
 // UICollectionView cell content show or cell action operate.
