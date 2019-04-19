@@ -58,6 +58,9 @@ static NSString *  const kDefaultCellIdentifier = @"tableViewCellIdentifier";
 #pragma mark - cell for row
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.cellForRow(tableView,indexPath);
+    /**
+     static NSString *cellId = @"HomePageTableViewCell"; // 这里的cellId和自定义的cell相对应
+     **/
 }
 
 
