@@ -3,6 +3,10 @@
 
 // func: realized `UITableView` subclass
 
+
+// 由于扩展中不能使用扩展类“属性”，所以只能使用继承实现我们所需要的效果，可实现多个block回调实现。
+
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN

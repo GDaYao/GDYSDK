@@ -24,7 +24,7 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
     }
     mainTV.showsVerticalScrollIndicator = showV;
     mainTV.showsHorizontalScrollIndicator = showH;
-    // mainTV.separatorStyle = UITableViewCellSeparatorStyleNone;   //去除横线
+    // mainTV.separatorStyle = UITableViewCellSeparatorStyleNone;   //去除 `cell` 底部横线
     mainTV.separatorStyle = separatorStyle; // use `UITableViewCellSeparatorStyleNone` remove cell bottom line
     mainTV.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero]; // 去除多余横线
     mainTV.delegate = delegateVC;
@@ -54,18 +54,18 @@ static NSString * const kDefaultCellIdentifier = @"tableViewCellIdentifier";
  // add data or UITableViewCell init,determine cell show content.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
  // 1. custom class for use
- HomeTableViewCell *tableViewCell=(HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    CustomizeTableViewCell *tableViewCell=(CustomizeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
  if (tableViewCell == nil) {
-    tableViewCell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier]; // kDefaultCellIdentifier is equal to top.
+    tableViewCell = [[CustomizeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier]; // kDefaultCellIdentifier is equal to top.
     }
  
  // 2. custom with sb/xib for use
- //static NSString *cellId = @"ShopTaskTableViewCell";
- //ShopTaskTableViewCell *shopTaskCell = (ShopTaskTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
- // if (shopTaskCell == nil) {
- //shopTaskCell = [[ShopTaskTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+ //static NSString *cellId = @"CustomizeTableViewCell";
+ //CustomizeTableViewCell *cell = (CustomizeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
+ // if (cell == nil) {
+ //cell = [[CustomizeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
  //NSArray *nib =[[NSBundle mainBundle]loadNibNamed:cellId owner:self options:nil];
- //shopTaskCell = (ShopTaskTableViewCell *)[nib objectAtIndex:0];
+ //cell = (CustomizeTableViewCell *)[nib objectAtIndex:0];
  //}
  
  }
