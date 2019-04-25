@@ -26,10 +26,13 @@
 + (UIColor *) randomColor;
 
 
+#pragma mark - gradient color--渐变色生成
++ (CAGradientLayer *)setGradualChangingColor:(CGRect)gradientLayerFrame fromColor:(NSString *)fromHexColorStr toColor:(NSString *)toHexColorStr;
 
 
 
 
 @end
+
 
 
