@@ -17,8 +17,8 @@
 
 #define kIsPhone [[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone
 #define kIsiPhone5s  (kScreenWidth == 320.f && kScreenHeight == 568.f)
-#define kIsiPhone7And8 (kScreenWidth == 375.f && kScreenHeight == 667.f) // <==>8
-#define kIsiPhone7PAnd8P (kScreenWidth == 414.f && kScreenHeight == 736.f) // <==>8P
+#define kIsiPhone6A6sA7A8 (kScreenWidth == 375.f && kScreenHeight == 667.f)
+#define kIsiPhone6PA6sPA7PA8P (kScreenWidth == 414.f && kScreenHeight == 736.f)
 #define kIsiPhoneXSMaxAndXR  (kScreenWidth ==414.f  && kScreenHeight ==896.f)
 #define kIsiPhoneXAndXS   (kScreenWidth == 375.f && kScreenHeight == 812.f)
 #define kIsPad [[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad
