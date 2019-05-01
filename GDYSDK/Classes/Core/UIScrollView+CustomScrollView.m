@@ -1,6 +1,16 @@
 //
 //  UIScrollView+CustomScrollView.m
 
+
+/*  UIScrollView在UIViewController中，添加视图后，其内容视图会自动下移问题。
+ *
+ *  self.automaticallyAdjustsScrollViewInsets = NO;
+ *
+ */
+
+
+
+
 #import "UIScrollView+CustomScrollView.h"
 
 @implementation UIScrollView (CustomScrollView)

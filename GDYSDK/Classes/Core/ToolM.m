@@ -306,9 +306,9 @@
 #pragma mark judge illegal character (return YES-have,NO-no)
 + (BOOL)judgeTheillegalCharacter:(NSString *)content{
     NSString *str =@"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
-    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
     
-    if (![emailTest evaluateWithObject:content]) {
+    if (![predicate evaluateWithObject:content]) {
         return YES;
     }
     return NO;
