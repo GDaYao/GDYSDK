@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - app request review
 + (void)appRequestReview;
++ (void)appRequestReviewWithAppId:(NSString *)appIdStr;
+
 
 #pragma mark - In-App purchase
 
