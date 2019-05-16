@@ -85,6 +85,8 @@
 		8278F811228C17DD00F1D0AA /* SuperCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8278F80D228C17DD00F1D0AA /* SuperCollectionView.h */; };
 		8278F812228C17DD00F1D0AA /* SuperTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8278F80E228C17DD00F1D0AA /* SuperTableView.h */; };
 		8278F813228C17DD00F1D0AA /* SuperCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8278F80F228C17DD00F1D0AA /* SuperCollectionView.m */; };
+		828E997D228D1491000419FB /* PhotoMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 828E997B228D1491000419FB /* PhotoMgr.h */; };
+		828E997E228D1491000419FB /* PhotoMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 828E997C228D1491000419FB /* PhotoMgr.m */; };
 		83685059224A8630000C3EEA /* SubclassTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 83685057224A8630000C3EEA /* SubclassTableView.h */; };
 		8368505A224A8630000C3EEA /* SubclassTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83685058224A8630000C3EEA /* SubclassTableView.m */; };
 		8826A0887EEE1A618FA3BA34989E05B5 /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDA8AF76C621B960F8FD96A1110EDAC /* AFNetworking-dummy.m */; };
@@ -268,6 +270,8 @@
 		8278F80D228C17DD00F1D0AA /* SuperCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperCollectionView.h; path = GDYSDK/Classes/Core/SuperCollectionView.h; sourceTree = "<group>"; };
 		8278F80E228C17DD00F1D0AA /* SuperTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperTableView.h; path = GDYSDK/Classes/Core/SuperTableView.h; sourceTree = "<group>"; };
 		8278F80F228C17DD00F1D0AA /* SuperCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperCollectionView.m; path = GDYSDK/Classes/Core/SuperCollectionView.m; sourceTree = "<group>"; };
+		828E997B228D1491000419FB /* PhotoMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhotoMgr.h; path = GDYSDK/Classes/Core/PhotoMgr.h; sourceTree = "<group>"; };
+		828E997C228D1491000419FB /* PhotoMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PhotoMgr.m; path = GDYSDK/Classes/Core/PhotoMgr.m; sourceTree = "<group>"; };
 		83685057224A8630000C3EEA /* SubclassTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubclassTableView.h; path = GDYSDK/Classes/Core/SubclassTableView.h; sourceTree = "<group>"; };
 		83685058224A8630000C3EEA /* SubclassTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SubclassTableView.m; path = GDYSDK/Classes/Core/SubclassTableView.m; sourceTree = "<group>"; };
 		8978B9CB2CAE4B62B62C13D125B0EF51 /* UIBadgeLable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBadgeLable.m; path = GDYSDK/Classes/Core/UIBadgeLable.m; sourceTree = "<group>"; };
@@ -514,6 +518,8 @@
 				08883BEA019D269316B55099E2F2CDB1 /* NetworkMgr.m */,
 				FF807EDCC672081FAB0D871C6B71E76E /* FileToolMgr.h */,
 				14B3097F5CC80EBFD48E8B5D60F9CCFB /* FileToolMgr.m */,
+				828E997B228D1491000419FB /* PhotoMgr.h */,
+				828E997C228D1491000419FB /* PhotoMgr.m */,
 				7CD898B200317BCBBD721469369214C9 /* NoticMgr.h */,
 				F0EEDD1EACE7F30319BA049F88E1487A /* NoticMgr.m */,
 				0FDD4D2A21B4DE9800F93BD7 /* EncryptMgr.h */,
@@ -750,6 +756,7 @@
 			files = (
 				8AD9F8FE36978CB4348E402207950883 /* AFAutoPurgingImageCache.h in Headers */,
 				8278F811228C17DD00F1D0AA /* SuperCollectionView.h in Headers */,
+				828E997D228D1491000419FB /* PhotoMgr.h in Headers */,
 				3CC1558D8899A2E13A968D4C403CD793 /* AFCompatibilityMacros.h in Headers */,
 				0FE7D8B721B6774000C178F2 /* UIScrollViewBanner.h in Headers */,
 				6C7C6C542448137FC3B6CEA04386780C /* AFHTTPSessionManager.h in Headers */,
@@ -939,6 +946,7 @@
 			files = (
 				9486D80CC092F8ACB2355D5C94A155E3 /* AFAutoPurgingImageCache.m in Sources */,
 				5A4C39ACCE4CE7B6C69C736F48087759 /* AFHTTPSessionManager.m in Sources */,
+				828E997E228D1491000419FB /* PhotoMgr.m in Sources */,
 				8278F813228C17DD00F1D0AA /* SuperCollectionView.m in Sources */,
 				6A5E05D187005E863177B45D58905C71 /* AFImageDownloader.m in Sources */,
 				15F1AB626337FECD0B9CFAAD90FAC342 /* AFNetworkActivityIndicatorManager.m in Sources */,
