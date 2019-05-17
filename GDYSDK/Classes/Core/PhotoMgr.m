@@ -11,7 +11,7 @@
 
 
 
-#pragma mark - 系统相册本地图片 + 添加图片到本地相册
+#pragma mark - 选择本地图片
 // select photo from Album
 + (void)tapBtnToPopSystemAlbumWithVC:(UIViewController *)currentVC {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
@@ -31,6 +31,7 @@
     }];
 }
 
+#pragma mark -  添加图片到本地相册
 // add photo to Alubm
 + (void)addPhotoToAlbumWithImg:(UIImage *)currentImg {
     // 直接调⽤用此⽅方法，不不需要任何类或者对象调⽤用
@@ -39,9 +40,14 @@
 }
 /** delegate
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    NSString *msg = nil ; if(error != NULL){
-        msg = NSLocalizedString(@"shareToSystemPhotoFail_title", @"图⽚片保存本地相册失败"); }else{
-            msg = NSLocalizedString(@"shareToSystemPhotoSuccess_title", @"成功保存到本地相册"); }
+    NSString *msg = @"";
+    if(error != NULL){
+        msg = NSLocalizedString(@"shareToSystemPhotoFail_title", @"图⽚保存本地相册失败");
+ 
+ }else{
+            msg = NSLocalizedString(@"shareToSystemPhotoSuccess_title", @"成功保存到本地相册");
+ 
+ }
     //
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction=[UIAlertAction actionWithTitle:NSLocalizedString(@"goodJudgeBtn_title", @"好的") style:UIAlertActionStyleDefaul t handler:nil];
@@ -49,5 +55,34 @@
     [self presentViewController:alertC animated:YES completion:nil];
 }
 */
+
+
+#pragma mark - 添加视频到本地相册
+//videoPath为视频下载到本地之后的本地路径
+- (void)saveVideoToAlbum:(NSString *)videoPath{
+    if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(videoPath) ) {
+        //保存相册核心代码
+        UISaveVideoAtPathToSavedPhotosAlbum(videoPath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    }
+}
+/*
+//保存视频完成之后的回调
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSString *msg = @"";
+    if (error) {
+        NSLog(@"保存视频失败%@", error.localizedDescription);
+        msg = @"视频保存相册失败";
+    }
+    else {
+        msg = @"视频成功保存到相册";
+    }
+    //
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+    [alertC addAction:okAction];
+    [self presentViewController:alertC animated:YES completion:nil];
+}
+*/
+
 
 @end
