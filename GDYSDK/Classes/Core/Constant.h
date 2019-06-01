@@ -46,6 +46,9 @@
 #define kTabBarSafeBottomMargin       ( kIsiPhoneXOver ? 34.f : 0.f)
 #define kTabBarAndSafeMarginNum (kIsiPhoneXOver ? (49.f+34.f) : 49.f)
 
+// 可获得屏幕分辨率 screenSize.width*scale横向分辨率-screenSize.height*scale竖向分辨率
+#define kScreenScale  [UIScreen mainScreen].scale;
+
 
 /**  工程区分Debug和release,在 Build Settings 搜索,"Preprocessor Macros--> Debug-DEBUG=1(这里的DEBUG一定和判断对应)"
  `#ifdef DEBUG`不使用, `#if DEBUG`
@@ -69,6 +72,9 @@
     // device
 #endif
 
+/*  判断是否有某个宏定义    */
+#if defined(USE_SEGMENTED_MMAP)
+#endif
 
 
 
