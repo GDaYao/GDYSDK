@@ -1,7 +1,5 @@
 //
 //  UIButton+CustomBtn.m
-//  pixelArt-mobile
-//
 
 #import "UIButton+CustomBtn.h"
 
