@@ -41,7 +41,7 @@
 /** delegate
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     NSString *msg = @"";
-    if(error != NULL){
+    if(error == NULL){
         msg = NSLocalizedString(@"shareToSystemPhotoFail_title", @"图⽚保存本地相册失败");
  
  }else{
