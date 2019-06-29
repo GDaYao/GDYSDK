@@ -85,6 +85,8 @@
 		8278F811228C17DD00F1D0AA /* SuperCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8278F80D228C17DD00F1D0AA /* SuperCollectionView.h */; };
 		8278F812228C17DD00F1D0AA /* SuperTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8278F80E228C17DD00F1D0AA /* SuperTableView.h */; };
 		8278F813228C17DD00F1D0AA /* SuperCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8278F80F228C17DD00F1D0AA /* SuperCollectionView.m */; };
+		828B859822C702CE00920112 /* ProgressMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 828B859622C702CE00920112 /* ProgressMgr.h */; };
+		828B859922C702CE00920112 /* ProgressMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 828B859722C702CE00920112 /* ProgressMgr.m */; };
 		828E997D228D1491000419FB /* PhotoMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 828E997B228D1491000419FB /* PhotoMgr.h */; };
 		828E997E228D1491000419FB /* PhotoMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 828E997C228D1491000419FB /* PhotoMgr.m */; };
 		83685059224A8630000C3EEA /* SubclassTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 83685057224A8630000C3EEA /* SubclassTableView.h */; };
@@ -270,6 +272,8 @@
 		8278F80D228C17DD00F1D0AA /* SuperCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperCollectionView.h; path = GDYSDK/Classes/Core/SuperCollectionView.h; sourceTree = "<group>"; };
 		8278F80E228C17DD00F1D0AA /* SuperTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperTableView.h; path = GDYSDK/Classes/Core/SuperTableView.h; sourceTree = "<group>"; };
 		8278F80F228C17DD00F1D0AA /* SuperCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperCollectionView.m; path = GDYSDK/Classes/Core/SuperCollectionView.m; sourceTree = "<group>"; };
+		828B859622C702CE00920112 /* ProgressMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProgressMgr.h; path = GDYSDK/Classes/Core/ProgressMgr.h; sourceTree = "<group>"; };
+		828B859722C702CE00920112 /* ProgressMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProgressMgr.m; path = GDYSDK/Classes/Core/ProgressMgr.m; sourceTree = "<group>"; };
 		828E997B228D1491000419FB /* PhotoMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhotoMgr.h; path = GDYSDK/Classes/Core/PhotoMgr.h; sourceTree = "<group>"; };
 		828E997C228D1491000419FB /* PhotoMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PhotoMgr.m; path = GDYSDK/Classes/Core/PhotoMgr.m; sourceTree = "<group>"; };
 		83685057224A8630000C3EEA /* SubclassTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubclassTableView.h; path = GDYSDK/Classes/Core/SubclassTableView.h; sourceTree = "<group>"; };
@@ -512,6 +516,8 @@
 				96F0D8C142EBD321B825A15148D9106B /* UIViewController+CustomVC.m */,
 				A2EE051EE8A345A7E59026B0BBF7D4B2 /* ToolM.h */,
 				A8545610B617AEB6C22CBC1B3A1417B8 /* ToolM.m */,
+				828B859622C702CE00920112 /* ProgressMgr.h */,
+				828B859722C702CE00920112 /* ProgressMgr.m */,
 				F892240E43F28A665407FB80D879FF76 /* CustomAFNetHTTPSessionMgr.h */,
 				3DAD3BC52573F87179153D8486AFC3D0 /* CustomAFNetHTTPSessionMgr.m */,
 				8F44C1D34B145C218427E521643CFBFC /* NetworkMgr.h */,
@@ -780,6 +786,7 @@
 				78F5D40D5B8E9FC40FB257953EA945BA /* UIImage+AFNetworking.h in Headers */,
 				F2D2FE3B9DB1610D8EFAB393A3412DB7 /* UIImageView+AFNetworking.h in Headers */,
 				A39E1924915C53C49E7220F72AD96BBB /* UIKit+AFNetworking.h in Headers */,
+				828B859822C702CE00920112 /* ProgressMgr.h in Headers */,
 				FCB209DFAFF4721A4AA51197AB2D7016 /* UIProgressView+AFNetworking.h in Headers */,
 				15304B6383EF69EC4E3DE45F8613BE2E /* UIRefreshControl+AFNetworking.h in Headers */,
 				0FDD4D3121B514F200F93BD7 /* GDYBase64.h in Headers */,
@@ -965,6 +972,7 @@
 				CB3028664CA23A1480C18C7A86CFDAF4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				402EB64C59857FE252DC98844643C420 /* UIButton+AFNetworking.m in Sources */,
 				8368505A224A8630000C3EEA /* SubclassTableView.m in Sources */,
+				828B859922C702CE00920112 /* ProgressMgr.m in Sources */,
 				41FD4D0D6101210E26DDDCDD17FBB7C3 /* UIImageView+AFNetworking.m in Sources */,
 				0FF1FDF421C1063A00E72B2B /* OtherRecordMgr.m in Sources */,
 				DF74915F8F367134FA4277BE9A2F52DB /* UIProgressView+AFNetworking.m in Sources */,
