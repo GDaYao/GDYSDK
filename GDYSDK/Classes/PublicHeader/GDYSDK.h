@@ -5,6 +5,7 @@
 #ifndef GDYSDK_h
 #define GDYSDK_h
 
+/*
 // contant define directly use
 #import "Constant.h"
 
@@ -41,7 +42,7 @@
 #import "UITabBarItem+Badge.h"
 #import "CustomSlider.h"
 
-
+*/
 
 
 #endif /* GDYSDK_h */

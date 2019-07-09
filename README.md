@@ -25,7 +25,7 @@ pod 'GDYSDK'
 If you want to  use specific tag version.
 
 ```ruby
-pod 'GDYSDK','0.1.8'
+pod 'GDYSDK','0.1.9'
 ```
 
 If GDYSDK only exist personal GitHub,I can this

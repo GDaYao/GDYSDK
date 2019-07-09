@@ -2,14 +2,14 @@
 //  ToolM.m
 
 #import "ToolM.h"
-#import "NetworkMgr.h"
+//#import "NetworkMgr.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <sys/utsname.h>
 
 @implementation ToolM
 
 #pragma mark -  'update app' network request
-
+/*
 + (void)requestNewVersionWithAppID:(NSInteger)appID block:(void(^)(NSArray *resultArr))blockArr{    
     NSString *appstoreStr =[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%ld",(long)appID]; //@"<kAppID>"
     [NetDataMgr AFHttpDataTaskGETMethodWithURLString:appstoreStr parameters:nil success:^(id  _Nullable responseObject) {
@@ -69,6 +69,7 @@
         }
     }];
 }
+ */
 
 #pragma mark - new or old users
 + (void)newOrOldUsersWithuUserDefault:(NSString *)isNewUserKey{
