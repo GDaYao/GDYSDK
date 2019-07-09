@@ -36,7 +36,7 @@ pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git'
 
 or use specifily tag version
 >>>
-pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch => '<branchName>' // 
+pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch => '<branchName>'
 ```
 
 ## Usage
