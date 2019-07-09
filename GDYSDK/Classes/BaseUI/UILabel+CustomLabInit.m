@@ -3,27 +3,29 @@
 
 
 #import "UILabel+CustomLabInit.h"
-#import "UIColor+Hex.h"
+
 
 @implementation UILabel (CustomLabInit)
 
 
 #pragma mark - `UILabel` init method
-+ (UILabel *)InitLabWithBGColor:(NSString *)hexStr textColor:(UIColor *)txC fontName:(NSString *)fontName fontSize:(CGFloat)fontSize labText:(NSString *)labText txAlignment:(NSTextAlignment)txAlignment
++ (UILabel *)InitLabWithBGColor:(UIColor *)bgColor textColor:(UIColor *)txColor fontName:(NSString *)fontName isBold:(BOOL)isBold fontSize:(CGFloat)fontSize labText:(NSString *)labText txAlignment:(NSTextAlignment)txAlignment
 {
     UILabel *lab = [[UILabel alloc]init];
-    if ([hexStr isEqualToString:@"0"] || !hexStr) {
+    if (bgColor == nil) {
         lab.backgroundColor = [UIColor clearColor];
     }else{
-        lab.backgroundColor = [UIColor colorWithHexString:hexStr];
+        lab.backgroundColor = bgColor;
     }
     if(fontName &&  (fontSize != 0)){
         lab.font = [UIFont fontWithName:fontName size:fontSize];
-    }else if(!fontName && (fontSize !=0)){
+    }else if(!fontName && (fontSize !=0) && (isBold == YES) ){
+        lab.font = [UIFont boldSystemFontOfSize:fontSize];
+    }else{
         lab.font = [UIFont systemFontOfSize:fontSize];
     }
     lab.text = labText;
-    lab.textColor = txC;
+    lab.textColor = txColor;
     lab.textAlignment = txAlignment;
     lab.numberOfLines = 0;
     return lab;

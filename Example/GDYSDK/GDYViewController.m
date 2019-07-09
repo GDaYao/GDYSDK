@@ -8,7 +8,11 @@
 
 #import "GDYViewController.h"
 
-#import <GDYSDK/GDYSDK.h>
+// import 'GDYSDK' 使用
+//#import <GDYSDK/GDYSDK.h>
+#import <GDYSDK/CorePublicHeader.h>
+#import <GDYSDK/BaseUIPublicHeader.h>
+#import <GDYSDK/ToolM.h>
 
 @interface GDYViewController ()
 
@@ -20,6 +24,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
     
 }
 

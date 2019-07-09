@@ -1,9 +1,5 @@
 //
 //  PhotoMgr.m
-//  AFNetworking
-//
-//  Created by dm on 2019/5/16.
-//
 
 #import "PhotoMgr.h"
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GDYSDK'
-    s.version          = '0.1.8'
+    s.version          = '0.1.9'
     s.summary          = 'GDYSDK personal cretae SDK'
 
 
@@ -25,9 +25,9 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  #s.source_files = 'GDYSDK/Classes/**/*'
-  #s.public_header_files = 'GDYSDK/Classes/**/*.h'
-  
+#  s.source_files = 'GDYSDK/Classes/**/*'
+#  s.public_header_files = 'GDYSDK/Classes/**/*.h'
+
   #s.xcconfig = { "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
   
   # s.resource_bundles = {
@@ -38,7 +38,8 @@ TODO: Add long description of the pod here.
   s.subspec 'Core' do |core|
       core.libraries = 'sqlite3'
       core.source_files = 'GDYSDK/Classes/Core/**/*'
-      core.public_header_files = 'GDYSDK/Classes/Core/**/*.h'
+#      core.public_header_files = 'GDYSDK/Classes/Core/**/*.h'
+      core.public_header_files = 'GDYSDK/Classes/Core/CorePublicHeader.h'
       core.dependency 'AFNetworking','3.2.1'
       #core.dependency 'MBProgressHUD'
       #core.resource_bundles = {
@@ -48,6 +49,36 @@ TODO: Add long description of the pod here.
       core.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => '$(inherited)', "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
       
   end
+  
+  s.subspec 'BaseUI' do |baseui|
+      baseui.libraries = 'sqlite3'
+      baseui.source_files = 'GDYSDK/Classes/BaseUI/**/*'
+#      baseui.public_header_files = 'GDYSDK/Classes/BaseUI/**/*.h'
+      baseui.public_header_files = 'GDYSDK/Classes/BaseUI/BaseUIPublicHeader.h'
+      #core.dependency 'AFNetworking','3.2.1'
+      #core.dependency 'MBProgressHUD'
+      #core.resource_bundles = {
+      #    'GDYSDK-Core' => ['GDYSDK/Assets/Core/*.png', 'GDYSDK/Assets/Core/*.xib', 'GDYSDK/Assets/Core/LocalizedStrings/*.lproj/*']
+      #}
+      #core.frameworks = 'CoreTelephony', 'GameController', 'MediaPlayer', 'GameKit', 'StoreKit', 'SystemConfiguration', 'Security'
+#      core.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => '$(inherited)', "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
+
+  end
+  
+  s.subspec 'PublicHeader' do |publicheader|
+    publicheader.libraries = 'sqlite3'
+    publicheader.source_files = 'GDYSDK/Classes/PublicHeader/**/*'
+    publicheader.public_header_files = 'GDYSDK/Classes/PublicHeader/**/*.h'
+    #core.dependency 'AFNetworking','3.2.1'
+    #core.dependency 'MBProgressHUD'
+    #core.resource_bundles = {
+    #    'GDYSDK-Core' => ['GDYSDK/Assets/Core/*.png', 'GDYSDK/Assets/Core/*.xib', 'GDYSDK/Assets/Core/LocalizedStrings/*.lproj/*']
+    #}
+    #core.frameworks = 'CoreTelephony', 'GameController', 'MediaPlayer', 'GameKit', 'StoreKit', 'SystemConfiguration', 'Security'
+    #      core.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => '$(inherited)', "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
+    
+  end
+  
   
   s.frameworks = 'UIKit', 'MapKit'
   

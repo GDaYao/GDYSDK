@@ -1,9 +1,6 @@
 //
 //  UISearchBar+CustomSearchBar.m
-//  AFNetworking
-//
-//  Created by dm on 2019/3/30.
-//
+
 
 #import "UISearchBar+CustomSearchBar.h"
 

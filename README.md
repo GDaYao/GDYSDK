@@ -7,6 +7,7 @@
 
 GDYSDK will provide all iOS UI property.So you can directly use Class method to simply init and some tool devloper.It will promote developer efficiency.Also at the late time,this will provide more SDK features.  
 
+You can go to cocoapods [GDYSDK](https://cocoapods.org/pods/GDYSDK) to see this pod library.  
 
 ## Example
 
@@ -25,7 +26,7 @@ pod 'GDYSDK'
 If you want to  use specific tag version.
 
 ```ruby
-pod 'GDYSDK','0.1.8'
+pod 'GDYSDK','0.1.9'
 ```
 
 If GDYSDK only exist personal GitHub,I can this
@@ -36,7 +37,7 @@ pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git'
 
 or use specifily tag version
 >>>
-pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'0.1.8' // <tag name>
+pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch => '<branchName>'
 ```
 
 ## Usage
