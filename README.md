@@ -7,6 +7,7 @@
 
 GDYSDK will provide all iOS UI property.So you can directly use Class method to simply init and some tool devloper.It will promote developer efficiency.Also at the late time,this will provide more SDK features.  
 
+You can go to cocoapods [GDYSDK](https://cocoapods.org/pods/GDYSDK) to see this pod library.  
 
 ## Example
 
