@@ -34,6 +34,7 @@ TODO: Add long description of the pod here.
   #   'GDYSDK' => ['GDYSDK/Assets/*.png']
   # }
   #s.dependency 'AFNetworking', '3.2.1'
+
   
   s.subspec 'Core' do |core|
       core.libraries = 'sqlite3'
