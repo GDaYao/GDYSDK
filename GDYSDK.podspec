@@ -34,6 +34,8 @@ TODO: Add long description of the pod here.
   #   'GDYSDK' => ['GDYSDK/Assets/*.png']
   # }
   #s.dependency 'AFNetworking', '3.2.1'
+  s.frameworks = 'UIKit', 'MapKit'
+  
 
   
   s.subspec 'Core' do |core|
@@ -77,9 +79,6 @@ TODO: Add long description of the pod here.
     #      core.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => '$(inherited)', "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
     
   end
-  
-  
-  s.frameworks = 'UIKit', 'MapKit'
   
   
   
