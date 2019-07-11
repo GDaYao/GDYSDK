@@ -10,9 +10,8 @@
 #endif
 #endif
 
-#import "SubclassTableView.h"
-#import "SuperCollectionView.h"
-#import "SuperTableView.h"
+#import "GDYSDKSubCollectionView.h"
+#import "GDYSDKSubTableView.h"
 #import "UIBadgeLable.h"
 #import "UIButton+CustomBtn.h"
 #import "UICollectionView+CustomCV.h"

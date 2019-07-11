@@ -2,7 +2,10 @@
 //  UITableView+CustomTV.h
 
 
-//
+/** func: `UITableView` category -- UITableView 类别
+ *  `UITableView` 便捷使用方法 -- 请见 <SubClassTableView.h/.m>
+ *  类别只是用于增加某个类的方法，不能继承实现某个类作为父类方法。
+ */
 
 
 #import <UIKit/UIKit.h>

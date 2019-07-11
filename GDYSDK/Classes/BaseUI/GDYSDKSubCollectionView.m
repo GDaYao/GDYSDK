@@ -1,23 +1,23 @@
-//
-//  SuperCollectionView.m
+////  GDYSDKSubCollectionView.m
 
 
-#import "SuperCollectionView.h"
 
-static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier";
+#import "GDYSDKSubCollectionView.h"
 
-@implementation SuperCollectionView
+
+static NSString * const kGDYSDKDefaultCellIdentifier = @"GDYSDKUICollectionViewCellIdentifier";
+
+@implementation GDYSDKSubCollectionView
 
 #pragma mark - init with frame
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        
     }
     return self;
 }
 
-#pragma mark  - init method
+#pragma mark  - init config method
 - (void)InitCVWithBGColor:(UIColor *)BGColor withNeedHeaderFooter:(BOOL)isNeed withHSize:(CGSize)HSize withFSize:(CGSize)FSize withHID:(NSString *)HID withFID:(NSString *)FID withRegisterNib:(NSString *)NibName withCellId:(NSString *)cellId {
     self.backgroundColor = BGColor;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
@@ -29,7 +29,7 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
         [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:FID];
     }
     if (cellId == nil || cellId.length == 0) {
-        [self registerNib:[UINib nibWithNibName:NibName bundle:nil] forCellWithReuseIdentifier:kDefaultCellIdentifier];
+        [self registerNib:[UINib nibWithNibName:NibName bundle:nil] forCellWithReuseIdentifier:kGDYSDKDefaultCellIdentifier];
     }else{
         [self registerNib:[UINib nibWithNibName:NibName bundle:nil] forCellWithReuseIdentifier:cellId];
     }
@@ -40,7 +40,9 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
     self.bounces = YES;
 }
 
+
 #pragma mark - UICollectionView delegate/datasource
+// TODO: numbers
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     NSInteger numInt = self.numberSectionsInCV(collectionView);
     return numInt;
@@ -48,26 +50,25 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.numberItems(collectionView,section);
 }
+
+// TODO: some size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return self.sizeForItem(collectionView,collectionViewLayout,indexPath);
 }
-// 纵间距
+// 纵间距 <>
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return self.verticalDis(collectionView,collectionViewLayout,section);
 }
-// 列间距
+// 列间距 <|---|---|>
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return self.horizontalDis(collectionView,collectionViewLayout,section);
 }
-
-
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     if (self.insetForSectionAtIndex) {
         return self.insetForSectionAtIndex(collectionView,collectionViewLayout,section);
     }
     return UIEdgeInsetsZero;
 }
-
 //这个也是最重要的方法 获取Header的 方法。
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
@@ -76,7 +77,6 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
             return self.sectionHeader(collectionView,kind,indexPath);
         }
     }
-    
     if([kind isEqualToString:UICollectionElementKindSectionFooter]){
         if (self.sectionFooter) {
             return self.sectionFooter(collectionView,kind,indexPath);
@@ -85,12 +85,26 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
     return nil;
 }
 
+// TODO: cell display+select
 
-
-// UICollectionView cell content show or cell action operate.
+/**
+ UICollectionView cell content show or cell action operate.
+ 
+ useage:
+    TempleDesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchResultCellId forIndexPath:indexPath];
+    // start use `cell`
+ 
+ */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     return self.cellForItem(collectionView,indexPath);
 }
+
+/**
+ useage:
+    // 可取消 - select 点击效果
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+ 
+ */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     return self.didSelectItem(collectionView,indexPath);
 }
@@ -99,8 +113,22 @@ static NSString * const kDefaultCellIdentifier = @"collectionViewCellIdentifier"
     return YES;
 }
 
-
-
+#pragma mark - scrollView delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if (self.scrollViewWillBeginDraggingInCV) {
+        self.scrollViewWillBeginDraggingInCV(scrollView);
+    }
+}
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+    if (self.scrollViewDidScrollToTopInCV) {
+        self.scrollViewDidScrollToTopInCV(scrollView);
+    }
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.scrollViewDidScrollInCV) {
+        self.scrollViewDidScrollInCV(scrollView);
+    }
+}
 
 
 

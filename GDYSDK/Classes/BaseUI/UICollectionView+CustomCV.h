@@ -1,7 +1,13 @@
 //
 //  UICollectionView+CustomCV.h
 
-//function: 自定义UICollectionView,初始化并封装常用方法
+/** func: `UICollectionView` category -- UICollectionView 类别
+ *  **`UICollectionView` 便捷使用方法 -- 请见 <GDYSDKSubCollectionView.h/.m> **
+ *
+ *  此类只是用于展示 `UICollectionView`各个方法具体使用
+ *  类别只是用于增加某个类的方法，不能继承实现某个类作为父类方法。
+ */
+
 
 #import <UIKit/UIKit.h>
 
