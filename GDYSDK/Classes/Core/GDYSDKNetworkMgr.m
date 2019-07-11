@@ -1,13 +1,12 @@
-//
-//  MyDataMgr.m
+////  GDYSDKNetworkMgr.m
 
 
-#import "NetworkMgr.h"
+#import "GDYSDKNetworkMgr.h"
 #import "CustomAFNetHTTPSessionMgr.h"
 #import <AFNetworking/AFNetworking.h>
 
 
-@implementation NetDataMgr
+@implementation GDYSDKNetworkMgr
 
 #pragma mark - AFNetworking
 
@@ -56,10 +55,10 @@
  use '[self AFHttpDataTaskRequestMethod: ...]'
  */
 + (void)AFHttpDataTaskRequestMethod:(NSString *)method
-                          URLString:(NSString *)URLString
-                         parameters:(id)parameters
-                            success:(void (^)(id _Nullable responseObject))success
-                            failure:(void (^)(NSError * _Nullable error))failure
+URLString:(NSString *)URLString
+parameters:(id)parameters
+success:(void (^)(id _Nullable responseObject))success
+failure:(void (^)(NSError * _Nullable error))failure
 {
     AFHTTPSessionManager *sessionMgr = [AFHTTPSessionManager manager];
     sessionMgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"application/xhtml+xml", @"application/xml", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", @"video/mp4", nil];
@@ -88,9 +87,9 @@
 
 #pragma mark ---- 'POST' net request data ----
 + (void)AFHttpDataTaskPostMethodWithURLString:(NSString *)URLString
-                          parameters:(id)parameters
-                             success:(void (^)(id _Nullable responseObject))success
-                             failure:(void (^)(NSError * _Nullable error))failure{
+parameters:(id)parameters
+success:(void (^)(id _Nullable responseObject))success
+failure:(void (^)(NSError * _Nullable error))failure{
     CustomAFNetHTTPSessionMgr *sessionMgr = [CustomAFNetHTTPSessionMgr manager];
     [sessionMgr POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -107,9 +106,9 @@
 
 #pragma mark  ---- 'GET' net request data ----
 + (void)AFHttpDataTaskGETMethodWithURLString:(NSString *)URLString
-                                   parameters:(id)parameters
-                                      success:(void (^)(id _Nullable responseObject))success
-                                      failure:(void (^)(NSError * _Nullable error))failure
+parameters:(id)parameters
+success:(void (^)(id _Nullable responseObject))success
+failure:(void (^)(NSError * _Nullable error))failure
 {
     CustomAFNetHTTPSessionMgr *sessionMgr = [CustomAFNetHTTPSessionMgr manager];
     [sessionMgr GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -248,7 +247,7 @@
         }else if(filePathStr){
             NSURL *filePathURL = [NSURL URLWithString:filePathStr];
             if (!serverName && !uploadType ) {
-                 [formData appendPartWithFileURL:filePathURL name:interName error:nil];
+                [formData appendPartWithFileURL:filePathURL name:interName error:nil];
             }else{
                 [formData appendPartWithFileURL:filePathURL name:interName fileName:serverName mimeType:uploadType error:nil];
             }
@@ -283,10 +282,10 @@
 
 #pragma mark - data task request
 + (void)NSURLConnectionDataTaskPostMethodWithURLString:(NSString *)URLString
-                                   parameters:(id)parameters
-                                             ticketStr:(NSString *)ticketStr
-                                      success:(void (^)(id _Nullable responseObject))success
-                                      failure:(void (^)(NSError * _Nullable error))failure {
+parameters:(id)parameters
+ticketStr:(NSString *)ticketStr
+success:(void (^)(id _Nullable responseObject))success
+failure:(void (^)(NSError * _Nullable error))failure {
     
     
     NSURL *serveURL = [NSURL URLWithString:URLString];
@@ -330,11 +329,3 @@
 
 
 @end
-
-
-
-
-
-
-
-

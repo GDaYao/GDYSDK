@@ -39,7 +39,7 @@
 #import "GDYBase64.h"
 #import "GDYDefines.h"
 #import "GDYReachability.h"
-#import "NetworkMgr.h"
+#import "GDYSDKNetworkMgr.h"
 #import "NoticMgr.h"
 #import "NSString+CustomNSString.h"
 #import "NSString+Emoji.h"
