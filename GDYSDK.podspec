@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GDYSDK'
-    s.version          = '0.1.10'
+    s.version          = '0.1.12'
     s.summary          = 'GDYSDK personal cretae SDK'
 
 
