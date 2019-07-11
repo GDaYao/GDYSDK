@@ -76,7 +76,7 @@
     return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 }
 /* 获取当前设备的UDID-存储到KeyChain中  */
-+ (NSString *)getDeviceUUIDValueFromKeychain {
++ (NSString *)getDeviceUDIDValueFromKeychain {
     NSString *identifier = @"GetUDIDIdentifier";
     GDYSDKKeychainItemWrapper *keyChainWrapper = [[GDYSDKKeychainItemWrapper alloc] initWithIdentifier:identifier accessGroup:nil];
     NSString *UUID = [keyChainWrapper objectForKey:(__bridge id)kSecValueData];

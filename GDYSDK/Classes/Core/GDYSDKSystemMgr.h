@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*获取当前设备的UDID值*/
 + (NSString *)getDeviceUDIDValueString;
 /* 获取当前设备的UDID-存储到KeyChain中  */
-+ (NSString *)getDeviceUUIDValueFromKeychain;
++ (NSString *)getDeviceUDIDValueFromKeychain;
 /*获取当前设备的IDFA值*/
 + (NSString *)getDeviceIDFAValue;
 /** 获取当前设备的IDFA值-存储到KeyChain中  */
