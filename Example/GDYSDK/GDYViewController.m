@@ -10,9 +10,8 @@
 
 // import 'GDYSDK' 使用
 //#import <GDYSDK/GDYSDK.h>
-#import <GDYSDK/CorePublicHeader.h>
-#import <GDYSDK/BaseUIPublicHeader.h>
-#import <GDYSDK/ToolM.h>
+#import <GDYSDK/GDYSDKSystemMgr.h>
+
 
 @interface GDYViewController ()
 
@@ -25,9 +24,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    NSString *udid =  [GDYSDKSystemMgr getDeviceUDIDValueString];
+    NSString *idfa = [GDYSDKSystemMgr getDeviceIDFAValue];
+    NSString *carrierStr = [GDYSDKSystemMgr getDeviceCarrierName];
+    NSString *model = [GDYSDKSystemMgr getDeviceModel];
+    NSString *osVersion = [GDYSDKSystemMgr getDeviceOSVersion];
+    NSString *wifiName = [GDYSDKSystemMgr getDeviceWifiName];
+    NSString *wifiMac = [GDYSDKSystemMgr getDeviceWifiMac];
+    NSString *ipAddress = [GDYSDKSystemMgr getDeviceIPAddress:NO];
     
-    
-    
+    NSLog(@"log-test");
 }
 
 - (void)didReceiveMemoryWarning

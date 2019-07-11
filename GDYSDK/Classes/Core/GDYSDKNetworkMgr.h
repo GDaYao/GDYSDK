@@ -1,13 +1,19 @@
-//
-//  NetDataMgr.h
+//  GDYSDKNetworkMgr.h
 
-//  network request
-//  need accompany 'CustomAFNetHTTPSessionMgr'
 
+/** func:
+    network request
+    need accompany 'CustomAFNetHTTPSessionMgr'
+ */
+
+/** Useage:
+ */
 
 #import <Foundation/Foundation.h>
 
-@interface NetDataMgr : NSObject
+NS_ASSUME_NONNULL_BEGIN
+
+@interface GDYSDKNetworkMgr : NSObject
 
 #pragma mark - ----AFNetworking----
 /**
@@ -25,14 +31,14 @@
 
 /**
  AFNet reachability status
-
+ 
  @param networkStatus A block object to be executed get current network status.
  */
 + (void)backCurrentNetworkWithStatusStr:(void(^)(NSString *netStr))networkStatus;
 
 /**
  `POST` method -- net data request or net json request
-
+ 
  @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded according to the client request serializer.
  @param success A block object to be executed when request finish success.This block takes `responseObject` arguments,created by the client response serializer.
@@ -45,7 +51,7 @@
 
 /**
  `GET` method -- net data request or net json request
-
+ 
  @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded according to the client request serializer.
  @param success A block object to be executed when request finish success.This block takes `responseObject` arguments,created by the client response serializer.
@@ -58,7 +64,7 @@
 
 /**
  download
-
+ 
  @param downloadStr Request URL.
  @param parameters Client request serializer.
  @param specifilyPath Finish download task to save path.
@@ -75,7 +81,7 @@
 
 /**
  upload -- directly
-
+ 
  @param uploadStr Upload Request URL.
  @param parameters Client request serializer.
  @param filePathStr Upload local or bundle file path.
@@ -85,7 +91,7 @@
 
 /**
  use 'file url' upload
-
+ 
  @param uploadStr Upload Request URL.
  @param parameters Client request serializer.
  @param filePathStr File path string.
@@ -98,7 +104,7 @@
 
 /**
  use 'data' upload
-
+ 
  @param uploadStr Upload Request URL.
  @param parameters Client request serializer.
  @param data Upload data.
@@ -112,7 +118,7 @@
 
 #pragma mark - ----NSURLConnection----
 /**
-  data task request and http request header
+ data task request and http request header
  */
 + (void)NSURLConnectionDataTaskPostMethodWithURLString:(NSString *)URLString
                                             parameters:(id)parameters
@@ -128,4 +134,10 @@
 
 
 
+
+
+
+
 @end
+
+NS_ASSUME_NONNULL_END

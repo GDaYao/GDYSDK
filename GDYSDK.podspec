@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GDYSDK'
-    s.version          = '0.1.9'
+    s.version          = '0.1.12' # please remeber to change README.md of version.
     s.summary          = 'GDYSDK personal cretae SDK'
 
 
@@ -34,12 +34,14 @@ TODO: Add long description of the pod here.
   #   'GDYSDK' => ['GDYSDK/Assets/*.png']
   # }
   #s.dependency 'AFNetworking', '3.2.1'
+  s.frameworks = 'UIKit', 'MapKit'
+  
+
   
   s.subspec 'Core' do |core|
       core.libraries = 'sqlite3'
       core.source_files = 'GDYSDK/Classes/Core/**/*'
-#      core.public_header_files = 'GDYSDK/Classes/Core/**/*.h'
-      core.public_header_files = 'GDYSDK/Classes/Core/CorePublicHeader.h'
+      core.public_header_files = 'GDYSDK/Classes/Core/**/*.h'
       core.dependency 'AFNetworking','3.2.1'
       #core.dependency 'MBProgressHUD'
       #core.resource_bundles = {
@@ -53,8 +55,7 @@ TODO: Add long description of the pod here.
   s.subspec 'BaseUI' do |baseui|
       baseui.libraries = 'sqlite3'
       baseui.source_files = 'GDYSDK/Classes/BaseUI/**/*'
-#      baseui.public_header_files = 'GDYSDK/Classes/BaseUI/**/*.h'
-      baseui.public_header_files = 'GDYSDK/Classes/BaseUI/BaseUIPublicHeader.h'
+      baseui.public_header_files = 'GDYSDK/Classes/BaseUI/**/*.h'
       #core.dependency 'AFNetworking','3.2.1'
       #core.dependency 'MBProgressHUD'
       #core.resource_bundles = {
@@ -78,9 +79,6 @@ TODO: Add long description of the pod here.
     #      core.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => '$(inherited)', "LIBRARY_SEARCH_PATHS" => '$(inherited)', "HEADER_SEARCH_PATHS" => '$(inherited)', "OTHER_CFLAGS" => '$(inherited)', "OTHER_LDFLAGS" => '$(inherited)', "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited)' }
     
   end
-  
-  
-  s.frameworks = 'UIKit', 'MapKit'
   
   
   

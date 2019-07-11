@@ -1,14 +1,14 @@
-//
-//  SuperTableView.m
+//  GDYSDKSubTableView.m
+
+#import "GDYSDKSubTableView.h"
 
 
+static NSString *  const kGDYSDKDefaultCellIdentifier = @"GDYSDKSubUITableViewCellIdentifier";
 
-#import "SuperTableView.h"
 
-static NSString *  const kDefaultCellIdentifier = @"tableViewCellIdentifier";
+@implementation GDYSDKSubTableView
 
-@implementation SuperTableView
-
+#pragma mark - init life
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
     if (self) {
@@ -17,12 +17,12 @@ static NSString *  const kDefaultCellIdentifier = @"tableViewCellIdentifier";
 }
 
 
-#pragma mark - init UITableView property
+#pragma mark - init config method
 - (void)InitTVWithBGColor:(UIColor *)BGColor registerTableViewCell:(UITableViewCell *)tableViewCell tableViewCellID:(NSString *)kCellIdentifier showVerticalSI:(BOOL)showV showHorizontalSI:(BOOL)showH separatorStyle:(UITableViewCellSeparatorStyle)separatorStyle{
     self.backgroundColor = BGColor;
     // register cell class
     if ((kCellIdentifier==nil) || (kCellIdentifier.length == 0)) {
-        [self registerClass:[tableViewCell class] forCellReuseIdentifier:kDefaultCellIdentifier];
+        [self registerClass:[tableViewCell class] forCellReuseIdentifier:kGDYSDKDefaultCellIdentifier];
     }else{
         [self registerClass:[tableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     }
@@ -34,20 +34,21 @@ static NSString *  const kDefaultCellIdentifier = @"tableViewCellIdentifier";
     self.dataSource = self;
 }
 
-#pragma mark - initlize tableView
+#pragma mark - tableView delegate/dataSource
+// TODO: nums
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger testInt = self.numberSections(tableView);
     return testInt;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.numberRows(tableView,section);
 }
+
+// TODO: size-height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.heightRow(tableView,indexPath);
 }
-
-#pragma mark - header and footer view
+// TODO: header and footer view
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(self.heightHeaderInSection){
         return self.heightHeaderInSection(tableView,section);
@@ -73,13 +74,32 @@ static NSString *  const kDefaultCellIdentifier = @"tableViewCellIdentifier";
     return nil;
 }
 
+// TODO: cell for row
+/**
+ useage:
+    CustomizeCell *tableViewCell = (CustomizeCell *)[tableView dequeueReusableCellWithIdentifier:<equal to last set cell id>];
+    if (tableViewCell == nil) {
+        tableViewCell = [[CustomizeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:<equal to last set cell id>];
+    }
+    // start use `cell`
 
-#pragma mark - cell for row
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.cellForRow(tableView,indexPath);
 }
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.willDisplayCellBlock) {
+        self.willDisplayCellBlock(tableView, cell, indexPath);
+    }
+}
 
-#pragma mark - did select row
+// TODO: did select row
+/**
+ useage:
+    // 可取消 - select 点击效果
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ 
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return self.didSelectInTV(tableView,indexPath);
 }
@@ -100,6 +120,10 @@ static NSString *  const kDefaultCellIdentifier = @"tableViewCellIdentifier";
         self.scrollViewDidScrollInTV(scrollView);
     }
 }
+
+
+
+
 
 
 @end
