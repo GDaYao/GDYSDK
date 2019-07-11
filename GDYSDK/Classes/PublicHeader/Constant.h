@@ -74,7 +74,7 @@
  **/
 #if TARGET_IPHONE_SIMULATOR
     // simulator
-#elif
+#else
     // device
 #endif
 
