@@ -1,6 +1,6 @@
 {
   "name": "GDYSDK",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "summary": "GDYSDK personal cretae SDK",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/GDaYao/GDYSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/GDaYao/GDYSDK.git",
-    "tag": "0.1.9"
+    "tag": "0.1.10"
   },
   "platforms": {
     "ios": "8.0"
@@ -27,7 +27,7 @@
       "name": "Core",
       "libraries": "sqlite3",
       "source_files": "GDYSDK/Classes/Core/**/*",
-      "public_header_files": "GDYSDK/Classes/Core/CorePublicHeader.h",
+      "public_header_files": "GDYSDK/Classes/Core/**/*.h",
       "dependencies": {
         "AFNetworking": [
           "3.2.1"
@@ -46,7 +46,7 @@
       "name": "BaseUI",
       "libraries": "sqlite3",
       "source_files": "GDYSDK/Classes/BaseUI/**/*",
-      "public_header_files": "GDYSDK/Classes/BaseUI/BaseUIPublicHeader.h"
+      "public_header_files": "GDYSDK/Classes/BaseUI/**/*.h"
     },
     {
       "name": "PublicHeader",

@@ -10,9 +10,6 @@
 
 // import 'GDYSDK' 使用
 //#import <GDYSDK/GDYSDK.h>
-#import <GDYSDK/CorePublicHeader.h>
-#import <GDYSDK/BaseUIPublicHeader.h>
-#import <GDYSDK/ToolM.h>
 
 @interface GDYViewController ()
 
