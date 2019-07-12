@@ -91,7 +91,7 @@ static NSString * const kGDYSDKDefaultCellIdentifier = @"GDYSDKUICollectionViewC
  UICollectionView cell content show or cell action operate.
  
  useage:
-    TempleDesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchResultCellId forIndexPath:indexPath];
+    CustomizeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCustomizeCellId forIndexPath:indexPath];
     // start use `cell`
  
  */

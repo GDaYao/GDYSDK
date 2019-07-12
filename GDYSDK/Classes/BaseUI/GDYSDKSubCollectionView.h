@@ -30,7 +30,7 @@
     // start to call some iOS-block to relized.
  >>>>
     // cellForItem -- useage:
-    CustomizeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchResultCellId forIndexPath:indexPath];
+    CustomizeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCustomizeCellId forIndexPath:indexPath];
     // start use `cell`
  >>>>
     // didSelectItem -- useage:
