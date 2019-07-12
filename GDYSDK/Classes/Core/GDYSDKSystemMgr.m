@@ -7,8 +7,7 @@
 
 #import "GDYSDKSystemMgr.h"
 
-// 获取IDFA
-#import <AdSupport/AdSupport.h>
+
 #import "GDYSDKKeychainItemWrapper.h"
 // 获取当前设备通讯运营商
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -85,27 +84,6 @@
         [keyChainWrapper setObject:UUID forKey:(__bridge id)kSecValueData];
     }
     return UUID;
-}
-/*获取当前设备的IDFA值*/
-+ (NSString *)getDeviceIDFAValue {
-    return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-}
-/** 获取当前设备的IDFA值-存储到KeyChain中  */
-+ (NSString *)getDeviceIDFAValueFromKeychain
-{
-    NSString *identifier = @"KeychainItemWrapper_idfa"; //钥匙串标识
-    GDYSDKKeychainItemWrapper *keyChina = [[GDYSDKKeychainItemWrapper alloc] initWithIdentifier:identifier accessGroup:nil];
-    NSArray *user = [keyChina objectForKey:(__bridge id)kSecValueRef];
-    if (user == nil || user.count == 0)
-    {
-        [keyChina setObject:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]
-                     forKey:(__bridge id)kSecValueRef];
-        return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    }
-    else
-    {
-        return user[0];
-    }
 }
 
 /*获取当前设备的通讯运营商名称*/
@@ -318,7 +296,7 @@
     macAddress = macAddress ? macAddress : DUMMY_MAC_ADDR;
     return macAddress;
     */
-    return nil;
+    return @"";
 }//end getMacAddressFromMDNS
 
 + (nonnull NSString *)currentIPAddressOf: (nonnull NSString *)device {
@@ -326,7 +304,7 @@
     NSString *ipAddress = nil;
     
     if(getifaddrs(&addrs) != 0) {
-        return nil;
+        return @"";
     }//end if
     
     //get ipv4 address

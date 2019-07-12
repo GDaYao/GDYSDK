@@ -25,7 +25,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     NSString *udid =  [GDYSDKSystemMgr getDeviceUDIDValueString];
-    NSString *idfa = [GDYSDKSystemMgr getDeviceIDFAValue];
     NSString *carrierStr = [GDYSDKSystemMgr getDeviceCarrierName];
     NSString *model = [GDYSDKSystemMgr getDeviceModel];
     NSString *osVersion = [GDYSDKSystemMgr getDeviceOSVersion];
