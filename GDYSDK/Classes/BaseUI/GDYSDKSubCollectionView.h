@@ -13,8 +13,8 @@
  * 2. start relaized.
  
      UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-     SuperCollectionView *mainCV = [[SuperCollectionView alloc]initWithFrame:<CGSizeZero-or after set size/set size> collectionViewLayout:layout];
-     [mainCV InitCVWithBGColor:<bgColor> withNeedHeaderFooter:<YES/NO> withHSize:<CGSizeZero/set size> withFSize:<CGSizeZero/set size> withHID:<set header id string> withFID:<set footer id string> withRegisterNib:<UICollectionViewCell.nib file name> withCellId:<UICollectionViewCell id>];
+     GDYSDKSubCollectionView *mainCV = [[GDYSDKSubCollectionView alloc]initWithFrame:<#CGSizeZero-or after set size/set size#> collectionViewLayout:layout];
+ [mainCV InitCVWithBGColor:<#bgColor#> withNeedHeaderFooter:<#YES/NO#> withHSize:<#CGSizeZero/set size#> withFSize:<#CGSizeZero/set size#> withHID:<#set header id string#> withFID:<#set footer id string#> withRegisterNib:<#UICollectionViewCell.nib file name#> withCellId:<#UICollectionViewCell id#>];
      [self.view addSubview:mainCV];
  >>>>
      // Also you can use `Masonry` to layout view.
@@ -30,7 +30,7 @@
     // start to call some iOS-block to relized.
  >>>>
     // cellForItem -- useage:
-    TempleDesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchResultCellId forIndexPath:indexPath];
+    CustomizeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCustomizeCellId forIndexPath:indexPath];
     // start use `cell`
  >>>>
     // didSelectItem -- useage:

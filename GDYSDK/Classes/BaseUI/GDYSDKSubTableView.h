@@ -13,10 +13,10 @@
  
  2. start relaized.
  >>>>
-     SuperTableView *subTV = [[SuperTableView alloc]initWithFrame:<set UITableView frame> style:UITableViewStyleGrouped]; // UITableViewStylePlain
+     GDYSDKSubTableView *subTV = [[GDYSDKSubTableView alloc]initWithFrame:<#set UITableView frame#> style:UITableViewStyleGrouped]; // UITableViewStylePlain
      [self.view addSubview:subTV];
      UITableViewCell *tableViewCell = [UITableViewCell new];
-     [subTV InitTVWithBGColor:<BGColor> registerTableViewCell:tableViewCell tableViewCellID:<UITabelViewCellId> showVerticalSI:<YES/NO> showHorizontalSI:<YES/NO> separatorStyle:UITableViewCellSeparatorStyleNone];
+     [subTV InitTVWithBGColor:<#BGColor#> registerTableViewCell:tableViewCell tableViewCellID:<#UITabelViewCellId#> showVerticalSI:<#YES/NO#> showHorizontalSI:<#YES/NO#> separatorStyle:UITableViewCellSeparatorStyleNone];
  >>>>
     // you can't use Masonry to layout view!!!!
  >>>>
@@ -28,9 +28,9 @@
      // start to call some iOS-block to relized.
  >>>>
      // cellFroRow -- useage:
-     CustomizeCell *tableViewCell = (CustomizeCell *)[tableView dequeueReusableCellWithIdentifier:<equal to last set cell id>];
+     CustomizeCell *tableViewCell = (CustomizeCell *)[tableView dequeueReusableCellWithIdentifier:<#equal to last set cell id#>];
      if (tableViewCell == nil) {
-     tableViewCell = [[CustomizeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:<equal to last set cell id>];
+     tableViewCell = [[CustomizeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:<#equal to last set cell id#>];
      }
      // start use `cell`
  >>>>
