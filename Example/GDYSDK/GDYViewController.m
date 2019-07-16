@@ -11,7 +11,7 @@
 // import 'GDYSDK' 使用
 //#import <GDYSDK/GDYSDK.h>
 #import <GDYSDK/GDYSDKSystemMgr.h>
-
+#import <GDYSDK/UIColor+GDYSDKHex.h>
 
 @interface GDYViewController ()
 

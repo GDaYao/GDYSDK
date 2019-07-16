@@ -1,12 +1,11 @@
+////  UIColor+GDYSDKHex.m
+//  GDYSDK
 //
-//  UIColor+Hex.m
+//  Created on 2019/7/16.
 
-#import "UIColor+Hex.h"
+#import "UIColor+GDYSDKHex.h"
 
-
-
-@implementation UIColor (Hex)
-
+@implementation UIColor (GDYSDKHex)
 
 #pragma mark - hex string convert to color object
 + (UIColor *) colorWithHexString:(NSString *)hexString{
@@ -101,7 +100,7 @@
     [[NSScanner scannerWithString:rString] scanHexInt:&r];
     [[NSScanner scannerWithString:gString] scanHexInt:&g];
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
-
+    
     return r+g+b;
 }
 
@@ -273,13 +272,4 @@
 
 
 
-
-
-
 @end
-
-
-
-
-
-
