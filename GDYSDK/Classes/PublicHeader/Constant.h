@@ -78,10 +78,6 @@
     // device
 #endif
 
-/*  判断是否有某个宏定义    */
-#if defined(USE_SEGMENTED_MMAP)
-#endif
-
 
 
 #endif /* Constant_h */
