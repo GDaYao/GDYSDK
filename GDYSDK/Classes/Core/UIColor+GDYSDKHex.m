@@ -258,7 +258,7 @@
     gradientLayer.frame = gradientLayerFrame;
     
     //  创建渐变色数组，需要转换为CGColor颜色
-    gradientLayer.colors = @[(__bridge id)[UIColor colorWithHexString:fromHexColorStr].CGColor,(__bridge id)[UIColor colorWithHexString:toHexColorStr].CGColor];
+    gradientLayer.colors = @[(__bridge id)[self colorWithHexString:fromHexColorStr].CGColor,(__bridge id)[self colorWithHexString:toHexColorStr].CGColor];
     
     //  设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)
     gradientLayer.startPoint = CGPointMake(0, 0);
