@@ -13,12 +13,12 @@
  * 2. start relaized.
  
      UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-     GDYSDKSubCollectionView *mainCV = [[GDYSDKSubCollectionView alloc]initWithFrame:<#CGSizeZero-or after set size/set size#> collectionViewLayout:layout];
- [mainCV InitCVWithBGColor:<#bgColor#> withNeedHeaderFooter:<#YES/NO#> withHSize:<#CGSizeZero/set size#> withFSize:<#CGSizeZero/set size#> withHID:<#set header id string#> withFID:<#set footer id string#> withRegisterNib:<#UICollectionViewCell.nib file name#> withCellId:<#UICollectionViewCell id#>];
+ GDYSDKSubCollectionView *mainCV = [[GDYSDKSubCollectionView alloc]initWithFrame:<#CGRectZero-after set frame/set frame now#> collectionViewLayout:layout];
+ [mainCV initCVWithBGColor:<#bgColor#> withNeedHeaderFooter:<#YES/NO#> withHSize:<#CGSizeZero/set size#> withFSize:<#CGSizeZero/set size#> withHID:<#set header id string#> withFID:<#set footer id string#> withRegisterNib:<#UICollectionViewCell.nib file name#> registerClas:<#cellClass#> withCellId:<#UICollectionViewCell id#>];
      [self.view addSubview:mainCV];
  >>>>
      // Also you can use `Masonry` to layout view.
-     [self.mainCV mas_makeConstraints:^(MASConstraintMaker *make) {
+     [mainCV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topSearchOrBackView.mas_bottom).offset(12);
         make.left.equalTo(self).offset(12);
         make.right.equalTo(self).offset(-12);
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 // TODO: initilize method
-- (void)InitCVWithBGColor:(UIColor *)BGColor withNeedHeaderFooter:(BOOL)isNeed withHSize:(CGSize)HSize withFSize:(CGSize)FSize withHID:(NSString *)HID withFID:(NSString *)FID withRegisterNib:(NSString *)NibName withCellId:(NSString *)cellId;
+- (void)initCVWithBGColor:(UIColor *)BGColor withNeedHeaderFooter:(BOOL)isNeed withHSize:(CGSize)HSize withFSize:(CGSize)FSize withHID:(NSString *)HID withFID:(NSString *)FID withRegisterNib:(NSString *)NibName registerClass:(Class)cellClass withCellId:(NSString *)cellId;
 
 
 

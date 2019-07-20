@@ -50,7 +50,7 @@
 #import "PaymentMgr.h"
 #import "PhotoMgr.h"
 #import "ProgressMgr.h"
-#import "UIColor+Hex.h"
+#import "UIColor+GDYSDKHex.h"
 #import "Constant.h"
 #import "GDYSDK.h"
 #import "ToolM.h"

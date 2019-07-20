@@ -1,12 +1,11 @@
+////  UIColor+GDYSDKHex.m
+//  GDYSDK
 //
-//  UIColor+Hex.m
+//  Created on 2019/7/16.
 
-#import "UIColor+Hex.h"
+#import "UIColor+GDYSDKHex.h"
 
-
-
-@implementation UIColor (Hex)
-
+@implementation UIColor (GDYSDKHex)
 
 #pragma mark - hex string convert to color object
 + (UIColor *) colorWithHexString:(NSString *)hexString{
@@ -101,7 +100,7 @@
     [[NSScanner scannerWithString:rString] scanHexInt:&r];
     [[NSScanner scannerWithString:gString] scanHexInt:&g];
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
-
+    
     return r+g+b;
 }
 
@@ -259,7 +258,7 @@
     gradientLayer.frame = gradientLayerFrame;
     
     //  创建渐变色数组，需要转换为CGColor颜色
-    gradientLayer.colors = @[(__bridge id)[UIColor colorWithHexString:fromHexColorStr].CGColor,(__bridge id)[UIColor colorWithHexString:toHexColorStr].CGColor];
+    gradientLayer.colors = @[(__bridge id)[self colorWithHexString:fromHexColorStr].CGColor,(__bridge id)[self colorWithHexString:toHexColorStr].CGColor];
     
     //  设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)
     gradientLayer.startPoint = CGPointMake(0, 0);
@@ -273,13 +272,4 @@
 
 
 
-
-
-
 @end
-
-
-
-
-
-

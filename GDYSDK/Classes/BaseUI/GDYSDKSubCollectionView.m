@@ -18,7 +18,7 @@ static NSString * const kGDYSDKDefaultCellIdentifier = @"GDYSDKUICollectionViewC
 }
 
 #pragma mark  - init config method
-- (void)InitCVWithBGColor:(UIColor *)BGColor withNeedHeaderFooter:(BOOL)isNeed withHSize:(CGSize)HSize withFSize:(CGSize)FSize withHID:(NSString *)HID withFID:(NSString *)FID withRegisterNib:(NSString *)NibName withCellId:(NSString *)cellId {
+- (void)initCVWithBGColor:(UIColor *)BGColor withNeedHeaderFooter:(BOOL)isNeed withHSize:(CGSize)HSize withFSize:(CGSize)FSize withHID:(NSString *)HID withFID:(NSString *)FID withRegisterNib:(NSString *)NibName registerClass:(Class)cellClass withCellId:(NSString *)cellId {
     self.backgroundColor = BGColor;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     self.collectionViewLayout = layout;
@@ -30,8 +30,10 @@ static NSString * const kGDYSDKDefaultCellIdentifier = @"GDYSDKUICollectionViewC
     }
     if (cellId == nil || cellId.length == 0) {
         [self registerNib:[UINib nibWithNibName:NibName bundle:nil] forCellWithReuseIdentifier:kGDYSDKDefaultCellIdentifier];
-    }else{
+    }else if(NibName.length !=0 ){
         [self registerNib:[UINib nibWithNibName:NibName bundle:nil] forCellWithReuseIdentifier:cellId];
+    }else if(cellClass){
+        [self registerClass:cellClass forCellWithReuseIdentifier:cellId];
     }
     self.showsVerticalScrollIndicator = NO;
     self.showsHorizontalScrollIndicator = NO;
