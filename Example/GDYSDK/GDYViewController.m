@@ -12,7 +12,7 @@
 //#import <GDYSDK/GDYSDK.h>
 #import <GDYSDK/GDYSDKSystemMgr.h>
 #import <GDYSDK/UIColor+GDYSDKHex.h>
-
+#import <GDYSDK/GDYSDKInAppPurchase.h>
 
 @interface GDYViewController ()
 
@@ -32,6 +32,7 @@
     NSString *wifiName = [GDYSDKSystemMgr getDeviceWifiName];
     NSString *wifiMac = [GDYSDKSystemMgr getDeviceWifiMac];
     NSString *ipAddress = [GDYSDKSystemMgr getDeviceIPAddress:NO];
+    
     
     NSLog(@"log-test");
 }
