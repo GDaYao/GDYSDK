@@ -412,8 +412,51 @@
     }
     return NO;
 }
+// judeg class object -- 判断对象是否为空
++ (BOOL)isNull:(id)judgeClassObject
+{
+    if ([judgeClassObject isEqual:[NSNull null]])
+    {
+        return YES;
+    }else
+    {
+        if ([judgeClassObject isKindOfClass:[NSNull class]])
+        {
+            return YES;
+        }else
+        {
+            if (judgeClassObject==nil)
+            {
+                return YES;
+            }
+        }
+    }
+    if ([judgeClassObject isKindOfClass:[NSString class]]) {
+        if ([((NSString *)judgeClassObject) isEqualToString:@"(null)"]) {
+            return YES;
+        }
+        if ([((NSString *)judgeClassObject) isEqualToString:@"<null>"]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
-
+#pragma mark - system font library -- 系统所有字体库输出查看
++ (void)getFontNamesWithFont
+{
+    NSArray *familyNames = [UIFont familyNames];
+    
+    for (NSString *familyName in familyNames) {
+        printf("familyNames = %s\n",[familyName UTF8String]);
+        
+        NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
+        
+        for (NSString *fontName in fontNames) {
+            printf("\tfontName = %s\n",[fontName UTF8String]);
+        }
+    }
+}
 
 #pragma mark - alert show | ActionSheet
 /**

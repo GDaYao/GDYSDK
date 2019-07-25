@@ -81,8 +81,13 @@
 +(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
 
-#pragma mark - judge blank string
+#pragma mark - judge class object/NSString blank 
 + (BOOL)isBlankString:(NSString *)string;
++ (BOOL)isNull:(id)judgeClassObject;
+
+
+#pragma mark - system font library -- 系统所有字体库输出查看
++ (void)getFontNamesWithFont;
 
 
 #pragma mark - ----alertView use----
