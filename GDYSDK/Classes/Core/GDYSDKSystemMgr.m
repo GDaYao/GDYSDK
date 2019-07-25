@@ -78,12 +78,13 @@
 + (NSString *)getDeviceUDIDValueFromKeychain {
     NSString *identifier = @"GetUDIDIdentifier";
     GDYSDKKeychainItemWrapper *keyChainWrapper = [[GDYSDKKeychainItemWrapper alloc] initWithIdentifier:identifier accessGroup:nil];
-    NSString *UUID = [keyChainWrapper objectForKey:(__bridge id)kSecValueData];
-    if (UUID == nil || UUID.length == 0) {
-        UUID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSArray *UUID = [keyChainWrapper objectForKey:(__bridge id)kSecValueData];
+    if (UUID == nil || UUID.count == 0) {
+        UUID = @[ [[[UIDevice currentDevice] identifierForVendor] UUIDString] ];
         [keyChainWrapper setObject:UUID forKey:(__bridge id)kSecValueData];
+        return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     }
-    return UUID;
+    return UUID[0];
 }
 
 /*获取当前设备的通讯运营商名称*/
