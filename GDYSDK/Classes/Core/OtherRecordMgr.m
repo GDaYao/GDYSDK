@@ -260,7 +260,7 @@
  
  // 添加图片到相册
  <key>NSPhotoLibraryAddUsageDescription</key>
- <string>App需要你的同意才能添加到媒体资料库！</string>
+ <string>App需要你的同意才能添加到媒体资料库</string>
  
  // apple music 访问媒体资料库
  <key>NSAppleMusicUsageDescription</key>

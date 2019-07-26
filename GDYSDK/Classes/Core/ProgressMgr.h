@@ -69,6 +69,25 @@ hud.mode = MBProgressHUDModeText;
 }
 */
 
+/* 保存完成动画
++ (void)showCompletionInMBProgressHUD:(NSString *)hintStr {
+    
+    UIView *view = [[UIApplication sharedApplication].delegate window];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+// Set the custom view mode to show any view.
+    hud.mode = MBProgressHUDModeCustomView;
+    // Set an image view with a checkmark.
+    UIImage *image = [[UIImage imageNamed:@"Checkmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    hud.customView = [[UIImageView alloc] initWithImage:image];
+    // Looks a bit nicer if we make it square.
+    hud.square = YES;
+    // Optional label text.
+    hud.label.text = hintStr;
+ 
+    [hud hideAnimated:YES afterDelay:3.f];
+}
+*/
+
 #pragma mark - SVProgressHUD
 
 /* TODO: SVProgressHUD直接使用
