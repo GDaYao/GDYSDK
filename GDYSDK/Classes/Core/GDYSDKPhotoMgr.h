@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  }
 
  */
-+ (void)tapBtnToPopSystemAlbumWithVC:(UIViewController *)currentVC setPickerControllerDelegate:(id)delegate allowsEditing:(BOOL)allowsEditing;
++ (void)selectPhotoFromAlbumWithVC:(UIViewController *)currentVC setPickerControllerDelegate:(id)delegate allowsEditing:(BOOL)allowsEditing;
 
 /**
  add photo to Alubm
