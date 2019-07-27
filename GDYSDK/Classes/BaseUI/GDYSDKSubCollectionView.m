@@ -71,7 +71,21 @@ static NSString * const kGDYSDKDefaultCellIdentifier = @"GDYSDKUICollectionViewC
     }
     return UIEdgeInsetsZero;
 }
-//这个也是最重要的方法 获取Header的 方法。
+
+
+// TODO: header|footer
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if(self.headerSizeInSection){
+     return   self.headerSizeInSection(collectionView, collectionViewLayout, section);
+    }
+    return CGSizeMake(0, 0);
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (self.footerSizeInSection) {
+        return self.footerSizeInSection(collectionView, collectionViewLayout, section);
+    }
+ return CGSizeMake(0, 0);
+}
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {

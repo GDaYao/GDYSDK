@@ -49,7 +49,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GDYSDKSubCollectionView : UICollectionView <UICollectionViewDelegate,UICollectionViewDataSource>
+@interface GDYSDKSubCollectionView : UICollectionView // <UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,copy)NSInteger(^numberSectionsInCV)(UICollectionView *collectionView);
 @property (nonatomic,copy)NSInteger(^numberItems)(UICollectionView *collectionView,NSInteger section);
@@ -58,6 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)CGFloat(^horizontalDis)(UICollectionView *collectionView,UICollectionViewLayout *collectionViewLayout,NSInteger section);
 @property (nonatomic,copy)CGFloat(^verticalDis)(UICollectionView *collectionView,UICollectionViewLayout *collectionViewLayout,NSInteger section);
 @property (nonatomic,copy)UIEdgeInsets(^insetForSectionAtIndex)(UICollectionView *collectionView,UICollectionViewLayout *collectionViewLayout,NSInteger section);
+//
+@property (nonatomic,copy)CGSize (^headerSizeInSection)(UICollectionView *collectionView,UICollectionViewLayout *collectionViewLayout,NSInteger section);
+@property (nonatomic,copy)CGSize (^footerSizeInSection)(UICollectionView *collectionView,UICollectionViewLayout *collectionViewLayout,NSInteger section);
 @property (nonatomic,copy)UICollectionReusableView *_Nullable(^sectionHeader)(UICollectionView *collectionView,NSString *kind,NSIndexPath *indexPath);
 @property (nonatomic,copy)UICollectionReusableView *_Nullable(^sectionFooter)(UICollectionView *collectionView,NSString *kind,NSIndexPath *indexPath);
 //
