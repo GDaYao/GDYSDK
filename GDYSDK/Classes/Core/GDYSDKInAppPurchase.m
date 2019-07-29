@@ -44,6 +44,11 @@
 - (void)removeTransactionObserver:(id)observer {
     [[SKPaymentQueue defaultQueue]removeTransactionObserver:self];
 }
+
+// restore product
+- (void)restoreProductId {
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
 // 内购数据请求
 - (void)requestProductIdData:(NSString *)productId {
     self.productId = productId;
@@ -84,7 +89,6 @@
         }
     }
 
-    
 }
 #pragma mark <SKRequestDelegate>
 // call in request finish with success
@@ -114,6 +118,13 @@
                 NSString *productId = tran.payment.productIdentifier;
                 NSString *receiptString = [tran.transactionReceipt base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
                 [self.deleagte completeTransactionWithProductId:productId transactionReceipt:receiptString transactionId:tran.transactionIdentifier];
+                
+                // 订阅特殊处理
+                if(tran.originalTransaction){
+                    //如果是自动续费的订单originalTransaction会有内容
+                }else{
+                    //普通购买，以及 第一次购买 自动订阅
+                }
             }
                 break;
                 case SKPaymentTransactionStatePurchasing:
