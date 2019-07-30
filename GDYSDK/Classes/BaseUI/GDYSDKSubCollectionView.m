@@ -145,6 +145,12 @@ static NSString * const kGDYSDKDefaultCellIdentifier = @"GDYSDKUICollectionViewC
         self.scrollViewDidScrollInCV(scrollView);
     }
 }
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (self.scrollViewDidEndDecelerating) {
+        self.scrollViewDidEndDecelerating(scrollView);
+    }
+}
+
 
 
 

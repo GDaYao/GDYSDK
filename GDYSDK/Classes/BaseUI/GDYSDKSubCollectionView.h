@@ -49,7 +49,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GDYSDKSubCollectionView : UICollectionView // <UICollectionViewDelegate,UICollectionViewDataSource>
+@interface GDYSDKSubCollectionView : UICollectionView <UIScrollViewDelegate>  // <UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,copy)NSInteger(^numberSectionsInCV)(UICollectionView *collectionView);
 @property (nonatomic,copy)NSInteger(^numberItems)(UICollectionView *collectionView,NSInteger section);
@@ -71,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) void(^scrollViewWillBeginDraggingInCV)(UIScrollView *scrollView);
 @property (nonatomic,copy) void(^scrollViewDidScrollToTopInCV)(UIScrollView *scrollView);
 @property (nonatomic,copy) void(^scrollViewDidScrollInCV)(UIScrollView *scrollView);
+@property (nonatomic,copy) void(^scrollViewDidEndDecelerating)(UIScrollView *scrollView);
 
 
 // TODO: initilize method
