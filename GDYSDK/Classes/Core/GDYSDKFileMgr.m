@@ -1,11 +1,13 @@
+////  GDYSDKFileMgr.m
+//  GDYSDK
 //
-//  FileToolMgr.m
+//  Created on 2019/8/1.
+//  
+//
 
+#import "GDYSDKFileMgr.h"
 
-#import "FileToolMgr.h"
-
-@implementation FileToolMgr
-
+@implementation GDYSDKFileMgr
 
 #pragma mark - ---- get iOS-App some file path ----
 + (NSString *)getDocumentFilePath{
@@ -89,7 +91,8 @@
     }
 }
 
-#pragma mark - get file size at path
+#pragma mark - get file size attribute
+// get file size
 + (long long)getFileSizeAtPath:(NSString*)filePath{
     NSFileManager* manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:filePath]){
@@ -97,6 +100,11 @@
     }
     return 0;
 }
+// get this file all sub file
+
+
+
+
 
 
 

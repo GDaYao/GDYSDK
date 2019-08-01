@@ -4,7 +4,7 @@
 //  Created on 2019/7/26.
 //
 
-/** func: GDYSDK --- 相册管理方法调用
+/** func: GDYSDK --- 相册管理方法调用 + 图片方法使用
  *
  */
 
@@ -57,8 +57,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)saveVideoToAlbum:(NSString *)videoPath completionTarget:(id)completionTarget completionSelector:(SEL)selector;
 
 
+#pragma mark - ----- 图片操作方法使用 -----
 
+/**
+ 写UIImage对象到本地
 
+ @param image UIImage对象
+ @param imagePath image存储的本地路径
+ @return 是否写入成功
+ */
++ (BOOL)saveImageToDownloadFileWithImage:(UIImage *)image  imageName:(NSString *)imagePath;
 
 @end
 

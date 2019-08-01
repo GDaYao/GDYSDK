@@ -126,7 +126,7 @@ failure:(void (^)(NSError * _Nullable error))failure
 
 
 #pragma mark - AFNet implete 'download'
-+ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  httpHeaderTicket:(NSString *)ticketStr  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress{
++ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  httpHeaderTicket:(NSString *)ticketStr  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress destination:(void(^)(NSURL *targetPath))destination completionHandler:(void (^)(NSURL *filePath, NSError *error))completionHandler {
     // 1. create manager
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -153,26 +153,30 @@ failure:(void (^)(NSError * _Nullable error))failure
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress){
         // downloadProgress.completedUnitCount --- current download count
         // downloadProgress.totalUnitCount  --- totle count
-        NSLog(@"%f", 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+        //NSLog(@"%f", 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
         progress(downloadProgress);
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         // targetPath -- temp file path
-        NSLog(@"targetPath:%@",targetPath);
+        //NSLog(@"targetPath:%@",targetPath);
         NSString *path =[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
         if (specifilyPath) {
             path = specifilyPath;
         }
         NSString *filePath = [path stringByAppendingPathComponent:response.suggestedFilename];
         NSURL *url = [NSURL fileURLWithPath:filePath];
+        
+        destination(targetPath);
+        
         return url;
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        NSLog(@"completion downloaded to: %@", filePath);
+        //NSLog(@"completion downloaded to: %@", filePath);
+        completionHandler(filePath,error);
     }];
     [downloadTask resume];
 }
 
 // directly download
-+ (void)executeDowloadFileWithStr:(NSString *)originStr
++ (void)executeDowloadFileWithStr:(NSString *)originStr completionHandler:(void (^)(NSURL *filePath, NSError *error))completionHandler
 {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -186,6 +190,7 @@ failure:(void (^)(NSError * _Nullable error))failure
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         //NSLog(@"completion downloaded to: %@", filePath);
+        completionHandler(filePath,error);
     }];
     [downloadTask resume];
 }

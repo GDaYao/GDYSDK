@@ -37,6 +37,20 @@
 }
 
 
+#pragma mark - ----- 图片操作方法使用 -----
+
+
+#pragma mark - 存储图片到指定文件夹
++ (BOOL)saveImageToDownloadFileWithImage:(UIImage *)image  imageName:(NSString *)imagePath {
+    BOOL result =[UIImagePNGRepresentation(image) writeToFile:imagePath   atomically:YES]; // 保存成功会返回YES
+    return result;
+}
+
+
+
+
+
+
 
 
 @end

@@ -1,13 +1,21 @@
+////  GDYSDKFileMgr.h
+//  GDYSDK
 //
-//  FileToolMgr.h
+//  Created on 2019/8/1.
+//  
+//
 
+/** func: file opeation.
+ *
+ *
+ */
 
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FileToolMgr : NSObject
+@interface GDYSDKFileMgr : NSObject
 
 #pragma mark - get iOS-App some file path
 /**

@@ -62,6 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
                                      success:(void (^)(id _Nullable responseObject))success
                                      failure:(void (^)(NSError * _Nullable error))failure;
 
+#pragma mark - download
 /**
  download
  
@@ -71,12 +72,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param ticketStr set http header ticket
  @param progress This progress description download task progress.
  */
-+ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  httpHeaderTicket:(NSString *)ticketStr  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress;
++ (void)createDownloadTaskWithDownloadStr:(NSString *)downloadStr parameters:(id)parameters downloadSpecifilyPath:(NSString *)specifilyPath  httpHeaderTicket:(NSString *)ticketStr  downloadProgress:(void(^)(NSProgress * _Nonnull downloadProgress))progress destination:(void(^)(NSURL *targetPath))destination completionHandler:(void (^)(NSURL *filePath, NSError *error))completionHandler;
 
 /**
  directly download
  */
-+ (void)executeDowloadFileWithStr:(NSString *)originStr;
++ (void)executeDowloadFileWithStr:(NSString *)originStr completionHandler:(void (^)(NSURL *filePath, NSError *error))completionHandler;
 
 
 /**
