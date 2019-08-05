@@ -48,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getDeviceIPAddress:(BOOL)preferIPv4;
 //+ (nullable NSString *)geDevicetMacAddress;
 
+#pragma mark - get system languages/ 获的当前系统使用语言
++ (NSString*)getPreferredLanguage;
+
+
+
 
 @end
 

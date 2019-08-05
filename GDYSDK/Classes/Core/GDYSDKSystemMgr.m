@@ -338,4 +338,19 @@
 
 
 
+
+#pragma mark - get system languages
+/**   en:英文  zh-Hans:简体中文   zh-Hant:繁体中文    ja:日本  ......  */
++ (NSString*)getPreferredLanguage {
+    NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+    NSArray* languages = [defs objectForKey:@"AppleLanguages"];
+    NSString* preferredLang = [languages objectAtIndex:0];
+    // NSLog(@"Preferred Language:%@", preferredLang);
+    return preferredLang;
+}
+
+
+
+
+
 @end
