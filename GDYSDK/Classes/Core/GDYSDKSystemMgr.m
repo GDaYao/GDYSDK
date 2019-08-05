@@ -345,6 +345,18 @@
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     NSArray* languages = [defs objectForKey:@"AppleLanguages"];
     NSString* preferredLang = [languages objectAtIndex:0];
+    if( [[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"en"]  ){
+        return @"en";
+    }
+    if( [[preferredLang substringWithRange:NSMakeRange(0, 7)] isEqualToString:@"zh-Hans"]  ){
+        return @"zh-Hans";
+    }
+    if( [[preferredLang substringWithRange:NSMakeRange(0, 7)] isEqualToString:@"zh-Hant"]  ){
+        return @"zh-Hans";
+    }
+    if( [[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"ja"]  ){
+        return @"ja";
+    }
     // NSLog(@"Preferred Language:%@", preferredLang);
     return preferredLang;
 }
