@@ -66,7 +66,9 @@
     if (!product.count)
     {
         NSLog(@"GDYSDK-未收到内购产品信息");
-        [self.deleagte productRequestInReceiveResponseWithNullProduct];
+        if ([self.deleagte respondsToSelector:@selector(productRequestInReceiveResponseWithNullProduct)]) {
+            [self.deleagte productRequestInReceiveResponseWithNullProduct];
+        }
         return;
     }
     
@@ -94,12 +96,17 @@
 // call in request finish with success
 - (void)requestDidFinish:(SKRequest *)request {
     NSLog(@"GDYSDK-内购购买请求成功");
-    [self.deleagte SKRequestInDidFinish];
+    if ([self.deleagte respondsToSelector:@selector(SKRequestInDidFinish)]) {
+        [self.deleagte SKRequestInDidFinish];
+    }
+    
 }
 // call in request fail with error
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
     NSLog(@"GDYSDK-内购购买请求失败-error:%@",error);
-    [self.deleagte SKRequestInDidFailWithError:error];
+    if ([self.deleagte respondsToSelector:@selector(SKRequestInDidFailWithError:)]) {
+        [self.deleagte SKRequestInDidFailWithError:error];
+    }
 }
 
 
@@ -117,7 +124,10 @@
                 
                 NSString *productId = tran.payment.productIdentifier;
                 NSString *receiptString = [tran.transactionReceipt base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
-                [self.deleagte completeTransactionWithProductId:productId transactionReceipt:receiptString transactionId:tran.transactionIdentifier];
+                if([self.deleagte respondsToSelector:@selector(completeTransactionWithProductId:transactionReceipt:transactionId:)]){
+                    [self.deleagte completeTransactionWithProductId:productId transactionReceipt:receiptString transactionId:tran.transactionIdentifier];
+                }
+                
                 
                 // 订阅特殊处理
                 if(tran.originalTransaction){
@@ -139,8 +149,9 @@
                 
                 NSString *productId = tran.payment.productIdentifier;
                 NSString *receiptString = [tran.transactionReceipt base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
-                
-                [self.deleagte restoreTransactionWithProductId:productId transactionReceipt:receiptString transactionId:tran.transactionIdentifier];
+                if ([self.deleagte respondsToSelector:@selector(restoreTransactionWithProductId:transactionReceipt:transactionId:)]) {
+                    [self.deleagte restoreTransactionWithProductId:productId transactionReceipt:receiptString transactionId:tran.transactionIdentifier];                    
+                }
             }
                 break;
                 case SKPaymentTransactionStateFailed:
@@ -148,7 +159,9 @@
                 NSLog(@"GDYSDK-内购商品购买失败");
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 NSString *productId = tran.payment.productIdentifier;
-                [self.deleagte failTransactionWithProductId:productId];
+                if ([self.deleagte respondsToSelector:@selector(failTransactionWithProductId:)]) {
+                    [self.deleagte failTransactionWithProductId:productId];
+                }
             }
             default:
                 break;

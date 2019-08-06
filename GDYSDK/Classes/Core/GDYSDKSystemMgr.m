@@ -340,7 +340,7 @@
 
 
 #pragma mark - get system languages
-/**   en:英文  zh-Hans:简体中文   zh-Hant:繁体中文    ja:日本  ......  */
+/**   en:英文  zh-Hans:简体中文   zh-Hant:繁体中文    ja:日本  ...... */
 + (NSString*)getPreferredLanguage {
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     NSArray* languages = [defs objectForKey:@"AppleLanguages"];
@@ -352,7 +352,7 @@
         return @"zh-Hans";
     }
     if( [[preferredLang substringWithRange:NSMakeRange(0, 7)] isEqualToString:@"zh-Hant"]  ){
-        return @"zh-Hans";
+        return @"zh-Hant";
     }
     if( [[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"ja"]  ){
         return @"ja";
