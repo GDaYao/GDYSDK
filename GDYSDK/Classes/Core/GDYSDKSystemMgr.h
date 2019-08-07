@@ -33,8 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getDeviceUDIDValueFromKeychain;
 /*获取当前设备的通讯运营商名称*/
 + (NSString *)getDeviceCarrierName;
-/*获取当前设备的型号名称*/
+/*获取当前设备的型号*/
 + (NSString *)getDeviceModel;
+/* 获取当前设备的型号名称  */
++ (NSString*)getDeviceType;
 /*获取当前设备的操作系统版本号*/
 + (NSString *)getDeviceOSVersion;
 
