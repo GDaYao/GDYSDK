@@ -1,12 +1,20 @@
-
+////  UILabel+GDYSDKUILabel.h
+//  GDYSDK
 //
-// 自定义UILabel初始化时使用
+//  Created on 2019/8/10.
+//  
+//
 
-//function: 自定义UILabel,初始化并封装常用方法
+/** func: UILabel category
+ *  init method.
+ */
+
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (CustomLabInit)
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UILabel (GDYSDKUILabel)
 
 /**
  init lab
@@ -30,7 +38,8 @@
 + (void)changeSpaceForLabel:(UILabel *)label withLineSpace:(float)lineSpace WordSpace:(float)wordSpace;
 
 
-
 @end
+
+NS_ASSUME_NONNULL_END
 
 

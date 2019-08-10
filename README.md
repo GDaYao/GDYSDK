@@ -26,7 +26,7 @@ pod 'GDYSDK'
 If you want to  use specific tag version.
 
 ```ruby
-pod 'GDYSDK','0.1.13'
+pod 'GDYSDK','1.0.0'
 ```
 
 If GDYSDK only exist personal GitHub,I can this
@@ -38,6 +38,11 @@ pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git'
 or use specifily tag version
 >>>
 pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch => '<branchName>'
+
+or you want to use specifily subpodspec
+>>>
+pod 'GDYSDK/Core',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch => '<branchName>'
+
 ```
 
 ## Usage

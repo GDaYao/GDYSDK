@@ -1,10 +1,15 @@
+////  UIButton+GDYSDKUIButton.m
+//  GDYSDK
 //
-//  UIButton+CustomBtn.m
+//  Created on 2019/8/10.
+//  
+//
 
-#import "UIButton+CustomBtn.h"
+#import "UIButton+GDYSDKUIButton.h"
 
-@implementation UIButton (CustomBtn)
+@implementation UIButton (GDYSDKUIButton)
 
+#pragma mark - init button.
 + (UIButton *)initWithBGName:(NSString *)imgStr title:(NSString *)titleStr titleColor:(UIColor *)titleColor fontName:(NSString *)fontName isBold:(BOOL)isBold fontSize:(CGFloat)sizeFont btnBGColor:(UIColor *)bgColor {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     if (imgStr.length != 0) {
@@ -29,6 +34,7 @@
     }
     return btn;
 }
+
 
 
 @end

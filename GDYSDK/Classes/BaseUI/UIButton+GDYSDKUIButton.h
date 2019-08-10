@@ -1,14 +1,24 @@
+////  UIButton+GDYSDKUIButton.h
+//  GDYSDK
 //
-// custom UIButton and usually func
+//  Created on 2019/8/10.
+//  
+//
+
+/** func: UIButton category
+ *  init method.
+ */
 
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (CustomBtn)
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIButton (GDYSDKUIButton)
 
 /**
  UIButton init method.
-
+ 
  @param imgStr background image name string.
  @param titleStr UIButton show title.
  @param titleColor UIButton title color.
@@ -23,4 +33,4 @@
 
 @end
 
-
+NS_ASSUME_NONNULL_END

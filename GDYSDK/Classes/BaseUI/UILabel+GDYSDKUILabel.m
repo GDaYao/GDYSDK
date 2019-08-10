@@ -1,11 +1,14 @@
+////  UILabel+GDYSDKUILabel.m
+//  GDYSDK
 //
-//  UILabel+CustomLabInit.m
+//  Created on 2019/8/10.
+//  
+//
 
+#import "UILabel+GDYSDKUILabel.h"
 
-#import "UILabel+CustomLabInit.h"
+@implementation UILabel (GDYSDKUILabel)
 
-
-@implementation UILabel (CustomLabInit)
 
 
 #pragma mark - `UILabel` init method
@@ -73,8 +76,4 @@
 
 
 
-
 @end
-
-
-
