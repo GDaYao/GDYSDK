@@ -36,15 +36,15 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kSetScreenBounds CGRectMake(0, 0, kScreenWidth, kScreenHeight)
-#define kStatusBarSizeH [[UIApplication sharedApplication] statusBarFrame
+
+//#define kStatusBarSizeH [[UIApplication sharedApplication] statusBarFrame
+//#define kNavBarH self.navigationController.navigationBar.bounds.size.height
+//#define kNavBarBottomLayoutDis [[UIApplication sharedApplication]statusBarFrame].size.height+self.navigationController.navigationBar.bounds.size.height
 #define kStatusBarSizeHNum (kIsiPhoneXOver ? 44.f : 20.f)
-#define kNavBarH self.navigationController.navigationBar.bounds.size.height
 #define kNavBarHNum 44.f
-#define kNavBarBottomLayoutDis [[UIApplication sharedApplication]statusBarFrame].size.height+self.navigationController.navigationBar.bounds.size.height
-#define kNavBarBottomLayoutDisNum (kIsiPhoneXOver ? 88.f : 64.f)
 #define kTabBarHeightNum 49.f
-#define kTabBarSafeBottomMargin       ( kIsiPhoneXOver ? 34.f : 0.f)
-#define kTabBarAndSafeMarginNum (kIsiPhoneXOver ? (49.f+34.f) : 49.f)
+#define kSafeBottomMargin       ( kIsiPhoneXOver ? 34.f : 0.f)
+
 
 // 可获得屏幕分辨率 screenSize.width*scale横向分辨率-screenSize.height*scale竖向分辨率
 #define kScreenScale  [UIScreen mainScreen].scale;
