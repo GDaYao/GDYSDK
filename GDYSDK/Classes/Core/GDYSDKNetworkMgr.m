@@ -2,7 +2,7 @@
 
 
 #import "GDYSDKNetworkMgr.h"
-#import "CustomAFNetHTTPSessionMgr.h"
+#import "GDYSDKCustomAFNetHTTPSessionMgr.h"
 #import <AFNetworking/AFNetworking.h>
 
 
@@ -90,7 +90,7 @@ failure:(void (^)(NSError * _Nullable error))failure
 parameters:(id)parameters
 success:(void (^)(id _Nullable responseObject))success
 failure:(void (^)(NSError * _Nullable error))failure{
-    CustomAFNetHTTPSessionMgr *sessionMgr = [CustomAFNetHTTPSessionMgr manager];
+    GDYSDKCustomAFNetHTTPSessionMgr *sessionMgr = [GDYSDKCustomAFNetHTTPSessionMgr manager];
     [sessionMgr POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
@@ -110,7 +110,7 @@ parameters:(id)parameters
 success:(void (^)(id _Nullable responseObject))success
 failure:(void (^)(NSError * _Nullable error))failure
 {
-    CustomAFNetHTTPSessionMgr *sessionMgr = [CustomAFNetHTTPSessionMgr manager];
+    GDYSDKCustomAFNetHTTPSessionMgr *sessionMgr = [GDYSDKCustomAFNetHTTPSessionMgr manager];
     [sessionMgr GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {

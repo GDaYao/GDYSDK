@@ -1,13 +1,17 @@
+////  GDYSDKCustomAFNetHTTPSessionMgr.m
+//  AFNetworking
 //
-//  CustomAFNetHTTPSessionMgr.m
+//  Created on 2019/8/15.
+//  
+//
 
+#import "GDYSDKCustomAFNetHTTPSessionMgr.h"
 
-#import "CustomAFNetHTTPSessionMgr.h"
+@implementation GDYSDKCustomAFNetHTTPSessionMgr
 
-@implementation CustomAFNetHTTPSessionMgr
 
 + (instancetype)manager{
-    CustomAFNetHTTPSessionMgr *manager = [super manager];
+    GDYSDKCustomAFNetHTTPSessionMgr *manager = [super manager];
     // 1. XML - if sever back XML data,set AFNetworking serializer style
     //manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
     // 2. not Json/XML
@@ -16,7 +20,5 @@
     manager.requestSerializer.timeoutInterval = 60.f;
     return manager;
 }
-
-
 
 @end
