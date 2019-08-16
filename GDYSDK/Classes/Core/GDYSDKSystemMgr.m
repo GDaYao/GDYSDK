@@ -253,9 +253,26 @@
 }
 
 
-/*获取当前设备的操作系统版本号*/
+/* 获取当前设备的操作系统版本号 */
 + (NSString *)getDeviceOSVersion {
     return [[UIDevice currentDevice] systemVersion];
+}
+
+/* 当前设备名称--即用户可在设置中自定义的名称     */
++ (NSString *)getDeviceName {
+    return [[UIDevice currentDevice] name];
+}
+/*   设备类别 --- 只有 'iPhone/iPad' 并没有过多区分   */
++ (NSString *)getDeviceModelUseCurrentDevice {
+    return [[UIDevice currentDevice] model];
+}
+/*   设备本地化版本  -- 'iPhone' */
++ (NSString *)getDeviceLocalizedModel {
+    return [[UIDevice currentDevice] localizedModel];
+}
+/* 设备运行系统名称 -- 'iOS'     */
++ (NSString *)getDeviceSystemName {
+    return [[UIDevice currentDevice] systemName];
 }
 
 
