@@ -41,6 +41,7 @@
 #import "GDYSDKFileMgr.h"
 #import "GDYSDKInAppPurchase.h"
 #import "GDYSDKKeychainItemWrapper.h"
+#import "GDYSDKNetworkAccessibity.h"
 #import "GDYSDKNetworkMgr.h"
 #import "GDYSDKPhotoMgr.h"
 #import "GDYSDKSystemMgr.h"
