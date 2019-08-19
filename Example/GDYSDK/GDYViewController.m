@@ -13,6 +13,8 @@
 #import <GDYSDK/GDYSDKSystemMgr.h>
 #import <GDYSDK/UIColor+GDYSDKHex.h>
 #import <GDYSDK/GDYSDKInAppPurchase.h>
+#import <GDYSDK/GDYSDKNetworkAccessibity.h>
+
 
 @interface GDYViewController ()
 
