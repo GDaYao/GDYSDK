@@ -30,6 +30,8 @@
     // set extent border width/color
     searchBar.layer.borderWidth = 1.0f;
     searchBar.layer.borderColor = borderColor.CGColor;
+    //    UIButton *clearButton = [searchField valueForKey:@"_clearButton"];
+    //    [clearButton addTarget:self action:@selector(tapClearButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchDown];
     
     return searchBar;
 }
