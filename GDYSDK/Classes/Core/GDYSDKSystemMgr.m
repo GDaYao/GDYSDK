@@ -266,7 +266,7 @@
 + (NSString *)getDeviceModelUseCurrentDevice {
     return [[UIDevice currentDevice] model];
 }
-/*   设备本地化版本  -- 'iPhone' */
+/*   设备本地化版本  -- 'iPhone/iPad' */
 + (NSString *)getDeviceLocalizedModel {
     return [[UIDevice currentDevice] localizedModel];
 }
