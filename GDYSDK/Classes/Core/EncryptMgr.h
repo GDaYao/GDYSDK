@@ -2,7 +2,14 @@
 //  EncryptMgr.h
 
 
-// func: use encrypt/decrypt
+/** func: use encrypt/decrypt
+ 
+ Base64: 严格地说，属于编码格式，而非加密算法.
+ DES(Data Encryption Standard，数据加密算法)
+ AES（高级加密标准）代替DES.
+ MD5(Message Digest algorithm 5，信息摘要算法).
+ 
+ */
 
 #import <Foundation/Foundation.h>
 
@@ -12,6 +19,7 @@
 #define __TEXT( base64 )        [CommonFunc textFromBase64String:base64]
 
 @interface EncryptMgr : NSObject
+
 
 #pragma mark - base64 covert string
 // 将文本字符串转换为base64格式字符串
@@ -36,6 +44,8 @@
 +(NSString *)encryptWithText:(NSString *)sText;
 // kCCDecrypt 解密
 +(NSString *)decryptWithText:(NSString *)sText;
+
+
 
 
 #pragma mark - md5 encryption lock
