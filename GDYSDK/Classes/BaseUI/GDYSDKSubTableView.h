@@ -64,6 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) UITableViewCell*_Nullable(^cellForRow)(UITableView *tableView,NSIndexPath *indexPath);
 @property(nonatomic,copy) void(^willDisplayCellBlock)(UITableView *tableView,UITableViewCell *cell,NSIndexPath *indexPath);
 @property(nonatomic,copy) void(^didSelectInTV)(UITableView *tableView,NSIndexPath *indexPath);
+@property (nonatomic,copy) void(^cellDeleteInTVInGDYSDK)(UITableView *tableView,NSIndexPath *indexPath);
 // scrollView delegate
 @property(nonatomic,copy) void(^scrollViewWillBeginDraggingInTV)(UIScrollView *scrollView);
 @property(nonatomic,copy) void(^scrollViewDidScrollToTopInTV)(UIScrollView *scrollView);

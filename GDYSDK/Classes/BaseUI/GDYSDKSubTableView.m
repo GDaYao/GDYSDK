@@ -103,6 +103,22 @@ static NSString *  const kGDYSDKDefaultCellIdentifier = @"GDYSDKSubUITableViewCe
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return self.didSelectInTV(tableView,indexPath);
 }
+// TODO: edit cell
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if (self.cellDeleteInTVInGDYSDK) {
+            self.cellDeleteInTVInGDYSDK(tableView, indexPath);
+        }
+    }
+    else
+    {
+        
+    }
+}
+
+
 
 #pragma mark - scrollView delegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
