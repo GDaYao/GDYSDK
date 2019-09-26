@@ -42,12 +42,15 @@ NS_ASSUME_NONNULL_BEGIN
 /* 当前设备名称--即用户可在设置中自定义的名称      */
 + (NSString *)getDeviceName;
 /*   设备类别 --- 只有 'iPhone/iPad' 并没有过多区分  */
-+ (NSString *)getDeviceModelUseCurrentDevice;
++ (NSString *)getDeviceBand;
 /*   设备本地化版本 -- 'iPhone'  */
 + (NSString *)getDeviceLocalizedModel;
 /* 设备运行系统名称  -- 'iOS'   */
 + (NSString *)getDeviceSystemName;
 
+
+#pragma mark - 获取网络状态
++ (NSString *)GDYSDKGetDeviceNetworkStatus;
 
 
 #pragma mark -  获取SSID（Service Set Identifier)

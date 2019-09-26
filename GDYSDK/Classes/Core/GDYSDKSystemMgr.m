@@ -15,6 +15,11 @@
 // 获取当前设备型号名称
 #import "sys/utsname.h"
 
+// 获取网络状态
+#import <GDYSDK/GDYReachability.h>
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+
 // 获取SSID+BSSID
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <NetworkExtension/NetworkExtension.h>
@@ -263,7 +268,7 @@
     return [[UIDevice currentDevice] name];
 }
 /*   设备类别 --- 只有 'iPhone/iPad' 并没有过多区分   */
-+ (NSString *)getDeviceModelUseCurrentDevice {
++ (NSString *)getDeviceBand {
     return [[UIDevice currentDevice] model];
 }
 /*   设备本地化版本  -- 'iPhone/iPad' */
@@ -276,10 +281,91 @@
 }
 
 
+#pragma mark - 获取网络状态
+/** need import
+ #import <GDYSDK/GDYReachability.h>
+ #import <CoreTelephony/CTCarrier.h>
+ #import <CoreTelephony/CTTelephonyNetworkInfo.h>
+ */
++ (NSString *)GDYSDKGetDeviceNetworkStatus
+{
+    NSString *netconnType = @"";
+    
+    GDYReachability *reach = [GDYReachability reachabilityWithHostName:@"www.apple.com"];
+    
+    switch ([reach currentReachabilityStatus]) {
+        case NotReachable:// 没有网络
+        {
+            
+            netconnType = @"no network";
+        }
+            break;
+            
+        case ReachableViaWiFi:// Wifi
+        {
+            netconnType = @"Wifi";
+        }
+            break;
+            
+        case ReachableViaWWAN: // 手机自带网络
+        {
+            // 获取手机网络类型
+            CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];
+            
+            NSString *currentStatus = info.currentRadioAccessTechnology;
+            
+            if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyGPRS"]) {
+                
+                netconnType = @"GPRS";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyEdge"]) {
+                
+                netconnType = @"2.75G EDGE";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyWCDMA"]){
+                
+                netconnType = @"3G";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyHSDPA"]){
+                
+                netconnType = @"3.5G HSDPA";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyHSUPA"]){
+                
+                netconnType = @"3.5G HSUPA";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMA1x"]){
+                
+                netconnType = @"2G";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORev0"]){
+                
+                netconnType = @"3G";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORevA"]){
+                
+                netconnType = @"3G";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORevB"]){
+                
+                netconnType = @"3G";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyeHRPD"]){
+                
+                netconnType = @"HRPD";
+            }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyLTE"]){
+                
+                netconnType = @"4G";
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return netconnType;
+}
+
+
 #pragma mark -  获取SSID（Service Set Identifier），服务集标识，也就是WiFi网络所取的名字。
 
 /**
     CNCopySupportedInterfaces 和CNCopyCurrentNetworkInfo两个类 使用
+ need import:
+    #import <SystemConfiguration/CaptiveNetwork.h>
+    #import <NetworkExtension/NetworkExtension.h>
  */
 + (NSString *)getDeviceWifiName
 {
@@ -293,7 +379,7 @@
     }
     NSDictionary *dic = (NSDictionary *)info;
     NSString *ssid = [[dic objectForKey:@"SSID"] lowercaseString];
-    
+    // 获取网络状态为nil
     return ssid;
 }
 #pragma mark - 获取BSSID即mac地址。
