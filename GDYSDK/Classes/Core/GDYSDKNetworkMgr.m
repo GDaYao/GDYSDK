@@ -92,7 +92,8 @@ parameters:(id)parameters
 success:(void (^)(id _Nullable responseObject))success
 failure:(void (^)(NSError * _Nullable error))failure{
     AFHTTPSessionManager *sessionMgr = [AFHTTPSessionManager manager];
-    // 下面这个属性，大多用在加密返回参数中使用
+    // 下面这个属性，大多用在加密返回参数中使用;
+    // 注意有使用GDYSDK地方这里不能随意改动，以免使用的项目出现意外
     //sessionMgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     sessionMgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"application/xhtml+xml", @"application/xml", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", @"video/mp4", @"text/plain",@"charset=utf-8",nil];
     sessionMgr.requestSerializer.timeoutInterval = 60.f;
