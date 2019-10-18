@@ -156,11 +156,11 @@
                 break;
                 case SKPaymentTransactionStateFailed:
             {
-                NSLog(@"GDYSDK-内购商品购买失败");
+                NSLog(@"GDYSDK-内购商品购买失败:%@",tran.error.localizedDescription);
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 NSString *productId = tran.payment.productIdentifier;
-                if ([self.deleagte respondsToSelector:@selector(failTransactionWithProductId:)]) {
-                    [self.deleagte failTransactionWithProductId:productId];
+                if ([self.deleagte respondsToSelector:@selector(gdysdkIAPFailTransactionWithProductId:errorLocalizedDescription:)]) {
+                    [self.deleagte gdysdkIAPFailTransactionWithProductId:productId errorLocalizedDescription:tran.error.localizedDescription];
                 }
             }
             default:
