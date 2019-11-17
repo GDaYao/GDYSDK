@@ -15,6 +15,12 @@
  //在这个过程中，客户端不需要做任何处理，只需要走check订阅有效期的流程即可。（当客户端判断出用户已经不在有效期后，会向服务器请求，服务器会将新的有效期下发给客户端。
  */
 
+
+/** 注：有两点需要关注 ****
+ *    1. 内购监听方法 `addTransactionObserver`，若是放在 `viewDidLoad` 中处理,注意取消内购监听方法 `removeTransactionObserver`.
+ *    2.取消内购监听方法，若是放在`viewDidLoad`方法中，注意付费界面跳转导致的取消内购监听操作；若出现取消内购监听，从新加入内购监听 -配对-`viewWillAppear`.
+ */
+
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
