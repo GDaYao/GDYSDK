@@ -591,7 +591,9 @@
 
 
 #pragma mark - get system languages
-/**   en:英文  zh-Hans:简体中文   zh-Hant:繁体中文    ja:日本  ...... */
+/**
+  英语: en 繁体: zh-Hant 简体中文: zh-Hans 日语: ja 韩语: ko  俄语: ru 德语: de 法语: fr
+ */
 + (NSString*)getPreferredLanguage {
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     NSArray* languages = [defs objectForKey:@"AppleLanguages"];
@@ -605,7 +607,16 @@
         return @"zh-Hant";
     }else if ((preferredLang.length>=2)&& ([[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"ja"]) ) {
         return @"ja";
-    }else{
+    }else if ((preferredLang.length>=2)&& ([[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"ko"]) ) {
+        return @"ko";
+    }else if ((preferredLang.length>=2)&& ([[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"ru"]) ) {
+        return @"ru";
+    }else if ((preferredLang.length>=2)&& ([[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"de"]) ) {
+        return @"de";
+    }else if ((preferredLang.length>=2)&& ([[preferredLang substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"fr"]) ) {
+        return @"fr";
+    }
+    else{
         return @"en";
     }
     // NSLog(@"Preferred Language:%@", preferredLang);

@@ -18,7 +18,7 @@
 
 /** 注：有两点需要关注 ****
  *    1. 内购监听方法 `addTransactionObserver`，若是放在 `viewDidLoad` 中处理,注意取消内购监听方法 `removeTransactionObserver`.
- *    2.取消内购监听方法，若是放在`viewDidLoad`方法中，注意付费界面跳转导致的取消内购监听操作；若出现取消内购监听，从新加入内购监听 -配对-`viewWillAppear`.
+ *    2.取消内购监听方法，若是放在`viewWillDisappear`方法中，注意付费界面跳转导致的取消内购监听操作；若出现取消内购监听，从新加入内购监听 -配对-`viewWillAppear`.
  */
 
 #import <Foundation/Foundation.h>

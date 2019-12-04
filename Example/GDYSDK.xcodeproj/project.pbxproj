@@ -526,6 +526,7 @@
 			baseConfigurationReference = 16FA2B76BE3CC542446B6128 /* Pods-GDYSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GDYSDK/GDYSDK-Prefix.pch";
 				INFOPLIST_FILE = "GDYSDK/GDYSDK-Info.plist";
@@ -541,6 +542,7 @@
 			baseConfigurationReference = B3103B8A0C242D062436464A /* Pods-GDYSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GDYSDK/GDYSDK-Prefix.pch";
 				INFOPLIST_FILE = "GDYSDK/GDYSDK-Info.plist";

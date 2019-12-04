@@ -9,8 +9,9 @@
 
 @implementation UIButton (GDYSDKUIButton)
 
+
 #pragma mark - init button.
-+ (UIButton *)initWithBGName:(NSString *)imgStr title:(NSString *)titleStr titleColor:(UIColor *)titleColor fontName:(NSString *)fontName isBold:(BOOL)isBold fontSize:(CGFloat)sizeFont btnBGColor:(UIColor *)bgColor {
++ (UIButton *)GDYSDKInitWithBGName:(NSString *)imgStr title:(NSString *)titleStr titleColor:(UIColor *)titleColor fontName:(NSString *)fontName isBold:(BOOL)isBold fontSize:(CGFloat)sizeFont btnBGColor:(UIColor *)bgColor {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     if (imgStr.length != 0) {
         [btn setBackgroundImage:[UIImage imageNamed:imgStr] forState:UIControlStateNormal];
@@ -34,6 +35,8 @@
     }
     return btn;
 }
+
+
 
 
 
