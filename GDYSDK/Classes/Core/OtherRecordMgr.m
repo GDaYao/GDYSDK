@@ -106,9 +106,10 @@
 }
 
 
-#pragma mark - 计算Lab/text/string 所占宽度
-+ (void)caculateLabOrTextStringSize:(NSString *)labText rangeWidth:(UIView *)rangeSelf{
+#pragma mark - 计算Lab/text/string 所占尺寸
++ (CGSize)caculateLabOrTextStringSize:(NSString *)labText rangeWidth:(UIView *)rangeSelf{
     CGSize leRepLabSize = [labText boundingRectWithSize:CGSizeMake(rangeSelf.bounds.size.width, __FLT_MAX__) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size;
+    return leRepLabSize;
 }
 
 #pragma mark - json ==> model 的三种方法
@@ -238,6 +239,24 @@
  *  https://itunes.apple.com/app/id1061880281 
  *  http://itunes.apple.com/lookup?id=1061880281
  */
+
+
+#pragma mark - set system share tutorial.
+- (void)setSystemShareMethod {
+    NSArray *activityItems = @[@"shareFileName",@"shareFileUrlPath"];
+    
+    // 设置系统分享
+    UIActivityViewController *activityViewController =    [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    UIApplication *application = [UIApplication sharedApplication];
+    [application.keyWindow.rootViewController presentViewController:activityViewController animated:YES completion:nil];
+    
+    activityViewController.excludedActivityTypes = @[];
+    // 选中活动列表类型
+    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        NSLog(@"act type %@",activityType);
+        
+    }];
+}
 
 
 
