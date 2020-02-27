@@ -42,7 +42,8 @@ pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch
 or you want to use specifily subpodspec
 >>>
 pod 'GDYSDK/Core',:git=>'git@github.com:GDaYao/GDYSDK.git',:tag=>'<tag name>',:branch => '<branchName>'
-
+>>> also you can,use local source
+#pod 'GDYSDK', :path =>'~/xxx/xxx/GDYSDK'
 ```
 
 ## Usage
