@@ -55,11 +55,10 @@
  use '[self AFHttpDataTaskRequestMethod: ...]'
  */
 + (void)AFHttpDataTaskRequestMethod:(NSString *)method
-URLString:(NSString *)URLString
-parameters:(id)parameters
-success:(void (^)(id _Nullable responseObject))success
-failure:(void (^)(NSError * _Nullable error))failure
-{
+                          URLString:(NSString *)URLString
+                         parameters:(id)parameters
+                            success:(void (^)(id _Nullable responseObject))success
+                            failure:(void (^)(NSError * _Nullable error))failure {
     AFHTTPSessionManager *sessionMgr = [AFHTTPSessionManager manager];
     sessionMgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     sessionMgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"application/xhtml+xml", @"application/xml", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", @"video/mp4", nil];
@@ -88,9 +87,9 @@ failure:(void (^)(NSError * _Nullable error))failure
 
 #pragma mark ---- 'POST' net request data ----
 + (void)AFHttpDataTaskPostMethodWithURLString:(NSString *)URLString
-parameters:(id)parameters
-success:(void (^)(id _Nullable responseObject))success
-failure:(void (^)(NSError * _Nullable error))failure{
+                                   parameters:(id)parameters
+                                      success:(void (^)(id _Nullable responseObject))success
+                                      failure:(void (^)(NSError * _Nullable error))failure{
     AFHTTPSessionManager *sessionMgr = [AFHTTPSessionManager manager];
     // 下面这个属性，大多用在加密返回参数中使用;
     // 注意有使用GDYSDK地方这里不能随意改动，以免使用的项目出现意外
@@ -101,12 +100,15 @@ failure:(void (^)(NSError * _Nullable error))failure{
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
             success(responseObject);
-            // in this success,you can add NSNotificationCenter to refresh view when data update
-            // [[NSNotificationCenter defaultCenter] postNotificationName:@"requestSuccessRefreshData" object:nil];
+        }else{
+            NSString *domain = @"domain with response object null";
+            NSString *desc = NSLocalizedString(@"response object null", @"response object null");
+            NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : desc };
+            NSError *error = [NSError errorWithDomain:domain code:-0000 userInfo:userInfo];
+            failure(error);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
-        // [[NSNotificationCenter defaultCenter] postNotificationName:@"requestFailureShowAlert" object:nil];
     }];
 }
 
@@ -125,8 +127,12 @@ failure:(void (^)(NSError * _Nullable error))failure
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
             success(responseObject);
-            // in this success,you can add NSNotificationCenter to refresh view when data update
-            // [[NSNotificationCenter defaultCenter] postNotificationName:@"requestSuccessRefreshData" object:nil];
+        }else{
+            NSString *domain = @"domain with response object null";
+            NSString *desc = NSLocalizedString(@"response object null", @"response object null");
+            NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : desc };
+            NSError *error = [NSError errorWithDomain:domain code:-0000 userInfo:userInfo];
+            failure(error);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);

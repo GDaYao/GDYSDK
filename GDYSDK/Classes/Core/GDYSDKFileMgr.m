@@ -51,7 +51,7 @@
 
 #pragma mark - implement "NSString/path" substring from "/" position to end
 + (NSString *)generateSubstringToLastWithString:(NSString *)stringOrPath{
-    NSRange range = [stringOrPath rangeOfString:@"/" options:NSBackwardsSearch] ;
+    NSRange range = [stringOrPath rangeOfString:@"/" options:NSBackwardsSearch];
     if(range.length == 0){
         return stringOrPath;
     }
@@ -59,7 +59,7 @@
     return lastStr;
 }
 + (NSString *)generateSubstringFromBeginWithString:(NSString *)stringOrPath{
-    NSRange range = [stringOrPath rangeOfString:@"/"] ;
+    NSRange range = [stringOrPath rangeOfString:@"/"];
     if(range.length == 0){
         return stringOrPath;
     }
