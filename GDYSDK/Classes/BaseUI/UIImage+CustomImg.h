@@ -22,7 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)changeImgSize:(UIImage *)currentImg changeSize:(CGSize)size;
 
 #pragma mark - generate UIImage form color
-+ (UIImage *)imageWithColor:(UIColor *)color;
+// draw rect
++ (UIImage *)imageRectWithColor:(UIColor *)color colorSize:(CGSize)colorSize;
+// draw fill round
++ (UIImage *)imageRoundWithColor:(UIColor *)color colorSize:(CGSize)colorSize;
+
 
 @end
 

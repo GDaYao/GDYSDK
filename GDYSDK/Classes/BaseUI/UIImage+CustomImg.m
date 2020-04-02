@@ -46,12 +46,31 @@
 }
 
 #pragma mark - generate UIImage form color
-+ (UIImage *)imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f); UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext(); CGContextSetFillColorWithColor(context, [color CGColor]); CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext();
+// draw rect
++ (UIImage *)imageRectWithColor:(UIColor *)color colorSize:(CGSize)colorSize {
+    CGRect rect = CGRectMake(0.0f, 0.0f, colorSize.width, colorSize.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return image;
 }
+// draw fill round
++ (UIImage *)imageRoundWithColor:(UIColor *)color colorSize:(CGSize)colorSize {
+    CGRect rect = CGRectMake(0.0f, 0.0f, colorSize.width, colorSize.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextAddArc(context,colorSize.width/2.0, colorSize.height/2.0,colorSize.width/2.0,0, M_PI*2, 0);//添加圆 0顺时针、1逆时针
+    //kCGPathFill填充非零绕数规则,kCGPathEOFill表示用奇偶规则,kCGPathStroke路径,kCGPathFillStroke路径填充,kCGPathEOFillStroke表示描线，不是填充
+    CGContextDrawPath(context, kCGPathFill);//绘制路径
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 
 
 
