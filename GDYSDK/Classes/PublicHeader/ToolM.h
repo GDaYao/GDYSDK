@@ -84,6 +84,9 @@
 #pragma mark - judge class object/NSString blank 
 + (BOOL)isBlankString:(NSString *)string;
 + (BOOL)isNull:(id)judgeClassObject;
+// judge NSString can covert to integer/int/double
++ (BOOL)isCanCovertInterValueWithString:(NSString *)str;
+
 
 
 #pragma mark - system font library -- 系统所有字体库输出查看

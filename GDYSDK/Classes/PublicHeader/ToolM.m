@@ -455,6 +455,18 @@
     }
     return NO;
 }
+// judge NSString can covert to integer/int/double
++ (BOOL)isCanCovertInterValueWithString:(NSString *)str {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    id result = [formatter numberFromString:str];
+    if(result)
+    {
+        return YES;
+    }else{
+        return NO;
+    }
+    return NO;
+}
 
 #pragma mark - system font library -- 系统所有字体库输出查看
 + (void)getFontNamesWithFont
