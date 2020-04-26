@@ -82,7 +82,6 @@
 
 
 #pragma mark - judge class object/NSString blank 
-+ (BOOL)isBlankString:(NSString *)string;
 + (BOOL)isNull:(id)judgeClassObject;
 // judge NSString can covert to integer/int/double
 + (BOOL)isCanCovertInterValueWithString:(NSString *)str;

@@ -398,58 +398,31 @@
     return dic;
 }
 
-#pragma mark - judge blank string
-+ (BOOL)isBlankString:(NSString *)string
-{
-    if (string == nil || string == NULL)
-    {
-        return YES;
-    }
-    if ([string isEqualToString:@""]       ||
-        [string isEqualToString:@"null"]   ||
-        [string isEqualToString:@"<NULL>"] ||
-        [string isEqualToString:@"<null>"] ||
-        [string isEqualToString:@"NULL"]   ||
-        [string isEqualToString:@"nil"]    ||
-        [string isEqualToString:@"(null)"] )
-    {
-        return YES;
-    }
-    
-    if ([string isKindOfClass:[NSNull class]])
-    {
-        return YES;
-    }
-    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)
-    {
-        return YES;
-    }
-    return NO;
-}
 // judeg class object -- 判断对象是否为空
 + (BOOL)isNull:(id)judgeClassObject
 {
-    if ([judgeClassObject isEqual:[NSNull null]])
+    if (judgeClassObject == nil || judgeClassObject == NULL) {
+        return YES;
+    }
+    
+    if ([judgeClassObject isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    
+    NSString *str = NSStringFromClass([judgeClassObject class]);
+    if ([str isEqualToString:@""]       ||
+        [str isEqualToString:@"null"]   ||
+        [str isEqualToString:@"<NULL>"] ||
+        [str isEqualToString:@"<null>"] ||
+        [str isEqualToString:@"NULL"]   ||
+        [str isEqualToString:@"nil"]    ||
+        [str isEqualToString:@"(null)"] )
     {
         return YES;
-    }else
-    {
-        if ([judgeClassObject isKindOfClass:[NSNull class]])
-        {
-            return YES;
-        }else
-        {
-            if (judgeClassObject==nil)
-            {
-                return YES;
-            }
-        }
     }
     if ([judgeClassObject isKindOfClass:[NSString class]]) {
-        if ([((NSString *)judgeClassObject) isEqualToString:@"(null)"]) {
-            return YES;
-        }
-        if ([((NSString *)judgeClassObject) isEqualToString:@"<null>"]) {
+        if ([[judgeClassObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)
+        {
             return YES;
         }
     }
