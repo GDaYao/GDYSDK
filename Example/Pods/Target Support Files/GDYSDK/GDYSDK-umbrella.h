@@ -51,6 +51,7 @@
 #import "ObjcRuntimeMgr.h"
 #import "OtherRecordMgr.h"
 #import "UIColor+GDYSDKHex.h"
+#import "GDYSDKGetAppIcon.h"
 #import "Constant.h"
 #import "GDYSDK.h"
 #import "ToolM.h"

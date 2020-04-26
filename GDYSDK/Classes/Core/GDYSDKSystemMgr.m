@@ -73,7 +73,7 @@
     NSDictionary *infoDictionary = [currentBundle infoDictionary];
     NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
     if (appName.length==0 || appName ==nil) {
-        appName =      [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
+        appName =    [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
     }
     return appName;
 }

@@ -53,6 +53,12 @@
       "libraries": "sqlite3",
       "source_files": "GDYSDK/Classes/PublicHeader/**/*",
       "public_header_files": "GDYSDK/Classes/PublicHeader/**/*.h"
+    },
+    {
+      "name": "FunctionMethod",
+      "libraries": "sqlite3",
+      "source_files": "GDYSDK/Classes/FunctionMethod/**/*",
+      "public_header_files": "GDYSDK/Classes/FunctionMethod/**/*.h"
     }
   ]
 }
