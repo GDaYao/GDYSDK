@@ -37,7 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - gradient color--渐变色生成
-+ (CAGradientLayer *)setGradualChangingColor:(CGRect)gradientLayerFrame fromColor:(NSString *)fromHexColorStr toColor:(NSString *)toHexColorStr;
++ (CAGradientLayer *)setGradualChangingColor:(CGRect)gradientLayerFrame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint fromColor:(UIColor *)
+fromColor toColor:(UIColor *)toColor;
 
 
 
