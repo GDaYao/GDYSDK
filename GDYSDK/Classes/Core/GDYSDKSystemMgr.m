@@ -363,6 +363,38 @@
 }
 
 
+#pragma mark - 无网络权限时 - 可提示直接跳转设置开启网络权限
++ (void)showAlertV:(NSString *)title msg:(NSString *)showMessage withOkBtn:(NSString *)okStr withErorBtn:(NSString *)errorStr cancelBlock:(void(^)(BOOL isCancel))cancelBlock {
+    if (!title) {
+        title = @"";
+    }
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:showMessage preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:okStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 跳转进入 "设置" 界面
+        NSURL * url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if([[UIApplication sharedApplication] canOpenURL:url]) {
+            if (@available(iOS 10.0, *)) {
+                [[UIApplication sharedApplication]openURL:url options:nil completionHandler:nil];
+            } else {
+                // Fallback on earlier versions
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:errorStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        cancelBlock(YES);
+    }];
+    [alertVC addAction:okAction];
+    [alertVC addAction:cancelAction];
+    
+    UIWindow *topWindow = [UIApplication sharedApplication].keyWindow;
+    if ([UIApplication sharedApplication].delegate.window.rootViewController.presentedViewController == nil) {
+        [topWindow.rootViewController presentViewController:alertVC animated:YES completion:nil];
+    }
+    
+}
+
+
 #pragma mark -  获取SSID（Service Set Identifier），服务集标识，也就是WiFi网络所取的名字。
 
 /**

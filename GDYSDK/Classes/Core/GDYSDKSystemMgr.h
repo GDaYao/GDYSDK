@@ -51,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 获取网络状态
 + (NSString *)GDYSDKGetDeviceNetworkStatus;
+#pragma mark - 无网络权限时 - 可提示直接跳转设置开启网络权限
++ (void)showAlertV:(NSString *)title msg:(NSString *)showMessage withOkBtn:(NSString *)okStr withErorBtn:(NSString *)errorStr cancelBlock:(void(^)(BOOL isCancel))cancelBlock;
+
 
 
 #pragma mark -  获取SSID（Service Set Identifier)
