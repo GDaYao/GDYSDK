@@ -86,7 +86,7 @@
 }
 
 #pragma mark ---- 'POST' net request data ----
-+ (void)AFHttpDataTaskPostMethodWithURLString:(NSString *)URLString
++ (void)AFHttpDataTaskPOSTMethodWithURLString:(NSString *)URLString
                                    parameters:(id)parameters
                                       success:(void (^)(id _Nullable responseObject))success
                                       failure:(void (^)(NSError * _Nullable error))failure{
@@ -95,7 +95,7 @@
     // 注意有使用GDYSDK地方这里不能随意改动，以免使用的项目出现意外
     //sessionMgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     sessionMgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"application/xhtml+xml", @"application/xml", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", @"video/mp4", @"text/plain",@"charset=utf-8",nil];
-    sessionMgr.requestSerializer.timeoutInterval = 60.f;
+    sessionMgr.requestSerializer.timeoutInterval = 6.f;
     [sessionMgr POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
@@ -113,17 +113,13 @@
 }
 
 #pragma mark  ---- 'GET' net request data ----
-+ (void)AFHttpDataTaskGETMethodWithURLString:(NSString *)URLString
-parameters:(id)parameters
-success:(void (^)(id _Nullable responseObject))success
-failure:(void (^)(NSError * _Nullable error))failure
-{
++ (void)AFHttpDataTaskGETMethodWithUrlString:(NSString *)UrlString parameters:(id)parameters success:(void (^)(id _Nullable responseObject))success failure:(void (^)(NSError * _Nullable error))failure {
     //GDYSDKCustomAFNetHTTPSessionMgr *sessionMgr = [GDYSDKCustomAFNetHTTPSessionMgr manager];
     AFHTTPSessionManager *sessionMgr = [AFHTTPSessionManager manager];
     sessionMgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     sessionMgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"application/xhtml+xml", @"application/xml", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", @"video/mp4", @"text/plain",@"charset=utf-8",nil];
-    sessionMgr.requestSerializer.timeoutInterval = 60.f;
-    [sessionMgr GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    sessionMgr.requestSerializer.timeoutInterval = 6.f;
+    [sessionMgr GET:UrlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
             success(responseObject);

@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param success A block object to be executed when request finish success.This block takes `responseObject` arguments,created by the client response serializer.
  @param failure A block object to be executed when request finish failure.This block takes `error` arguments,describing the network or parsing error that occurred.
  */
-+ (void)AFHttpDataTaskPostMethodWithURLString:(NSString *)URLString
++ (void)AFHttpDataTaskPOSTMethodWithURLString:(NSString *)URLString
                                    parameters:(id)parameters
                                       success:(void (^)(id _Nullable responseObject))success
                                       failure:(void (^)(NSError * _Nullable error))failure;
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param success A block object to be executed when request finish success.This block takes `responseObject` arguments,created by the client response serializer.
  @param failure A block object to be executed when request finish failure.This block takes `error` arguments,describing the network or parsing error that occurred.
  */
-+ (void)AFHttpDataTaskGETMethodWithURLString:(NSString *)URLString
++ (void)AFHttpDataTaskGETMethodWithUrlString:(NSString *)UrlString
                                   parameters:(id)parameters
                                      success:(void (^)(id _Nullable responseObject))success
                                      failure:(void (^)(NSError * _Nullable error))failure;
