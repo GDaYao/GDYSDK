@@ -46,7 +46,7 @@
 }
 
 #pragma mark - generate UIImage form color
-// draw rect
+// draw rect -- 绘制矩形
 + (UIImage *)imageRectWithColor:(UIColor *)color colorSize:(CGSize)colorSize {
     CGRect rect = CGRectMake(0.0f, 0.0f, colorSize.width, colorSize.height);
     UIGraphicsBeginImageContext(rect.size);
@@ -57,7 +57,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
-// draw fill round
+// draw fill round -- 绘制填充圆形
 + (UIImage *)imageRoundWithColor:(UIColor *)color colorSize:(CGSize)colorSize {
     CGRect rect = CGRectMake(0.0f, 0.0f, colorSize.width, colorSize.height);
     UIGraphicsBeginImageContext(rect.size);
