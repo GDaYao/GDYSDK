@@ -89,6 +89,25 @@
 - (void)layoutIfNeeded{}
 
 
+#pragma mark - 侧滑状态栏
+- (void)interactivEnable:(BOOL)isEnable {
+    
+    if (isEnable) {
+        // 开启返回手势
+//        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//            self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+//        }
+    }else{
+        // 禁用返回手势 | 禁用侧滑手势
+//        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//            self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//        }
+    }
+    
+}
+
+
+
 
 #pragma mark - 隐藏状态栏
 /**
