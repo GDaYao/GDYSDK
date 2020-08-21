@@ -247,9 +247,32 @@
 
 
 #pragma mark - gradient color--渐变色生成
+// 生成文字渐变色
++ (UIColor *)generateTextColorWithLabel:(UILabel *)label fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor  {
+    UIGraphicsBeginImageContextWithOptions(label.bounds.size, NO, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //绘制渐变层
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradientRef = CGGradientCreateWithColors(colorSpaceRef,
+                                                           (__bridge CFArrayRef)@[(id)fromColor.CGColor,(id)toColor.CGColor],
+                                                           NULL);
+    CGPoint startPoint = CGPointMake(0.0, 0);
+    CGPoint endPoint = CGPointMake(CGRectGetMaxX(label.bounds), CGRectGetMaxY(label.bounds));
+    CGContextDrawLinearGradient(context, gradientRef, startPoint, endPoint,  kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
+    //取到渐变图片
+    UIImage *gradientImage = UIGraphicsGetImageFromCurrentImageContext();
+    //释放资源
+    CGColorSpaceRelease(colorSpaceRef);
+    CGGradientRelease(gradientRef);
+    UIGraphicsEndImageContext();
+    return [UIColor colorWithPatternImage:gradientImage];
+}
+
+
 /**
  return `CAGradienLayer*`
  [sysView.layer addSublayer:##CAGradientLayer##]; //添加layer
+ 生成渐变色图层
  */
 + (CAGradientLayer *)setGradualChangingColor:(CGRect)gradientLayerFrame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint fromColor:(UIColor *)
 fromColor toColor:(UIColor *)toColor {
@@ -262,6 +285,10 @@ fromColor toColor:(UIColor *)toColor {
     gradientLayer.locations = @[@0,@1];
     return gradientLayer;
 }
+
+
+
+
 
 
 

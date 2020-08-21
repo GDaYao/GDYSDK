@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - gradient color--渐变色生成
+// 生成文字渐变色
++ (UIColor *)generateTextColorWithLabel:(UILabel *)label fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor;
+// 生成渐变色图层
 + (CAGradientLayer *)setGradualChangingColor:(CGRect)gradientLayerFrame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint fromColor:(UIColor *)
 fromColor toColor:(UIColor *)toColor;
 
