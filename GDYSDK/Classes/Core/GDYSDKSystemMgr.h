@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getAppBuildVersion;
 /*获取当前App的包名信息*/
 + (NSString *)getAppBundleId;
-/*获取当前App的名称信息*/
-+ (NSString *)getAppDisplayName;
+/*获取当前App的名称信息 -- 需要判断是否国际化，二者获取方式有差别*/
++ (NSString *)getAppDisplayNameWithIsInternational:(BOOL)isInternational ;
 
 #pragma mark - get device config
 /*获取当前设备的UDID值*/

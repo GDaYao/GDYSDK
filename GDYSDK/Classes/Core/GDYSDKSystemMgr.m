@@ -67,8 +67,13 @@
     NSDictionary *infoDictionary = [currentBundle infoDictionary];
     return [infoDictionary objectForKey:@"CFBundleIdentifier"];
 }
-/*获取当前App的名称信息*/
-+ (NSString *)getAppDisplayName {
+/*获取当前App的名称信息 -- 需要判断是否国际化，二者获取方式有差别*/
++ (NSString *)getAppDisplayNameWithIsInternational:(BOOL)isInternational {
+    if (isInternational == YES) {
+        // 获取国际化名称
+        NSString *appNameStr = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
+        return appNameStr;
+    }
     NSBundle *currentBundle = [NSBundle mainBundle];
     NSDictionary *infoDictionary = [currentBundle infoDictionary];
     NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
