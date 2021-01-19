@@ -46,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (long long)getFileSizeAtPath:(NSString*)filePath;
 
 
+#pragma mark - get this file all sub file
++ (NSArray *)getFileAllsubFilsWithFilePath:(NSString *)filePath;
+
 
 @end
 

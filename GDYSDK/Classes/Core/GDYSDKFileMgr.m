@@ -100,12 +100,39 @@
     }
     return 0;
 }
-// get this file all sub file
 
-
+#pragma mark - get this file all sub file
++ (NSArray *)getFileAllsubFilsWithFilePath:(NSString *)filePath {
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *subPaths = [fm contentsOfDirectoryAtPath:filePath error:nil];  // 获得所有文件目录名称
+    //NSArray *subPaths = [fm subpathsAtPath:filePath];  // 取得文件列表--文件名称
+    
+    NSArray *sortedPaths = [subPaths sortedArrayUsingComparator:^(NSString * firstPath, NSString* secondPath) {
+        NSString *firstUrl = [filePath stringByAppendingPathComponent:firstPath];
+        NSString *secondUrl = [filePath stringByAppendingPathComponent:secondPath];
+        NSDictionary *firstFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:firstUrl error:nil];
+        NSDictionary *secondFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:secondUrl error:nil];
+        id firstData = [firstFileInfo objectForKey:NSFileCreationDate];
+        id secondData = [secondFileInfo objectForKey:NSFileCreationDate];
+        return [secondData compare:firstData];  // 降序
+        //return [firstData compare:secondData];//升序
+    }];
+    
+    NSMutableArray *allSubFilePathMuArr = [NSMutableArray array];
+    [sortedPaths enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *objPath = [filePath stringByAppendingPathComponent:obj];
+        // sub file full path.
+        [allSubFilePathMuArr addObject:objPath];
+    }];
+    return [allSubFilePathMuArr copy];
+}
 
 
 
 
 
 @end
+
+
+
