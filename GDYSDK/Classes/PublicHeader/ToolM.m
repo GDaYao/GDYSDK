@@ -409,7 +409,7 @@
         return YES;
     }
     
-    NSString *str = NSStringFromClass(judgeClassObject);
+    NSString *str = NSStringFromClass([judgeClassObject class]);
     if ([str isEqualToString:@""]       ||
         [str isEqualToString:@"null"]   ||
         [str isEqualToString:@"<NULL>"] ||
