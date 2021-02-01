@@ -399,7 +399,7 @@
 }
 
 // judeg class object -- 判断对象是否为空
-+ (BOOL)isNull:(id)judgeClassObject
++ (BOOL)GDYSDKClassObjectIsNull:(id)judgeClassObject
 {
     if (judgeClassObject == nil || judgeClassObject == NULL) {
         return YES;
@@ -409,7 +409,7 @@
         return YES;
     }
     
-    NSString *str = NSStringFromClass([judgeClassObject class]);
+    NSString *str = NSStringFromClass(judgeClassObject);
     if ([str isEqualToString:@""]       ||
         [str isEqualToString:@"null"]   ||
         [str isEqualToString:@"<NULL>"] ||
@@ -419,12 +419,6 @@
         [str isEqualToString:@"(null)"] )
     {
         return YES;
-    }
-    if ([judgeClassObject isKindOfClass:[NSString class]]) {
-        if ([[judgeClassObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)
-        {
-            return YES;
-        }
     }
     return NO;
 }
