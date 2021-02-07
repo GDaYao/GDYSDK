@@ -109,7 +109,7 @@
     return [carrier carrierName];
 }
 
-/*获取当前设备的型号名称*/
+/*获取当前设备的型号名称- iPhone1,1,... */
 + (NSString *)getDeviceModel {
     NSString *platform = nil;
     struct utsname systemInfo;
