@@ -27,15 +27,18 @@ NS_ASSUME_NONNULL_BEGIN
  
  UIImagePickerControlerDelegate
  - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-     [picker dismissViewControllerAnimated:YES completion:^{ //原图
-         UIImage *originalImage = [info objectForKey:UIImagePickerControllerEditedImage];
-         //⽤用户选择区域图⽚片
-         UIImage *editImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+ 
+    //原图
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    //⽤用户选择区域图⽚
+    UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
+ 
+     [picker dismissViewControllerAnimated:YES completion:^{
      }];
  }
 
  */
-+ (void)selectPhotoFromAlbumWithVC:(UIViewController *)currentVC setPickerControllerDelegate:(id)delegate allowsEditing:(BOOL)allowsEditing;
++ (void)selectPhotoFromAlbumWithVC:(UIViewController *)currentVC setPickerControllerDelegate:(id)delegate allowsEditing:(BOOL)allowsEditing isSelectImg:(BOOL)isSelectImg;
 
 /**
  add photo to Alubm

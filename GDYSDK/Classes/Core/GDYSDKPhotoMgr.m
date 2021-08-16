@@ -65,12 +65,18 @@
 
 
 #pragma mark - select photo from album
-+ (void)selectPhotoFromAlbumWithVC:(UIViewController *)currentVC setPickerControllerDelegate:(id)delegate allowsEditing:(BOOL)allowsEditing {
++ (void)selectPhotoFromAlbumWithVC:(UIViewController *)currentVC setPickerControllerDelegate:(id)delegate allowsEditing:(BOOL)allowsEditing isSelectImg:(BOOL)isSelectImg {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     // 如果当前控制器器没有实现 `UINavigationControllerDelegate`代理理或者不不是UINavigationController控制器器则需要实现此代理理，否则会报警告，即不不会调⽤用代理理⽅方法。
     imagePickerController.delegate = delegate;
     imagePickerController.allowsEditing = allowsEditing; // allowsEditing属性 ⼀一定要设置成yes，表示照⽚片可编辑，会出现矩形图⽚片选择框
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    // 选择展示类型: @"public.movie" 为视频  @"public.image" 为图片
+    if (isSelectImg == YES ) {
+        imagePickerController.mediaTypes = [NSArray arrayWithObjects:@"public.image", nil];
+    }else{
+        imagePickerController.mediaTypes = [NSArray arrayWithObjects:@"public.movie", nil];
+    }
     [currentVC presentViewController:imagePickerController animated:YES completion:nil];
 }
 
