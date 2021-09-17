@@ -278,7 +278,16 @@
 }
 
 
-
+#pragma mark - 缩放放大缩小动画
+- (void)addBtnScaleAnimationWithusnslsoscsksBtn:(UIButton *)usnslsoscsksBtn {
+    CAKeyframeAnimation *keyframeAnimation = [[CAKeyframeAnimation alloc]init];
+    keyframeAnimation.keyPath = @"transform.scale";
+    keyframeAnimation.values =  @[@1.0,@1.1];
+    keyframeAnimation.duration = 1.0f;
+    keyframeAnimation.autoreverses = YES;
+    keyframeAnimation.repeatCount = MAXFLOAT;
+    [usnslsoscsksBtn.layer addAnimation:keyframeAnimation forKey:@"changeBtnSize"];
+}
 
 
 #pragma mark - set Info.plist default
