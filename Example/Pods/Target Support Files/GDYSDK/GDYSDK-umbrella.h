@@ -55,6 +55,7 @@
 #import "Constant.h"
 #import "GDYSDK.h"
 #import "ToolM.h"
+#import "GDYSDKSysVibrate.h"
 
 FOUNDATION_EXPORT double GDYSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char GDYSDKVersionString[];

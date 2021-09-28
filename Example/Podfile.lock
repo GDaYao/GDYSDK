@@ -18,11 +18,13 @@ PODS:
     - GDYSDK/BaseUI (= 0.1.13)
     - GDYSDK/Core (= 0.1.13)
     - GDYSDK/FunctionMethod (= 0.1.13)
+    - GDYSDK/iOSSysFuncMethod (= 0.1.13)
     - GDYSDK/PublicHeader (= 0.1.13)
   - GDYSDK/BaseUI (0.1.13)
   - GDYSDK/Core (0.1.13):
     - AFNetworking (= 3.2.1)
   - GDYSDK/FunctionMethod (0.1.13)
+  - GDYSDK/iOSSysFuncMethod (0.1.13)
   - GDYSDK/PublicHeader (0.1.13)
 
 DEPENDENCIES:
@@ -38,8 +40,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  GDYSDK: f771a9d64d51eb399da90303a66c8139e8371b12
+  GDYSDK: 79d2bc1a730347c09cfbaecadda7dd1bcbd1dbc9
 
 PODFILE CHECKSUM: fcf61224488dc953f15d0d26c1582914f820b8d1
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

@@ -84,9 +84,17 @@ Pod::Spec.new do |s|
     functionmethod.libraries = 'sqlite3'
     functionmethod.source_files = 'GDYSDK/Classes/FunctionMethod/**/*'
     functionmethod.public_header_files = 'GDYSDK/Classes/FunctionMethod/**/*.h'
-    
-    
   end
+  
+  s.subspec 'iOSSysFuncMethod' do |iossysfuncmethod|
+    
+    iossysfuncmethod.libraries = 'sqlite3'
+    iossysfuncmethod.source_files = 'GDYSDK/Classes/iOSSysFuncMethod/**/*'
+    iossysfuncmethod.public_header_files = 'GDYSDK/Classes/iOSSysFuncMethod/**/*.h'
+    
+    end
+  
+  
   
   
   

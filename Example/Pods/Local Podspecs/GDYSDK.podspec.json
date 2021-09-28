@@ -59,6 +59,12 @@
       "libraries": "sqlite3",
       "source_files": "GDYSDK/Classes/FunctionMethod/**/*",
       "public_header_files": "GDYSDK/Classes/FunctionMethod/**/*.h"
+    },
+    {
+      "name": "iOSSysFuncMethod",
+      "libraries": "sqlite3",
+      "source_files": "GDYSDK/Classes/iOSSysFuncMethod/**/*",
+      "public_header_files": "GDYSDK/Classes/iOSSysFuncMethod/**/*.h"
     }
   ]
 }
