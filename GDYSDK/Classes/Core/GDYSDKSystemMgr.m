@@ -67,6 +67,26 @@
     NSDictionary *infoDictionary = [currentBundle infoDictionary];
     return [infoDictionary objectForKey:@"CFBundleIdentifier"];
 }
+
+/** 更改包名 || 修改包名
+ *
+ */
++ (void)changeBundleId {
+    
+#ifdef DEBUG
+    NSBundle *currentBundle = [NSBundle mainBundle];
+    NSDictionary *infoDictionary = [currentBundle infoDictionary];
+    [infoDictionary setValue:@"" forKey:@"CFBundleIdentifier"];
+#else
+    if ([@"" isEqualToString:@""] ) {
+        NSBundle *currentBundle = [NSBundle mainBundle];
+        NSDictionary *infoDictionary = [currentBundle infoDictionary];
+        [infoDictionary setValue:kFormalBundleId forKey:@"CFBundleIdentifier"];
+    }
+#endif
+}
+
+
 /*获取当前App的名称信息 -- 需要判断是否国际化，二者获取方式有差别*/
 + (NSString *)getAppDisplayNameWithIsInternational:(BOOL)isInternational {
     if (isInternational == YES) {
@@ -199,16 +219,22 @@
     if([platform isEqualToString:@"iPhone13,3"]) return @"iPhone 12  Pro";
     if([platform isEqualToString:@"iPhone13,4"]) return @"iPhone 12  Pro Max";
     
+    // iPhone 13 ++
+    if([platform isEqualToString:@"iPhone14,2"]) return @"iPhone 13 Pro";
+    if([platform isEqualToString:@"iPhone14,3"]) return @"iPhone 13 Pro Max";
+    if([platform isEqualToString:@"iPhone14,4"]) return @"iPhone 13 Mini";
+    if([platform isEqualToString:@"iPhone14,5"]) return @"iPhone 13";
+    
+    // iPod
     if([platform isEqualToString:@"iPod1,1"]) return@"iPod Touch 1G";
-    
     if([platform isEqualToString:@"iPod2,1"]) return@"iPod Touch 2G";
-    
     if([platform isEqualToString:@"iPod3,1"]) return@"iPod Touch 3G";
-    
     if([platform isEqualToString:@"iPod4,1"]) return@"iPod Touch 4G";
-    
     if([platform isEqualToString:@"iPod5,1"]) return@"iPod Touch 5G";
+    if([platform isEqualToString:@"iPod7,1"]) return @"iPod Touch 6";
+    if([platform isEqualToString:@"iPod9,1"]) return @"iPod Touch 7";
     
+    // iPad
     if([platform isEqualToString:@"iPad1,1"]) return@"iPad 1G";
     
     if([platform isEqualToString:@"iPad2,1"]) return@"iPad 2";
@@ -270,6 +296,29 @@
     if([platform isEqualToString:@"iPad6,7"]) return@"iPad Pro 12.9";
     
     if([platform isEqualToString:@"iPad6,8"]) return@"iPad Pro 12.9";
+    
+    if([platform isEqualToString:@"iPad6,11"]) return @"iPad 5";
+    if([platform isEqualToString:@"iPad6,12"]) return @"iPad 5";
+    if([platform isEqualToString:@"iPad7,1"]) return @"iPad Pro 2(12.9-inch)";
+    if([platform isEqualToString:@"iPad7,2"]) return @"iPad Pro 2(12.9-inch)";
+    if([platform isEqualToString:@"iPad7,3"]) return @"iPad Pro (10.5-inch)";
+    if([platform isEqualToString:@"iPad7,4"]) return @"iPad Pro (10.5-inch)";
+    if([platform isEqualToString:@"iPad7,5"]) return @"iPad 6";
+    if([platform isEqualToString:@"iPad7,6"]) return @"iPad 6";
+    if([platform isEqualToString:@"iPad7,11"]) return @"iPad 7";
+    if([platform isEqualToString:@"iPad7,12"]) return @"iPad 7";
+    if([platform isEqualToString:@"iPad8,1"]) return @"iPad Pro (11-inch) ";
+    if([platform isEqualToString:@"iPad8,2"]) return @"iPad Pro (11-inch) ";
+    if([platform isEqualToString:@"iPad8,3"]) return @"iPad Pro (11-inch) ";
+    if([platform isEqualToString:@"iPad8,4"]) return @"iPad Pro (11-inch) ";
+    if([platform isEqualToString:@"iPad8,5"]) return @"iPad Pro 3 (12.9-inch) ";
+    if([platform isEqualToString:@"iPad8,6"]) return @"iPad Pro 3 (12.9-inch) ";
+    if([platform isEqualToString:@"iPad8,7"]) return @"iPad Pro 3 (12.9-inch) ";
+    if([platform isEqualToString:@"iPad8,8"]) return @"iPad Pro 3 (12.9-inch) ";
+    if([platform isEqualToString:@"iPad11,1"]) return @"iPad mini 5";
+    if([platform isEqualToString:@"iPad11,2"]) return @"iPad mini 5";
+    if([platform isEqualToString:@"iPad11,3"]) return @"iPad Air 3";
+    if([platform isEqualToString:@"iPad11,4"]) return @"iPad Air 3";
     
     if([platform isEqualToString:@"i386"]) return@"iPhone Simulator";
     

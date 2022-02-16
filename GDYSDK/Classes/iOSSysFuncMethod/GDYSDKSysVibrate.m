@@ -51,7 +51,6 @@
 /** 3、震动反馈
  *  震动效果 --- 类似于LivePhoto震动效果
  */
-
 + (void)sysFeedbackMethod {
     if (@available(iOS 10.0, *)) {
         UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];

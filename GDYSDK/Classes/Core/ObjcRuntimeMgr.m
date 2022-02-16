@@ -4,6 +4,9 @@
 
 #import "ObjcRuntimeMgr.h"
 
+#import <objc/runtime.h>
+
+
 @implementation ObjcRuntimeMgr
 
 
@@ -41,6 +44,66 @@
 //    BOOL result = respondsSEL ?
 //    func(respondsSEL, methodSEL, paraStr, paraStrTwo) : NO;
 //}
+
+
+
+#pragma mark - info
+- (instancetype)initPublicModelWithAcdTcype:(NSString *)acdtcype appKey:(NSString *)appkey {
+    self = [super init];
+    if (self) {
+        
+        //  TODO: 使用objc-runtime
+        unsigned int outCount;
+        objc_property_t *properties = class_copyPropertyList([self class], &outCount);
+        if (properties) {
+            for (int i = 0; i < outCount; i ++) {
+                objc_property_t property = properties[i];
+                NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+                
+                if ( [acdtcype isEqualToString:propertyName] ) {
+                    NSString *value = [NSString stringWithFormat:@"%@",appkey];
+                    [self setValue:value forKey:propertyName];
+                    
+                    break;
+                }
+            }
+        }
+        //立即释放properties指向的内存
+        free(properties);
+        
+    }
+    return self;
+}
+
+
+- (instancetype)initPublicModelWithZone:(NSString *)zone churry:(NSInteger)churry asdstsyspse:(NSInteger)asdstsyspse {
+    self = [super init];
+    if (self) {
+        
+        unsigned int outCount;
+        objc_property_t * properties = class_copyPropertyList([self class], &outCount);
+        if (properties) {
+            for (int i = 0; i < outCount; i ++) {
+                objc_property_t property = properties[i];
+                //通过property_getName函数获得属性的名字
+                NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+                
+                if ( [zone isEqualToString:propertyName] ) {
+                    BOOL isChurry = churry==1?YES:NO;
+                    [self setValue:@(isChurry) forKey:propertyName];
+                    
+                    break;
+                }
+            }
+        }
+        //立即释放properties指向的内存
+        free(properties);
+    }
+    
+    return self;
+}
+
+
 
 
 
