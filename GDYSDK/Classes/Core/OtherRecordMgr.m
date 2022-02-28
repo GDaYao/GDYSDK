@@ -255,9 +255,46 @@
 
 #pragma mark - 生成跳转AppStore链接地址 + App更新的相关信息
 /**
- * AppStore链接地址:  https://itunes.apple.com/app/id1061880281
- * App更新: http://itunes.apple.com/lookup?id=1061880281
+ * AppStore链接地址:
+ *  https://apps.apple.com/cn/app/id#appid#     // 国服
+ *  https://itunes.apple.com/app/id#appid#
+ *
+ * App更新: http://itunes.apple.com/lookup?id=#appid#
+ *
  */
+// 版本更新Check 检查并在需要更新时回调
++ (void)getLWPCheckVersionWithUpdateBlock:(void(^)(BOOL isNeedUpdate))updateBlock {
+    
+    //
+    NSString *checkVersionUrl = @"http://itunes.apple.com/lookup?id=xxx";
+    
+    /*
+//    [xxx getUrl:checkVersionUrl success:^(id  _Nullable responseObject) {
+        
+        NSArray *resultsArr = [responseObject lpSafetyObjectForKey:@"results"];
+        if (resultsArr && (resultsArr.count>0) ) {
+            NSDictionary *resultsDic = [resultsArr firstObject];
+            NSString *newDotVersionStr = [resultsDic lpSafetyObjectForKey:@"version"];
+            NSString *newVersionStr = [newDotVersionStr stringByReplacingOccurrencesOfString:@"." withString:@""];
+            int newVersionInt = [newVersionStr intValue];
+            
+            NSString *bundleDotVersionStr = [ToolMgr getAppVersion];
+            NSString *bundleVersionStr = [bundleDotVersionStr stringByReplacingOccurrencesOfString:@"." withString:@""];
+            int bundleVersionInt = [bundleVersionStr intValue];
+            
+            if (newVersionInt > bundleVersionInt) {
+                updateBlock(YES);
+            }else{
+                
+            }
+        }
+//    } failure:^(NSError * _Nullable error) {
+//
+//    }];
+     
+     */
+    
+}
 
 
 #pragma mark - set system share tutorial.
