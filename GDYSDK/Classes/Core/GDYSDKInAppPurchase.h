@@ -76,15 +76,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak)id <GDYSDKInAppPurchaseDelegate> deleagte;
 
 
-#pragma mark - app request review
-/**
- 好评方法掉调用使用
- 
- @param appIdStr app-id应用id，用于低版本下好评跳转
- */
-+ (void)appRequestReviewWithAppId:(NSString *)appIdStr;
-
-
 #pragma mark - In-App purchase
 /**
  add transaction observer -- 设置内购监听

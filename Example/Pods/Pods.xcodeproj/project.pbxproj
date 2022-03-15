@@ -80,6 +80,8 @@
 		7F372985CE80B69B5524CC3277E1C1AF /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C20FF8E4909A9876DC2FE445212270 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80C708EEB980119BF202802CD19929F9 /* UIImage+WaterImg.h in Headers */ = {isa = PBXBuildFile; fileRef = 8597BF527004262F595D1D2B5FCD2DA9 /* UIImage+WaterImg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		821CE1E8F9BAD0401C4BD89B30DF14E1 /* GDYSDKSystemMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = D680E708D2121DDD9F0253350B6CD79D /* GDYSDKSystemMgr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82D86D9327E06D370078B95F /* GDYSDKRateMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D86D9127E06D370078B95F /* GDYSDKRateMgr.h */; };
+		82D86D9427E06D370078B95F /* GDYSDKRateMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D86D9227E06D370078B95F /* GDYSDKRateMgr.m */; };
 		8346D3E06A2BF6D442D9FC0E89C61ADB /* GDYSDKSubTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B44EF82A9D4C909C723CABC82D057D /* GDYSDKSubTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		856B571FA3AE9D65E81FACB19E3557F4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 261FDB3EC1833204C698177283CE84F9 /* AFURLSessionManager.m */; };
 		870044029B3BA449A0932AAE3A495DE9 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E18643CB68E6C55B9B02A10E16BEE9C0 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -195,7 +197,7 @@
 		0FEC2A501DA541527029662B8374D805 /* GDYSDKFileMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKFileMgr.m; path = GDYSDK/Classes/Core/GDYSDKFileMgr.m; sourceTree = "<group>"; };
 		13DE2A0937DB60C1453579B960F7812A /* GDYSDKKeychainItemWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKKeychainItemWrapper.m; path = GDYSDK/Classes/Core/GDYSDKKeychainItemWrapper.m; sourceTree = "<group>"; };
 		14934DE99643AD1D2CA51E5CBE7518DF /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		156155053BBA5EE9C4DD46B32B503A9E /* Pods_GDYSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GDYSDK_Tests.framework; path = "Pods-GDYSDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		156155053BBA5EE9C4DD46B32B503A9E /* Pods_GDYSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDYSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1F881424B0DDCF48E145DD111EB06A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		1EB709817387E10B6287C9A99CFEFEE2 /* UIViewController+CustomVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+CustomVC.h"; path = "GDYSDK/Classes/BaseUI/UIViewController+CustomVC.h"; sourceTree = "<group>"; };
 		1FBCFBE6F98B6B0BFFA0D24524C03DBB /* EncryptMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EncryptMgr.m; path = GDYSDK/Classes/Core/EncryptMgr.m; sourceTree = "<group>"; };
@@ -203,7 +205,7 @@
 		20D9B9B5E138C94F25A7758286A6D925 /* GDYSDKCustomAFNetHTTPSessionMgr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYSDKCustomAFNetHTTPSessionMgr.h; path = GDYSDK/Classes/Core/GDYSDKCustomAFNetHTTPSessionMgr.h; sourceTree = "<group>"; };
 		23426491EF85991004C0B1FCCEB5CFF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		261FDB3EC1833204C698177283CE84F9 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
-		27C8D61D6865EDD9539050051475552F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		27C8D61D6865EDD9539050051475552F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		283DB426337346E6A30BE2300431AA89 /* UIScrollView+CustomScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+CustomScrollView.m"; path = "GDYSDK/Classes/BaseUI/UIScrollView+CustomScrollView.m"; sourceTree = "<group>"; };
 		2893E60D2B69F08A03870E879D7CAA5D /* GDYSDKFileMgr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYSDKFileMgr.h; path = GDYSDK/Classes/Core/GDYSDKFileMgr.h; sourceTree = "<group>"; };
 		2C48E0248BF041D98D0DF5DE7BD6D0CA /* GDYSDKGetAppIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYSDKGetAppIcon.h; path = GDYSDK/Classes/FunctionMethod/GDYSDKGetAppIcon.h; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 		3B439517BF9D7A68194DD8D14F5959E9 /* UIButton+GDYSDKUIButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+GDYSDKUIButton.m"; path = "GDYSDK/Classes/BaseUI/UIButton+GDYSDKUIButton.m"; sourceTree = "<group>"; };
 		3BE4BE72E3552A83CDFD39334A3A1E11 /* NoticMgr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NoticMgr.h; path = GDYSDK/Classes/Core/NoticMgr.h; sourceTree = "<group>"; };
 		3D631E9EF21DB344B26432C018EA2F06 /* GDYSDKSubCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYSDKSubCollectionView.h; path = GDYSDK/Classes/BaseUI/GDYSDKSubCollectionView.h; sourceTree = "<group>"; };
-		3D6F29984F9C14B8CDAFB04D8CC367C7 /* GDYSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GDYSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3D6F29984F9C14B8CDAFB04D8CC367C7 /* GDYSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GDYSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3F894CAB15E4100F5FC2B4603F5211CA /* GDYDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYDefines.h; path = GDYSDK/Classes/Core/GDYDefines.h; sourceTree = "<group>"; };
 		410D06E68B0D19433E5F38500AECF9D8 /* UIScrollView+CustomScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+CustomScrollView.h"; path = "GDYSDK/Classes/BaseUI/UIScrollView+CustomScrollView.h"; sourceTree = "<group>"; };
 		41EB0F29DBC12389D1FEDBEABF164270 /* GDYSDKSystemMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKSystemMgr.m; path = GDYSDK/Classes/Core/GDYSDKSystemMgr.m; sourceTree = "<group>"; };
@@ -258,8 +260,10 @@
 		8183D84E7E1FF32F88394E250E835526 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
 		82523E0F93B78179C311325B4B3483AF /* Pods-GDYSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GDYSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		825565855F2AB8DC881645E9388CC18B /* GDYSDKInAppPurchase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKInAppPurchase.m; path = GDYSDK/Classes/Core/GDYSDKInAppPurchase.m; sourceTree = "<group>"; };
+		82D86D9127E06D370078B95F /* GDYSDKRateMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GDYSDKRateMgr.h; path = GDYSDK/Classes/Core/GDYSDKRateMgr.h; sourceTree = "<group>"; };
+		82D86D9227E06D370078B95F /* GDYSDKRateMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GDYSDKRateMgr.m; path = GDYSDK/Classes/Core/GDYSDKRateMgr.m; sourceTree = "<group>"; };
 		83BA4DA051863BD6A9F0B7F45925C998 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		83FC24024FAA2DB9C0F58869A2BA2358 /* GDYSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GDYSDK.framework; path = GDYSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83FC24024FAA2DB9C0F58869A2BA2358 /* GDYSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDYSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421AE68C14DD0558CA7D6EEFF809F9C /* GDYReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYReachability.h; path = GDYSDK/Classes/Core/GDYReachability.h; sourceTree = "<group>"; };
 		8597BF527004262F595D1D2B5FCD2DA9 /* UIImage+WaterImg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+WaterImg.h"; path = "GDYSDK/Classes/BaseUI/UIImage+WaterImg.h"; sourceTree = "<group>"; };
 		863CE30B7E23614FC1FF14C454F3957F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
@@ -281,7 +285,7 @@
 		97AB727C2BE498DD61250E17477D89BA /* GDYSDKGetAppIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKGetAppIcon.m; path = GDYSDK/Classes/FunctionMethod/GDYSDKGetAppIcon.m; sourceTree = "<group>"; };
 		97F91BED7A34BF0EDABF38A03461265C /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
 		9B5D926BB29472AFB0667D537F0685B2 /* UIViewController+CustomVC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+CustomVC.m"; path = "GDYSDK/Classes/BaseUI/UIViewController+CustomVC.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DF4E8AD7B2EFD67EB126F22691A6188 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		9F8BEBBBFE990B4421525E81DE0A956D /* UIButton+GDYSDKUIButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+GDYSDKUIButton.h"; path = "GDYSDK/Classes/BaseUI/UIButton+GDYSDKUIButton.h"; sourceTree = "<group>"; };
 		A04A0BE3BC79A1B84AD08A852A781D51 /* UIImage+CustomImg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CustomImg.h"; path = "GDYSDK/Classes/BaseUI/UIImage+CustomImg.h"; sourceTree = "<group>"; };
@@ -290,13 +294,13 @@
 		A203C977FD6F71E254F84BBE7CEB5218 /* ToolM.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ToolM.m; path = GDYSDK/Classes/PublicHeader/ToolM.m; sourceTree = "<group>"; };
 		A2DB4A9234C7965357F45EF427A43623 /* UIView+CustomView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+CustomView.h"; path = "GDYSDK/Classes/BaseUI/UIView+CustomView.h"; sourceTree = "<group>"; };
 		A2FEB4C48D7570A6B690BFC30F798521 /* GDYSDKCustomAFNetHTTPSessionMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKCustomAFNetHTTPSessionMgr.m; path = GDYSDK/Classes/Core/GDYSDKCustomAFNetHTTPSessionMgr.m; sourceTree = "<group>"; };
-		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B44EF82A9D4C909C723CABC82D057D /* GDYSDKSubTableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDYSDKSubTableView.h; path = GDYSDK/Classes/BaseUI/GDYSDKSubTableView.h; sourceTree = "<group>"; };
 		AA28B5EFC0DB2E9E964D8FE22B04E298 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		AA773D56127303DFD64ECC0E77E18F95 /* GDYSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GDYSDK-Info.plist"; sourceTree = "<group>"; };
 		AD817DBE088E82E12FDF1721579B2377 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		ADF584A8FEDE25A4BB76522010902292 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		B31B116420E85B64331E9C7A7E1B91D1 /* Pods_GDYSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GDYSDK_Example.framework; path = "Pods-GDYSDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF584A8FEDE25A4BB76522010902292 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B31B116420E85B64331E9C7A7E1B91D1 /* Pods_GDYSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDYSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39D82580330FE24A9130AC3B550BD19 /* UILabel+GDYSDKUILabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+GDYSDKUILabel.h"; path = "GDYSDK/Classes/BaseUI/UILabel+GDYSDKUILabel.h"; sourceTree = "<group>"; };
 		B5CF12DEE2851DC693505960AFBCDE21 /* ObjcRuntimeMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ObjcRuntimeMgr.m; path = GDYSDK/Classes/Core/ObjcRuntimeMgr.m; sourceTree = "<group>"; };
 		B74461945F6AB3C0FE2070C627C677A7 /* Pods-GDYSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GDYSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -567,6 +571,8 @@
 				632DBD733DA565597751E2723F01DBA9 /* OtherRecordMgr.m */,
 				3A2B14C7AE44B1F05C58A0AF15146E22 /* UIColor+GDYSDKHex.h */,
 				6D42EA153D7A60CCB4F885CEED33F899 /* UIColor+GDYSDKHex.m */,
+				82D86D9127E06D370078B95F /* GDYSDKRateMgr.h */,
+				82D86D9227E06D370078B95F /* GDYSDKRateMgr.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -678,7 +684,6 @@
 				5E7F5B7AF33675869C9653472B0198B8 /* Support Files */,
 				38E701F252488D714A137AD77A33436C /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -816,6 +821,7 @@
 				3DF4EC827C9F44FEE8AAA8783B7D29C0 /* UITabBarItem+Badge.h in Headers */,
 				97F3DE97D0D00800BC2C2E3DAB187642 /* UITableView+CustomTV.h in Headers */,
 				7433AD8934A68C3B6864A4BB01F42E5F /* UIView+Badge.h in Headers */,
+				82D86D9327E06D370078B95F /* GDYSDKRateMgr.h in Headers */,
 				64ECA5060C70F7DD797A41838F1FF3AB /* UIView+CustomView.h in Headers */,
 				4C85297AD728AD7FBF8E031F329FBCDD /* UIViewController+CustomVC.h in Headers */,
 			);
@@ -1060,6 +1066,7 @@
 				5904A97FB6E6759BF02729234654E10D /* GDYSDKKeychainItemWrapper.m in Sources */,
 				66102759B07EBEB2A29607E16E415E13 /* GDYSDKNetworkAccessibity.m in Sources */,
 				AD67C7309CF0F88F8010E49EC7D455E7 /* GDYSDKNetworkMgr.m in Sources */,
+				82D86D9427E06D370078B95F /* GDYSDKRateMgr.m in Sources */,
 				89AF7C91C31DA1F9ABDA66515F7FA01C /* GDYSDKPhotoMgr.m in Sources */,
 				E691BD4DBB0EEB6D3F0FA21F78D3C5E8 /* GDYSDKSubCollectionView.m in Sources */,
 				F7EE8AE3D4DA1421356FE286F3EE6D73 /* GDYSDKSubTableView.m in Sources */,
@@ -1461,8 +1468,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

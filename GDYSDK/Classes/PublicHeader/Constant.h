@@ -22,10 +22,10 @@
 #define kIsiPhone5s  (kScreenWidth == 320.f && kScreenHeight == 568.f)
 #define kIsiPhone6A6sA7A8 (kScreenWidth == 375.f && kScreenHeight == 667.f)
 #define kIsiPhone6PA6sPA7PA8P (kScreenWidth == 414.f && kScreenHeight == 736.f)
-#define kIsiPhone11And11ProMaxAndXSMaxAndXR  (kScreenWidth ==414.f  && kScreenHeight ==896.f)
-#define kIsiPhone11ProAndXAndXSAnd12MiniAnd13Mini   (kScreenWidth == 375.f && kScreenHeight == 812.f)
+#define kIsiPhoneXSMaxAndXRAnd11And11ProMax  (kScreenWidth ==414.f  && kScreenHeight ==896.f)
+#define kIsiPhoneXAndXSAnd11ProAnd12MiniAnd13Mini   (kScreenWidth == 375.f && kScreenHeight == 812.f)
 #define kIsiPhone12ProMaxAnd13ProMax (kScreenWidth == 428.f && kScreenHeight == 926.f)
-#define kIsiPhone12ProAnd12And13ProAnd13 (kScreenWidth == 390.f && kScreenHeight == 844.f)
+#define kIsiPhone12And12ProAnd13And13Pro (kScreenWidth == 390.f && kScreenHeight == 844.f)
 
 
 #define kScreenWidthScale [UIScreen mainScreen].bounds.size.width/375.0  //7屏幕适配宽度比例系数

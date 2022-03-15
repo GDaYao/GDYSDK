@@ -16,23 +16,7 @@
 @end
 
 @implementation GDYSDKInAppPurchase
-#pragma mark - app request view
-+ (void)appRequestReviewWithAppId:(NSString *)appIdStr {
-    if (@available(iOS 10.3, *))
-    {
-        //iOS 10.3 以上支持
-        if([SKStoreReviewController respondsToSelector:@selector(requestReview)])
-        {
-            [SKStoreReviewController requestReview];
-        }
-    }
-    else
-    {
-        // iOS 10.3 之前的使用这个
-        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",appIdStr];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
-    }
-}
+
 
 
 #pragma mark - In-App purchase
