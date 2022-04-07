@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - app request review
 /**
- 好评方法掉调用使用
+ 好评方法调用使用
  
  @param appIdStr app-id应用id，用于低版本下好评跳转
  */
