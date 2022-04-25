@@ -6,7 +6,7 @@
 
 @implementation UIImage (CustomImg)
 
-#pragma mark - ---- capture image from UIView ----
+#pragma mark - ---- capture image from UIView || 截图 || 截屏 ----
 + (UIImage *)backImgFromView:(UIView *)specifilyView{
     UIGraphicsBeginImageContextWithOptions(specifilyView.bounds.size, specifilyView.opaque, 0.0); //specifilyView.bounds.size
     [specifilyView.layer renderInContext:UIGraphicsGetCurrentContext()];
