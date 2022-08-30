@@ -24,6 +24,7 @@
 
         // *** if repeats is YES,then 'triggerWithTimeInterval' time interval value more than 60S ***
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInterval repeats:NO];
+        
         NSString *requestIdentifier = @"AppNoticIdentifier";
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:noticeContent trigger:trigger];
         [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
@@ -37,16 +38,23 @@
 
 
 #pragma mark set specifilly 'int time'
-+ (void)addAppNoticWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticWeekday:(NSInteger)weekdayTime hour:(NSInteger)hourTime{
++ (void)addAppNoticWithResourcePath:(NSString *)srcPath noticId:(NSString *)noticId noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticWeekday:(NSInteger)weekdayTime hour:(NSInteger)hourTime mintute:(int)minute {
     
     if (@available(iOS 10.0, *)) {
         UNMutableNotificationContent *noticeContent = [self packageUNUserNotificationCenterWithResourcePath:srcPath noticTitle:noticTitle noticSubtitle:subtitle noticBody:bodyStr];
+        
         NSDateComponents *components = [[NSDateComponents alloc] init];
         components.weekday = weekdayTime;
         components.hour = hourTime;
+        if(minute != 0){
+            components.minute = minute;
+        }
+        
         UNCalendarNotificationTrigger *calendarTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
-        NSString *requestIdentifier = [NSString stringWithFormat:@"weekendID-%ld",weekdayTime];
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:noticeContent trigger:calendarTrigger];
+        
+        //NSString *requestIdentifier = [NSString stringWithFormat:@"weekendID-%ld",weekdayTime];
+        
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:noticId content:noticeContent trigger:calendarTrigger];
         [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
             NSLog(@"notic-send error： %@", error);
         }];
@@ -73,6 +81,40 @@
     }
     return nil;
 }
+
+// 获取已经添加的通知
+- (void)getAleradyAddNotification {
+    [[UNUserNotificationCenter currentNotificationCenter] getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+        
+        if (requests.count>0) {
+        }
+        
+    }];
+}
+
+
+#pragma mark - 移除通知
+// 根据 identifier 取消指定的通知
+- (void)removeLocalNotification:(NSString*)identifier {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+        [center removePendingNotificationRequestsWithIdentifiers:@[identifier]];
+    } else {
+        // Fallback on earlier versions
+    }
+}
+// 移除全部通知
+- (void)cancelAllLocalNotification
+{
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+        [center removeAllDeliveredNotifications];
+        [center removeAllPendingNotificationRequests];
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
 
 
 #pragma mark - UILocalNotification notic

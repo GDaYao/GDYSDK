@@ -22,7 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)addAppNoticWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticTime:(NSTimeInterval)timeInterval;
 
 #pragma mark set specifilly 'int time'
-+ (void)addAppNoticWithResourcePath:(NSString *)srcPath noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticWeekday:(NSInteger)weekdayTime hour:(NSInteger)hourTime;
++ (void)addAppNoticWithResourcePath:(NSString *)srcPath noticId:(NSString *)noticId noticTitle:(NSString *)noticTitle noticSubtitle:(NSString *)subtitle noticBody:(NSString *)bodyStr noticWeekday:(NSInteger)weekdayTime hour:(NSInteger)hourTime mintute:(int)minute;
+
+// 根据 identifier 取消指定的通知
+- (void)removeLocalNotification:(NSString*)identifier;
+// 移除全部通知
+- (void)cancelAllLocalNotification;
+
 
 #pragma mark - ---- `UILocalNotification notic` ----
 + (void)addLocalNotificationWithNoticTitle:(NSString *)title noticBody:(NSString *)bodyStr compDay:(NSInteger)day compHour:(NSInteger)hour compMinute:(NSInteger)minute compSecond:(NSInteger)second;
