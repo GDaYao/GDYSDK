@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param imagePath image存储的本地路径
  @return 是否写入成功
  */
-+ (BOOL)saveImageToDownloadFileWithImage:(UIImage *)image  imageName:(NSString *)imagePath;
++ (BOOL)saveImageToDownloadFileWithImage:(UIImage *)image  imagePath:(NSString *)imagePath;
 
 @end
 

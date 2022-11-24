@@ -101,7 +101,7 @@
 
 
 #pragma mark - 存储图片到指定文件夹
-+ (BOOL)saveImageToDownloadFileWithImage:(UIImage *)image  imageName:(NSString *)imagePath {
++ (BOOL)saveImageToDownloadFileWithImage:(UIImage *)image  imagePath:(NSString *)imagePath {
     BOOL result =[UIImagePNGRepresentation(image) writeToFile:imagePath   atomically:YES]; // 保存成功会返回YES
     return result;
 }

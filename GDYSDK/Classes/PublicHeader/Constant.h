@@ -56,8 +56,22 @@
 
 
 /** 颜色宏定义 */
+// OC
 #define kUIColorFromHex(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
 #define kUIColorFromHexAlpha(hexValue,alphaf) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:alphaf]
+
+// Swift
+// TODO: 16进制色值宏定义
+/*
+func UIColorFromHex(hex:UInt32,alpha:CGFloat)->UIColor {
+    let r = (hex & 0xff0000) >> 16
+    let g = (hex & 0x00ff00) >> 8
+    let b = hex & 0x0000ff
+    return UIColor.init(red: CGFloat(UInt8(r))/255.0, green: CGFloat(UInt8(g))/255.0, blue: CGFloat(UInt8(b))/255.0, alpha: alpha)
+}
+*/
+
+
 
 
 /**  工程区分Debug和release,在 Build Settings 搜索,"Preprocessor Macros--> Debug-DEBUG=1(这里的DEBUG一定和判断对应)"

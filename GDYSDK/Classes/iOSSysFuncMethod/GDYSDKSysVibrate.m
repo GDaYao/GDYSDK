@@ -53,12 +53,17 @@
  */
 + (void)sysFeedbackMethod {
     if (@available(iOS 10.0, *)) {
-        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
-        [feedBackGenertor prepare];
-        [feedBackGenertor impactOccurred];
+        if ([UIScreen mainScreen].bounds.size.width >= 375.f && [UIScreen mainScreen].bounds.size.height >=812.f) {
+            UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+            [feedBackGenertor prepare];
+            [feedBackGenertor impactOccurred];
+        }else{
+            AudioServicesPlaySystemSound(1519);
+        }
     } else {
         // Fallback on earlier versions
         // 可以参考“2、短震动”中，普通震动效果。
+        AudioServicesPlaySystemSound(1519);
     }
 }
 

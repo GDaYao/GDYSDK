@@ -9,6 +9,44 @@
 @implementation NoticMgr
 
 
+#pragma mark - 判断通知权限
++ (void)getLocalNoticAuthorizedWithCompleteBlock:(void(^)(BOOL getAuthorized) )completeBlock {
+    
+    if ( [[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        if (@available(iOS 10.0, *)) {
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            
+            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                
+                completeBlock(granted);
+                
+                if (granted) {
+                    // 具体判断获取哪些通知类型:如状态栏、锁屏、声音开启等。
+                    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                        if (settings.authorizationStatus == UNAuthorizationStatusAuthorized){
+                            NSLog(@"log-被授权发送通知");
+                        }else{
+                            NSLog(@"log-未被授权发送通知");
+                        }
+                    }];
+                }
+            }];
+        }
+        
+    } else if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0){
+        
+        if (@available(iOS 8.0, *)) {
+            if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+                UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+                [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+            } else {
+                [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+            }
+        }
+    }
+    
+}
+
 #pragma mark - ---- 'UNUserNotificationCenter' ----
 
 #pragma mark send UNUser notic use 'UNUserNotificationCenter'
@@ -97,8 +135,14 @@
 // 根据 identifier 取消指定的通知
 - (void)removeLocalNotification:(NSString*)identifier {
     if (@available(iOS 10.0, *)) {
-        UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
-        [center removePendingNotificationRequestsWithIdentifiers:@[identifier]];
+        @try {
+            UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+            [center removePendingNotificationRequestsWithIdentifiers:@[identifier]];
+        } @catch (NSException *exception) {
+            NSLog(@"log-remove notic catch");
+        } @finally {
+            
+        }
     } else {
         // Fallback on earlier versions
     }

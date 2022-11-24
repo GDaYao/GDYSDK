@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticMgr : NSObject
 
-
+#pragma mark - 判断通知权限
++ (void)getLocalNoticAuthorizedWithCompleteBlock:(void(^)(BOOL getAuthorized) )completeBlock;
 
 #pragma mark - ---- 'UNUserNotificationCenter' ----
 #pragma mark send UNUser notic use 'UNUserNotificationCenter'
