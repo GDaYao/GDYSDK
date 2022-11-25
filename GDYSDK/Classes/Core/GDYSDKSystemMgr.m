@@ -691,6 +691,18 @@
 }//end IPv4Pton:
 
 
+#pragma mark - 获取地区标识：如en_Zh
++ (NSString *)getCurrentLocale {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *country = [locale localeIdentifier];
+    return country;
+}
+
+#pragma mark - 获取设备国家代码
++ (NSString *)getCurrentCountryCode {
+    NSLocale *locale = [NSLocale currentLocale];
+    return locale.countryCode;
+}
 
 
 #pragma mark - get system languages

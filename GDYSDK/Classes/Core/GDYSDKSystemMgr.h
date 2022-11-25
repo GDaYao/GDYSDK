@@ -66,6 +66,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getDeviceIPAddress:(BOOL)preferIPv4;
 //+ (nullable NSString *)geDevicetMacAddress;
 
+
+#pragma mark - 获取地区标识：如en_Zh
++ (NSString *)getCurrentLocale;
+
+#pragma mark - 获取设备国家代码
++ (NSString *)getCurrentCountryCode;
+
 #pragma mark - get system languages/ 获的当前系统使用语言
 /**
  多语言适配中使用，有些地区因为使用语言相通但是语言代码不同，如zh-Hans，还有zh_Hans-CN则只使用前面匹配即可
