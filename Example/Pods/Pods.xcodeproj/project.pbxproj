@@ -80,6 +80,7 @@
 		7F372985CE80B69B5524CC3277E1C1AF /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C20FF8E4909A9876DC2FE445212270 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80C708EEB980119BF202802CD19929F9 /* UIImage+WaterImg.h in Headers */ = {isa = PBXBuildFile; fileRef = 8597BF527004262F595D1D2B5FCD2DA9 /* UIImage+WaterImg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		821CE1E8F9BAD0401C4BD89B30DF14E1 /* GDYSDKSystemMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = D680E708D2121DDD9F0253350B6CD79D /* GDYSDKSystemMgr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		823666BF2939D22200866179 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823666BE2939D22200866179 /* Constant.swift */; };
 		82D86D9327E06D370078B95F /* GDYSDKRateMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D86D9127E06D370078B95F /* GDYSDKRateMgr.h */; };
 		82D86D9427E06D370078B95F /* GDYSDKRateMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D86D9227E06D370078B95F /* GDYSDKRateMgr.m */; };
 		8346D3E06A2BF6D442D9FC0E89C61ADB /* GDYSDKSubTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B44EF82A9D4C909C723CABC82D057D /* GDYSDKSubTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -258,6 +259,7 @@
 		762D4A20C23F00FE4E55F7759E251225 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9E2F14214F8E5BE5C1ED8D03AA5DD8 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCompatibilityMacros.h; path = AFNetworking/AFCompatibilityMacros.h; sourceTree = "<group>"; };
 		8183D84E7E1FF32F88394E250E835526 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		823666BE2939D22200866179 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = GDYSDK/Classes/PublicHeader/Constant.swift; sourceTree = "<group>"; };
 		82523E0F93B78179C311325B4B3483AF /* Pods-GDYSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GDYSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		825565855F2AB8DC881645E9388CC18B /* GDYSDKInAppPurchase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDYSDKInAppPurchase.m; path = GDYSDK/Classes/Core/GDYSDKInAppPurchase.m; sourceTree = "<group>"; };
 		82D86D9127E06D370078B95F /* GDYSDKRateMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GDYSDKRateMgr.h; path = GDYSDK/Classes/Core/GDYSDKRateMgr.h; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				60CB7E7588154ABA6AAD0CBA8749F400 /* Constant.h */,
+				823666BE2939D22200866179 /* Constant.swift */,
 				4D75FBDBDE0966FCF82DFF4340FAF015 /* GDYSDK.h */,
 				F991802BB8F764DF3408BA4F10F17E85 /* ToolM.h */,
 				A203C977FD6F71E254F84BBE7CEB5218 /* ToolM.m */,
@@ -957,6 +960,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					ECA00EBC65A46E201646D65DEF5FF803 = {
+						LastSwiftMigration = 1400;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1087,6 +1095,7 @@
 				9844CEADF2538588D68C65DDFDB235E6 /* UIImage+WaterImg.m in Sources */,
 				1E9177AA68093A8405D8442A2BE46D41 /* UIImageView+CustomImageView.m in Sources */,
 				1233FAF5F5A8716C713560E0D5647C46 /* UILabel+GDYSDKUILabel.m in Sources */,
+				823666BF2939D22200866179 /* Constant.swift in Sources */,
 				773064B1711703A4A4A152E9B40BEFE4 /* UIPickerView+CustomPickerView.m in Sources */,
 				684E2B2605F9788ED170F201ABD84DDE /* UIScrollView+CustomScrollView.m in Sources */,
 				0E85E54B804DF676419C1C5C1BD3A508 /* UIScrollViewBanner.m in Sources */,
@@ -1296,6 +1305,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3068B7D82E35124C278349C9A7FD644 /* GDYSDK.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1315,6 +1325,8 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1357,6 +1369,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA1EEDFE4C0F6231F334C4767F439841 /* GDYSDK.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1376,6 +1389,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param allowsEditing allow editing.
  
  UIImagePickerControlerDelegate
- - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+ - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
  
     //原图
     UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
