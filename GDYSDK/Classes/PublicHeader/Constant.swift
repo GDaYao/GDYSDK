@@ -36,7 +36,7 @@ let kSafeBottomMargin = ( kIsiPhoneXOver ? 34.0 : 0.0)
 var kUIColorFromHex: (NSInteger) -> UIColor = {hex in
     return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16)) / 255.0, green: ((CGFloat)((hex & 0xFF00) >> 8)) / 255.0, blue: ((CGFloat)(hex & 0xFF)) / 255.0, alpha: 1.0);
 }
-// 根据色值生成颜色(透明度)(格式为0xffffff)
+// 根据色值生成颜色(透明度)(格式为0xffffff,1.0)
 var kUIColorFromHexAlpha: (NSInteger,CGFloat) -> UIColor = {hex,alphaF in
     return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16)) / 255.0, green: ((CGFloat)((hex & 0xFF00) >> 8)) / 255.0, blue: ((CGFloat)(hex & 0xFF)) / 255.0, alpha: alphaF);
 }
